@@ -833,3 +833,43 @@ td small {
     color: white;
     border-color: #0d7df2;
 }
+
+.rsi-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.rsi-badge.green,
+.metric-card .green {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.rsi-badge.yellow,
+.metric-card .yellow {
+    background: #fef3c7;
+    color: #b45309;
+}
+
+.rsi-badge.red,
+.metric-card .red {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.rsi-cold {
+    height: 100%;
+    background: #22c55e;
+}
+
+.metric-card strong.green,
+.metric-card strong.yellow,
+.metric-card strong.red {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 18px;
+}

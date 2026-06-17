@@ -100,6 +100,10 @@ def build_stock_data():
             "ma20": ma20,
             "ma50": ma50,
             "ma200": ma200,
+            "ma_status": "정배열" if ma20 > ma50 > ma200 else "비정배열",
+            "ma_status_type": "green" if ma20 > ma50 > ma200 else "red",
+            "rsi_status": "과매수" if rsi >= 70 else "과매도" if rsi <= 30 else "중립",
+            "rsi_status_type": "red" if rsi >= 70 else "green" if rsi <= 30 else "yellow",
             "canslim": canslim,
             "chart": build_chart_data(history),
             "reason": [

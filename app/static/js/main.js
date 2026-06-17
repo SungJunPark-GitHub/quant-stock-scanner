@@ -37,6 +37,17 @@ function openModal(ticker) {
     document.getElementById("modalPrice").textContent = stock.price;
     document.getElementById("modalChange").textContent = formatChange(stock.change);
     document.getElementById("modalRsi").textContent = stock.rsi;
+    const rsiStatus = document.getElementById("modalRsiStatus");
+    if (rsiStatus) {
+        rsiStatus.textContent = stock.rsi_status;
+        rsiStatus.className = stock.rsi_status_type;
+    }
+
+    const maStatus = document.getElementById("modalMaStatus");
+    if (maStatus) {
+        maStatus.textContent = stock.ma_status;
+        maStatus.className = stock.ma_status_type;
+    }
 
     const price = getNumber(stock.price);
     const atr = getNumber(stock.atr, price * 0.03);

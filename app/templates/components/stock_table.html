@@ -80,9 +80,12 @@
 
             <td>
                 <div class="rsi-cell">
-                    <span>{{ stock.rsi }}</span>
+                    <span class="rsi-badge {{ stock.rsi_status_type }}">
+                        {{ stock.rsi }}
+                    </span>
+                    <small>{{ stock.rsi_status }}</small>
                     <div class="rsi-line">
-                        <div class="{% if stock.rsi >= 70 %}rsi-hot{% else %}rsi-normal{% endif %}"
+                        <div class="{% if stock.rsi >= 70 %}rsi-hot{% elif stock.rsi <= 30 %}rsi-cold{% else %}rsi-normal{% endif %}"
                              style="width: {{ stock.rsi }}%;"></div>
                     </div>
                 </div>
