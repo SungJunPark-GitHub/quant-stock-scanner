@@ -336,7 +336,8 @@ td small {
 }
 
 .stock-modal {
-    width: 1120px;
+    width: 1000px;
+    max-width: 95vw;
     height: 92vh;
     background: #f8fafc;
     border-radius: 22px;
@@ -678,4 +679,121 @@ td small {
     color: #0d7df2;
     border-radius: 8px;
     margin-right: 10px;
+}
+
+.macro-bar {
+    background: white;
+    border-radius: 12px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+}
+
+.event {
+    padding: 5px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.event.red {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.event.blue {
+    background: #dbeafe;
+    color: #2563eb;
+}
+
+.event.orange {
+    background: #ffedd5;
+    color: #ea580c;
+}
+
+.market-bar {
+    background: white;
+    border-radius: 12px;
+    padding: 12px 15px;
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    margin-bottom: 10px;
+    overflow-x: auto;
+}
+
+.market-item {
+    white-space: nowrap;
+    color: #374151;
+    font-weight: 700;
+}
+
+.market-item strong {
+    margin-left: 5px;
+}
+
+.market-item.danger {
+    background: #fee2e2;
+    color: #dc2626;
+    padding: 6px 10px;
+    border-radius: 999px;
+}
+
+.filter-bar {
+    background: white;
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left-info {
+    display: flex;
+    gap: 20px;
+    color: #6b7280;
+}
+
+.left-info strong {
+    color: #111827;
+}
+
+.right-filters {
+    display: flex;
+    gap: 8px;
+}
+
+.chip {
+    border: 1px solid #d1d5db;
+    border-radius: 999px;
+    padding: 7px 12px;
+    background: white;
+    font-weight: 700;
+}
+
+.chip.active {
+    background: #0d7df2;
+    color: white;
+    border-color: #0d7df2;
+}
+
+.chip.green {
+    color: #16a34a;
+}
+
+.chip.danger {
+    color: #dc2626;
+}
+
+.real-chart {
+    height: 150px;
+    margin-top: 10px;
+}
+
+.real-chart canvas {
+    width: 100%;
+    height: 100%;
 }

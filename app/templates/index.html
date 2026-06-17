@@ -12,15 +12,21 @@
 
     <div class="main-content">
         {% include 'components/header.html' %}
+        {% include 'components/macro_bar.html' %}
+        {% include 'components/market_bar.html' %}
+        {% include 'components/filter_bar.html' %}
         {% include 'components/stock_table.html' %}
     </div>
 </div>
 
 {% include 'components/stock_modal.html' %}
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <script>
     const STOCKS = {{ stocks | tojson }};
 </script>
+
 <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 
 </body>
