@@ -2,8 +2,16 @@ from flask import Blueprint, render_template, Response
 import csv
 import io
 
+from app.services.backtest_service import run_simple_backtest
 from app.services.market_service import MAG7_TICKERS, get_stock_history, get_stock_info
-from app.services.indicator_service import calculate_rsi, calculate_ma, calculate_atr
+from app.services.indicator_service import (
+    calculate_rsi,
+    calculate_ma,
+    calculate_atr,
+    calculate_macd,
+    calculate_52w_high,
+    calculate_volume_ratio,
+)
 from app.services.score_service import calculate_score, get_signal
 from app.services.canslim_service import build_canslim
 
@@ -68,6 +76,10 @@ def build_stock_data():
         ma50 = calculate_ma(history, 50)
         ma200 = calculate_ma(history, 200)
         atr = calculate_atr(history)
+        backtest = run_simple_backtest(history, atr)
+        macd = calculate_macd(history)
+        high_52w = calculate_52w_high(history)
+        volume_ratio = calculate_volume_ratio(history)
 
         canslim = build_canslim(
             history=history,
@@ -78,11 +90,23 @@ def build_stock_data():
             ma200=ma200,
         )
 
-        score = calculate_score(rsi, price, ma20, ma50, ma200)
-        signal, signal_type = get_signal(score)
-
         target = info["target"] if info["target"] else round(price + atr * 3, 2)
         target_change = round(((target - price) / price) * 100, 2)
+
+        score = calculate_score(
+            rsi=rsi,
+            price=price,
+            ma20=ma20,
+            ma50=ma50,
+            ma200=ma200,
+            macd_status=macd["status"],
+            canslim_score=canslim["score"],
+            high_52w=high_52w,
+            volume_ratio=volume_ratio,
+            atr=atr,
+            target_change=target_change,
+        )
+        signal, signal_type = get_signal(score)
 
         stocks.append({
             "rank": index,
@@ -96,22 +120,26 @@ def build_stock_data():
             "price": price,
             "change": change,
             "rsi": rsi,
+            "rsi_status": "과매수" if rsi >= 70 else "과매도" if rsi <= 30 else "중립",
+            "rsi_status_type": "red" if rsi >= 70 else "green" if rsi <= 30 else "yellow",
             "target": round(float(target), 2),
             "target_change": target_change,
             "atr": atr,
+            "backtest": backtest,
             "ma20": ma20,
             "ma50": ma50,
             "ma200": ma200,
             "ma_status": "정배열" if ma20 > ma50 > ma200 else "비정배열",
             "ma_status_type": "green" if ma20 > ma50 > ma200 else "red",
-            "rsi_status": "과매수" if rsi >= 70 else "과매도" if rsi <= 30 else "중립",
-            "rsi_status_type": "red" if rsi >= 70 else "green" if rsi <= 30 else "yellow",
+            "macd": macd,
+            "high_52w": high_52w,
+            "volume_ratio": volume_ratio,
             "canslim": canslim,
             "chart": build_chart_data(history),
             "reason": [
                 f"RSI {rsi}",
-                f"MA20 {ma20}",
-                f"ATR {atr}",
+                f"MACD {macd['status']}",
+                f"거래량 {volume_ratio}x",
                 f"CAN {canslim['passed_count']}/7",
             ],
         })
@@ -128,6 +156,7 @@ def build_stock_data():
 def index():
     stocks = build_stock_data()
     return render_template("index.html", stocks=stocks)
+
 
 @main.route("/export/csv")
 def export_csv():
@@ -153,6 +182,10 @@ def export_csv():
         "MA50",
         "MA200",
         "MA상태",
+        "MACD",
+        "MACD상태",
+        "52주고가",
+        "거래량비율",
         "목표가",
         "목표가괴리율",
         "CAN_SLIM",
@@ -176,6 +209,10 @@ def export_csv():
             stock["ma50"],
             stock["ma200"],
             stock["ma_status"],
+            stock["macd"]["macd"],
+            stock["macd"]["status"],
+            stock["high_52w"],
+            stock["volume_ratio"],
             stock["target"],
             stock["target_change"],
             f"{stock['canslim']['passed_count']}/{stock['canslim']['total_count']}",
@@ -186,7 +223,7 @@ def export_csv():
 
     return Response(
         csv_data,
-        mimetype="text/csv; charset=utf-8-sig",
+        mimetype="text/csv; charset=utf-8",
         headers={
             "Content-Disposition": "attachment; filename=quant_stock_scanner.csv"
         },

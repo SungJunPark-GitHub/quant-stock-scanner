@@ -81,6 +81,11 @@
                         <strong id="modalMaStatus">정배열</strong>
                     </div>
 
+                    <div class="metric-card">
+                        <span>MACD</span>
+                        <strong id="modalMacdStatus">상승 우위</strong>
+                    </div>
+
                     <div class="chart-card">
                         <div class="chart-title chart-title-row">
                             <div>
@@ -196,10 +201,34 @@
 
             <section class="tab-panel" id="reference">
                 <div class="analysis-card">
-                    <h3>참고 정보</h3>
-                    <p>
-                        내부자 거래, 실적 발표 일정, 오너십, 기관 수급 정보는 추후 외부 API 연동 단계에서 추가합니다.
-                    </p>
+                    <h3>백테스트 결과</h3>
+                    <p>최근 1년 데이터 기준, MA20 &gt; MA50 조건과 ATR 손절/익절을 적용한 단순 백테스트입니다.</p>
+            
+                    <div class="entry-grid">
+                        <div>
+                            <span>거래 횟수</span>
+                            <strong id="backtestTradeCount">0</strong>
+                        </div>
+                        <div>
+                            <span>승률</span>
+                            <strong id="backtestWinRate">0%</strong>
+                        </div>
+                        <div>
+                            <span>평균 수익률</span>
+                            <strong id="backtestAvgReturn">0%</strong>
+                        </div>
+                        <div>
+                            <span>MDD</span>
+                            <strong class="down" id="backtestMdd">0%</strong>
+                        </div>
+                    </div>
+            
+                    <div class="analysis-card">
+                        <h3>참고 정보</h3>
+                        <p>
+                            내부자 거래, 실적 발표 일정, 오너십, 기관 수급 정보는 추후 외부 API 연동 단계에서 추가합니다.
+                        </p>
+                    </div>
                 </div>
             </section>
 

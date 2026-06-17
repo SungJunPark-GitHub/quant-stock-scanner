@@ -43,14 +43,30 @@ function openModal(ticker) {
         rsiStatus.className = stock.rsi_status_type;
     }
 
-    const maStatus = document.getElementById("modalMaStatus");
-    if (maStatus) {
-        maStatus.textContent = stock.ma_status;
-        maStatus.className = stock.ma_status_type;
+    const macdStatus = document.getElementById("modalMacdStatus");
+    if (macdStatus && stock.macd) {
+        macdStatus.textContent = stock.macd.status;
+        macdStatus.className = stock.macd.status_type;
     }
 
     const price = getNumber(stock.price);
     const atr = getNumber(stock.atr, price * 0.03);
+
+    const backtest = stock.backtest;
+
+        if (backtest) {
+        document.getElementById("backtestTradeCount").textContent =
+            backtest.trade_count;
+
+        document.getElementById("backtestWinRate").textContent =
+            `${backtest.win_rate}%`;
+
+        document.getElementById("backtestAvgReturn").textContent =
+            `${backtest.avg_return}%`;
+
+        document.getElementById("backtestMdd").textContent =
+            `${backtest.mdd}%`;
+    }
 
     const buy = price;
     const stop = price - (atr * 1.5);
