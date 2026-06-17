@@ -10,6 +10,7 @@ let priceChart = null;
 let currentStock = null;
 let currentRange = "6M";
 let activeTableFilter = "all";
+let activeSectorFilter = "전체";
 
 function formatChange(value) {
     if (value === null || value === undefined) {
@@ -442,8 +443,20 @@ function applyTableFilters() {
                 );
         }
 
-        row.style.display =
-            matchesKeyword && matchesFilter ? "" : "none";
+            const sector = (row.dataset.sector || "").toLowerCase();
+            const sectorText = `${ticker} ${name} ${description} ${sector}`;
+            
+            let matchesSector = true;
+            
+            if (activeSectorFilter !== "전체") {
+                const keywords = getSectorKeywords(activeSectorFilter);
+                matchesSector = keywords.some((keyword) =>
+                    sectorText.includes(keyword.toLowerCase())
+                );
+            }
+            
+            row.style.display =
+                matchesKeyword && matchesFilter && matchesSector ? "" : "none";
     });
 }
 
@@ -530,3 +543,70 @@ if (stockScannerTab && etfTab && stockScannerPanel && etfPanel) {
 
 renderWatchButtons();
 applyTableFilters();
+
+// ===============================
+// Sidebar Sector Filter
+// ===============================
+
+function getSectorKeywords(label) {
+    const map = {
+        "미드스트림·파이프라인": ["pipeline", "midstream", "energy"],
+        "석유·가스 메이저": ["oil", "gas", "energy", "exxon", "chevron"],
+        "원전·우라늄": ["nuclear", "uranium"],
+        "게임": ["game", "gaming"],
+        "소셜·애드테크": ["advertising", "social", "meta", "google"],
+        "스트리밍·콘텐츠": ["streaming", "netflix", "content"],
+        "데이터센터 리츠": ["reit", "data center"],
+        "로봇·드론": ["robot", "drone"],
+        "항공우주·방산": ["aerospace", "defense"],
+        "거래소·데이터": ["exchange", "data"],
+        "대형은행·IB": ["bank", "financial"],
+        "크립토·블록체인": ["crypto", "blockchain"],
+        "AI GPU·HBM 핵심": ["nvidia", "nvda", "amd", "semiconductor", "ai", "hbm"],
+        "매그니피센트 7": ["googl", "nvda", "amzn", "aapl", "msft", "meta", "tsla", "mag 7"],
+        "AI 플랫폼·클라우드": ["cloud", "software", "microsoft", "amazon", "google"],
+        "대형 제약": ["pharma", "healthcare"],
+        "의료기기": ["medical", "device"],
+        "자동차·EV": ["auto", "automotive", "tesla", "ev"],
+    };
+
+    return map[label] || [label];
+}
+
+const activeSectorLabel = document.getElementById("activeSectorLabel");
+
+document.querySelectorAll(".sidebar-sub button").forEach((button) => {
+    button.addEventListener("click", () => {
+        document.querySelectorAll(".sidebar-sub button").forEach((item) => {
+            item.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        activeSectorFilter = button.textContent.trim();
+
+        if (activeSectorLabel) {
+            activeSectorLabel.textContent = activeSectorFilter;
+        }
+
+        applyTableFilters();
+    });
+});
+
+const sidebarAll = document.querySelector(".sidebar-all");
+
+if (sidebarAll) {
+    sidebarAll.addEventListener("click", () => {
+        activeSectorFilter = "전체";
+
+        if (activeSectorLabel) {
+            activeSectorLabel.textContent = "전체";
+        }
+
+        document.querySelectorAll(".sidebar-sub button").forEach((item) => {
+            item.classList.remove("active");
+        });
+
+        applyTableFilters();
+    });
+}
