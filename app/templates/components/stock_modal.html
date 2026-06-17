@@ -1,0 +1,177 @@
+<div id="stockModal" class="modal-overlay hidden">
+    <div class="stock-modal">
+
+        <div class="modal-header">
+            <div>
+                <h2 id="modalName">알파벳</h2>
+                <span id="modalTicker">GOOGL</span>
+                <span class="sector-pill">Mag 7</span>
+            </div>
+
+            <div class="modal-actions">
+                <button class="blue-btn">📊 Yahoo Finance</button>
+                <button class="dark-btn">캡처</button>
+                <button id="modalClose" class="close-btn">×</button>
+            </div>
+        </div>
+
+        <div class="modal-subtitle" id="modalDescription">
+            검색 · 유튜브 · 클라우드
+        </div>
+
+        <div class="modal-tabs">
+            <button class="tab active" data-tab="summary">🎯 결론</button>
+            <button class="tab" data-tab="timing">📈 타이밍</button>
+            <button class="tab" data-tab="company">🏢 회사</button>
+            <button class="tab" data-tab="detail">📊 상세</button>
+            <button class="tab" data-tab="reference">🧾 참고</button>
+        </div>
+
+        <div class="modal-body">
+
+            <section class="tab-panel active" id="summary">
+                <div class="hero-card">
+                    <div>
+                        <h1>장사 잘하는 놈은 안 보던 돈도 알아서 붙음</h1>
+                        <p>이익성장 +82% · 영업이익률 36%</p>
+                    </div>
+                    <div class="hero-letter">A</div>
+                </div>
+
+                <div class="summary-grid">
+                    <div class="score-card">
+                        <p>종합 점수</p>
+                        <h1><span id="modalScore">91</span><small>점</small></h1>
+                        <span class="grade-badge">S</span>
+                        <span class="risk-badge">Risk 44 / 99 주의</span>
+                    </div>
+
+                    <div class="metric-card">
+                        <span>현재가</span>
+                        <strong id="modalPrice">371.52</strong>
+                    </div>
+
+                    <div class="metric-card">
+                        <span>등락률</span>
+                        <strong id="modalChange">+3.29%</strong>
+                    </div>
+
+                    <div class="metric-card">
+                        <span>RSI</span>
+                        <strong id="modalRsi">51.4</strong>
+                    </div>
+
+                    <div class="metric-card">
+                        <span>RS 등급</span>
+                        <strong>88</strong>
+                    </div>
+
+                    <div class="chart-card">
+                        <div class="chart-title">
+                            최근 추세 <span>▲ 17.2%</span>
+                        </div>
+                        <div class="dummy-chart">
+                            <svg viewBox="0 0 500 180" preserveAspectRatio="none">
+                                <polyline
+                                    points="0,120 40,130 70,150 110,135 150,120 190,95 230,80 260,90 300,70 330,25 370,18 400,35 430,25 470,45 500,35"
+                                    fill="none"
+                                    stroke="#16a34a"
+                                    stroke-width="5"
+                                />
+                                <polygon
+                                    points="0,180 0,120 40,130 70,150 110,135 150,120 190,95 230,80 260,90 300,70 330,25 370,18 400,35 430,25 470,45 500,35 500,180"
+                                    fill="rgba(34,197,94,0.15)"
+                                />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fear-greed">
+                    <div class="gradient-bar">
+                        <span></span>
+                    </div>
+                    <div class="bar-labels">
+                        <span>극도공포</span>
+                        <span>공포</span>
+                        <span>중립</span>
+                        <span>탐욕</span>
+                        <span>극도탐욕</span>
+                    </div>
+                </div>
+
+                <div class="analysis-card">
+                    <p>현재 타이밍 분석</p>
+                    <h3>상승 추세 유지 속 단기 조정 — 거래량 둔화, 추세선 지지 확인 ★★★★☆</h3>
+
+                    <div class="mini-score-grid">
+                        <div>
+                            <span>추세</span>
+                            <strong>4/5</strong>
+                            <p>강한 상승 추세</p>
+                        </div>
+                        <div>
+                            <span>모멘텀</span>
+                            <strong>3/5</strong>
+                            <p>상승 다이버전스</p>
+                        </div>
+                        <div>
+                            <span>변동성</span>
+                            <strong>3/5</strong>
+                            <p>관망 구간</p>
+                        </div>
+                        <div>
+                            <span>수급</span>
+                            <strong>2/5</strong>
+                            <p>거래량 약함</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="tab-panel" id="timing">
+                <div class="analysis-card">
+                    <h3>진입 타이밍</h3>
+                    <div class="entry-grid">
+                        <div><span>매수가</span><strong id="entryBuy">371.52</strong></div>
+                        <div><span>손절가</span><strong class="down" id="entryStop">352.94</strong></div>
+                        <div><span>1차 익절</span><strong class="up" id="entryTp1">396.52</strong></div>
+                        <div><span>2차 익절</span><strong class="up" id="entryTp2">421.52</strong></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="tab-panel" id="company">
+                <div class="analysis-card">
+                    <h3>이 회사의 핵심 해자</h3>
+                    <span class="moat-badge">네트워크 효과</span>
+                    <p>검색 · 광고 · 유튜브 · 클라우드 생태계를 기반으로 강한 경쟁 우위를 보유하고 있습니다.</p>
+                </div>
+            </section>
+
+            <section class="tab-panel" id="detail">
+                <div class="analysis-card">
+                    <h3>CAN SLIM 원칙 요약</h3>
+
+                    <div class="canslim-list">
+                        <div><b>C</b> 분기 실적이 가속 성장 중이에요</div>
+                        <div><b>A</b> 자기자본이익률 기준을 통과했어요</div>
+                        <div><b>N</b> 52주 신고가 근처에 위치했어요</div>
+                        <div><b>S</b> 거래량은 평균 수준이에요</div>
+                        <div><b>L</b> 상대강도는 시장 주도권을 보여줘요</div>
+                        <div><b>I</b> 기관 수급은 관망이에요</div>
+                        <div><b>M</b> 시장 방향은 상승 추세예요</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="tab-panel" id="reference">
+                <div class="analysis-card">
+                    <h3>참고 정보</h3>
+                    <p>내부자 거래, 종목 일정, 오너십 정보는 추후 yfinance 및 외부 API 연동 단계에서 추가합니다.</p>
+                </div>
+            </section>
+
+        </div>
+    </div>
+</div>

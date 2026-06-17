@@ -1,9 +1,24 @@
+<div class="table-toolbar">
+    <div>
+        <span class="summary">스캔 종목 <strong>{{ stocks|length }}</strong>개</span>
+        <span class="summary">등급 <strong>Mag 7</strong></span>
+        <span class="summary">점수 신뢰도 <strong>IC +0.07</strong></span>
+    </div>
+
+    <div class="filter-buttons">
+        <button class="filter active">전체</button>
+        <button class="filter">관심종목</button>
+        <button class="filter">S-A등급</button>
+        <button class="filter">진입 탐색</button>
+        <button class="filter danger">위험</button>
+    </div>
+</div>
+
 <div class="table-container">
-
     <table>
-
         <thead>
         <tr>
+            <th><input type="checkbox"></th>
             <th>#</th>
             <th>종목</th>
             <th>설명</th>
@@ -11,7 +26,7 @@
             <th>점수</th>
             <th>시그널</th>
             <th>현재가</th>
-            <th>등락률</th>
+            <th>등락</th>
             <th>RSI</th>
             <th>목표가</th>
             <th>핵심 이유</th>
@@ -19,53 +34,76 @@
         </thead>
 
         <tbody>
-
         {% for stock in stocks %}
-        <tr>
-
-            <td>{{ stock.rank }}</td>
+        <tr class="stock-row" data-ticker="{{ stock.ticker }}">
+            <td><input type="checkbox"></td>
 
             <td>
-                <strong>{{ stock.ticker }}</strong><br>
-                {{ stock.name }}
+                <span class="rank-circle">{{ stock.rank }}</span>
+            </td>
+
+            <td>
+                <div class="stock-name">
+                    <strong>{{ stock.name }}</strong>
+                    <span>{{ stock.ticker }}</span>
+                </div>
             </td>
 
             <td>{{ stock.description }}</td>
 
-            <td>{{ stock.sector }}</td>
+            <td>
+                <span class="sector-pill">{{ stock.sector }}</span>
+            </td>
 
             <td>
-                <div class="progress">
-                    <div class="progress-fill"
-                         style="width: {{ stock.score }}%;">
-                        {{ stock.score }}
+                <div class="score-wrap">
+                    <strong class="score-number">{{ stock.score }}</strong>
+                    <div class="score-bar">
+                        <div class="score-fill {% if stock.score >= 75 %}score-good{% elif stock.score < 50 %}score-bad{% else %}score-mid{% endif %}"
+                             style="width: {{ stock.score }}%;"></div>
                     </div>
                 </div>
             </td>
 
             <td>
-                <span class="badge {{ stock.signal|lower }}">
+                <span class="signal-badge {{ stock.signal_type }}">
                     {{ stock.signal }}
                 </span>
+                <span class="small-badge">S</span>
             </td>
 
             <td>${{ stock.price }}</td>
 
-            <td class="{% if stock.change > 0 %}up{% else %}down{% endif %}">
-                {{ stock.change }}%
+            <td class="{% if stock.change >= 0 %}up{% else %}down{% endif %}">
+                {% if stock.change >= 0 %}+{% endif %}{{ stock.change }}%
             </td>
 
-            <td>{{ stock.rsi }}</td>
+            <td>
+                <div class="rsi-cell">
+                    <span>{{ stock.rsi }}</span>
+                    <div class="rsi-line">
+                        <div class="{% if stock.rsi >= 70 %}rsi-hot{% else %}rsi-normal{% endif %}"
+                             style="width: {{ stock.rsi }}%;"></div>
+                    </div>
+                </div>
+            </td>
 
-            <td>${{ stock.target }}</td>
+            <td>
+                <strong>${{ stock.target }}</strong>
+                <small class="{% if stock.target_change >= 0 %}up{% else %}down{% endif %}">
+                    {% if stock.target_change >= 0 %}+{% endif %}{{ stock.target_change }}%
+                </small>
+            </td>
 
-            <td>{{ stock.reason }}</td>
-
+            <td>
+                <div class="reason-list">
+                    {% for item in stock.reason %}
+                    <span>{{ item }}</span>
+                    {% endfor %}
+                </div>
+            </td>
         </tr>
         {% endfor %}
-
         </tbody>
-
     </table>
-
 </div>
