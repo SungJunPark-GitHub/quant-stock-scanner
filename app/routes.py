@@ -3,6 +3,7 @@ from flask import Blueprint, render_template
 from app.services.market_service import MAG7_TICKERS, get_stock_history, get_stock_info
 from app.services.indicator_service import calculate_rsi, calculate_ma, calculate_atr
 from app.services.score_service import calculate_score, get_signal
+from app.services.canslim_service import build_canslim
 
 main = Blueprint("main", __name__)
 
@@ -26,6 +27,15 @@ def build_stock_data():
         ma50 = calculate_ma(history, 50)
         ma200 = calculate_ma(history, 200)
         atr = calculate_atr(history)
+
+        canslim = build_canslim(
+            history=history,
+            info=info,
+            rsi=rsi,
+            price=price,
+            ma50=ma50,
+            ma200=ma200,
+)
 
         score = calculate_score(rsi, price, ma20, ma50, ma200)
         signal, signal_type = get_signal(score)
@@ -51,10 +61,12 @@ def build_stock_data():
             "ma20": ma20,
             "ma50": ma50,
             "ma200": ma200,
+            "canslim": canslim,
             "reason": [
                 f"RSI {rsi}",
                 f"MA20 {ma20}",
                 f"ATR {atr}",
+                f"CAN {canslim['passed_count']}/7",
             ],
         })
 

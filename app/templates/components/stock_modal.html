@@ -32,8 +32,8 @@
             <section class="tab-panel active" id="summary">
                 <div class="hero-card">
                     <div>
-                        <h1>장사 잘하는 놈은 안 보던 돈도 알아서 붙음</h1>
-                        <p>이익성장 +82% · 영업이익률 36%</p>
+                        <h1>장사 잘하는 기업은 시장 조정에도 돈이 붙는다</h1>
+                        <p>실적 · 추세 · 수급 · 리스크를 함께 보는 퀀트 스캐너</p>
                     </div>
                     <div class="hero-letter">A</div>
                 </div>
@@ -62,14 +62,20 @@
                     </div>
 
                     <div class="metric-card">
+                        <span>ATR</span>
+                        <strong id="modalAtr">0</strong>
+                    </div>
+
+                    <div class="metric-card">
                         <span>RS 등급</span>
-                        <strong>88</strong>
+                        <strong id="modalRs">88</strong>
                     </div>
 
                     <div class="chart-card">
                         <div class="chart-title">
-                            최근 추세 <span>▲ 17.2%</span>
+                            최근 추세 <span>Chart.js</span>
                         </div>
+
                         <div class="real-chart">
                             <canvas id="priceChart"></canvas>
                         </div>
@@ -91,28 +97,28 @@
 
                 <div class="analysis-card">
                     <p>현재 타이밍 분석</p>
-                    <h3>상승 추세 유지 속 단기 조정 — 거래량 둔화, 추세선 지지 확인 ★★★★☆</h3>
+                    <h3>ATR 기준 진입가와 손절가를 산출하고, RSI·MA·CAN SLIM으로 진입 적합도를 판단합니다.</h3>
 
                     <div class="mini-score-grid">
                         <div>
                             <span>추세</span>
                             <strong>4/5</strong>
-                            <p>강한 상승 추세</p>
+                            <p>MA 정배열 확인</p>
                         </div>
                         <div>
                             <span>모멘텀</span>
                             <strong>3/5</strong>
-                            <p>상승 다이버전스</p>
+                            <p>RSI 기준 판단</p>
                         </div>
                         <div>
                             <span>변동성</span>
                             <strong>3/5</strong>
-                            <p>관망 구간</p>
+                            <p>ATR 기반 리스크</p>
                         </div>
                         <div>
-                            <span>수급</span>
-                            <strong>2/5</strong>
-                            <p>거래량 약함</p>
+                            <span>CAN SLIM</span>
+                            <strong id="summaryCanslimScore">0</strong>
+                            <p>성장·수급·추세</p>
                         </div>
                     </div>
                 </div>
@@ -121,11 +127,25 @@
             <section class="tab-panel" id="timing">
                 <div class="analysis-card">
                     <h3>진입 타이밍</h3>
+                    <p>ATR 기반으로 매수가, 손절가, 1차 익절, 2차 익절을 계산합니다.</p>
+
                     <div class="entry-grid">
-                        <div><span>매수가</span><strong id="entryBuy">371.52</strong></div>
-                        <div><span>손절가</span><strong class="down" id="entryStop">352.94</strong></div>
-                        <div><span>1차 익절</span><strong class="up" id="entryTp1">396.52</strong></div>
-                        <div><span>2차 익절</span><strong class="up" id="entryTp2">421.52</strong></div>
+                        <div>
+                            <span>매수가</span>
+                            <strong id="entryBuy">371.52</strong>
+                        </div>
+                        <div>
+                            <span>손절가</span>
+                            <strong class="down" id="entryStop">352.94</strong>
+                        </div>
+                        <div>
+                            <span>1차 익절</span>
+                            <strong class="up" id="entryTp1">396.52</strong>
+                        </div>
+                        <div>
+                            <span>2차 익절</span>
+                            <strong class="up" id="entryTp2">421.52</strong>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -134,7 +154,10 @@
                 <div class="analysis-card">
                     <h3>이 회사의 핵심 해자</h3>
                     <span class="moat-badge">네트워크 효과</span>
-                    <p>검색 · 광고 · 유튜브 · 클라우드 생태계를 기반으로 강한 경쟁 우위를 보유하고 있습니다.</p>
+                    <p>
+                        현재 MVP에서는 yfinance의 산업/섹터 정보와 가격 데이터를 기반으로 분석합니다.
+                        추후 매출 성장률, 영업이익률, 현금흐름, 애널리스트 목표가를 추가할 예정입니다.
+                    </p>
                 </div>
             </section>
 
@@ -142,22 +165,22 @@
                 <div class="analysis-card">
                     <h3>CAN SLIM 원칙 요약</h3>
 
-                    <div class="canslim-list">
-                        <div><b>C</b> 분기 실적이 가속 성장 중이에요</div>
-                        <div><b>A</b> 자기자본이익률 기준을 통과했어요</div>
-                        <div><b>N</b> 52주 신고가 근처에 위치했어요</div>
-                        <div><b>S</b> 거래량은 평균 수준이에요</div>
-                        <div><b>L</b> 상대강도는 시장 주도권을 보여줘요</div>
-                        <div><b>I</b> 기관 수급은 관망이에요</div>
-                        <div><b>M</b> 시장 방향은 상승 추세예요</div>
-                    </div>
+                    <p>
+                        CAN SLIM 점수:
+                        <strong id="modalCanslimScore">0</strong>점 /
+                        <span id="modalCanslimCount">0/7</span> 통과
+                    </p>
+
+                    <div class="canslim-list" id="modalCanslimList"></div>
                 </div>
             </section>
 
             <section class="tab-panel" id="reference">
                 <div class="analysis-card">
                     <h3>참고 정보</h3>
-                    <p>내부자 거래, 종목 일정, 오너십 정보는 추후 yfinance 및 외부 API 연동 단계에서 추가합니다.</p>
+                    <p>
+                        내부자 거래, 실적 발표 일정, 오너십, 기관 수급 정보는 추후 외부 API 연동 단계에서 추가합니다.
+                    </p>
                 </div>
             </section>
 
