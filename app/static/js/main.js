@@ -67,15 +67,53 @@ function openModal(ticker) {
     }
 
     const news = stock.news;
-    if (news) {
-        setText("modalNewsHeadline", news.headline);
+if (news) {
+    setText("modalNewsHeadline", news.headline);
 
-        const newsSentiment = document.getElementById("modalNewsSentiment");
-        if (newsSentiment) {
-            newsSentiment.textContent = news.sentiment;
-            newsSentiment.className = `news-badge ${news.sentiment_type}`;
+    const newsSentiment = document.getElementById("modalNewsSentiment");
+    if (newsSentiment) {
+        newsSentiment.textContent = news.sentiment;
+        newsSentiment.className = `news-badge ${news.sentiment_type}`;
+    }
+
+    const newsList = document.getElementById("modalNewsList");
+
+    if (newsList) {
+        newsList.innerHTML = "";
+
+        if (news.items && news.items.length > 0) {
+            news.items.forEach((item) => {
+                const div = document.createElement("div");
+                div.className = "modal-news-item";
+
+                div.innerHTML = `
+                    <div>
+                        <strong>${item.title}</strong>
+                        <p>${item.publisher || "Yahoo Finance"}</p>
+                    </div>
+                    <span class="news-badge ${item.sentiment_type}">
+                        ${item.sentiment}
+                    </span>
+                `;
+
+                if (item.link) {
+                    div.addEventListener("click", () => {
+                        window.open(item.link, "_blank");
+                    });
+                    div.classList.add("clickable");
+                }
+
+                newsList.appendChild(div);
+            });
+        } else {
+            newsList.innerHTML = `
+                <div class="modal-news-empty">
+                    표시할 뉴스가 없습니다.
+                </div>
+            `;
         }
     }
+}
 
     const rsiStatus = document.getElementById("modalRsiStatus");
     if (rsiStatus) {

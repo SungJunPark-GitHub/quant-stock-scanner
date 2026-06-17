@@ -2,68 +2,19 @@ import yfinance as yf
 
 
 POSITIVE_KEYWORDS = [
-    "growth",
-    "beat",
-    "beats",
-    "record",
-    "strong",
-    "surge",
-    "surges",
-    "rally",
-    "rallies",
-    "gain",
-    "gains",
-    "jump",
-    "jumps",
-    "soar",
-    "soars",
-    "expands",
-    "launch",
-    "launches",
-    "raises",
-    "upgrade",
-    "upgraded",
-    "outperform",
-    "profit",
-    "ai",
-    "demand",
-    "bullish",
-    "buy",
-    "tops",
-    "higher",
-    "optimistic",
-    "boost",
+    "growth", "beat", "beats", "record", "strong", "surge", "surges",
+    "rally", "rallies", "gain", "gains", "jump", "jumps", "soar", "soars",
+    "expands", "launch", "launches", "raises", "upgrade", "upgraded",
+    "outperform", "profit", "ai", "demand", "bullish", "buy", "tops",
+    "higher", "optimistic", "boost",
 ]
 
 NEGATIVE_KEYWORDS = [
-    "miss",
-    "misses",
-    "decline",
-    "declines",
-    "lawsuit",
-    "risk",
-    "risks",
-    "cut",
-    "cuts",
-    "drop",
-    "drops",
-    "fall",
-    "falls",
-    "weak",
-    "downgrade",
-    "downgraded",
-    "underperform",
-    "loss",
-    "probe",
-    "slump",
-    "slumps",
-    "bearish",
-    "sell",
-    "lower",
-    "concern",
-    "concerns",
-    "warning",
-    "pressure",
+    "miss", "misses", "decline", "declines", "lawsuit", "risk", "risks",
+    "cut", "cuts", "drop", "drops", "fall", "falls", "weak",
+    "downgrade", "downgraded", "underperform", "loss", "probe",
+    "slump", "slumps", "bearish", "sell", "lower", "concern",
+    "concerns", "warning", "pressure",
 ]
 
 
@@ -94,19 +45,26 @@ def analyze_text_sentiment(text: str):
     return "Neutral", "yellow", score
 
 
-def extract_title(news_item):
-    if not news_item:
-        return ""
-
-    if "title" in news_item:
-        return news_item.get("title") or ""
-
+def extract_news_item(news_item):
     content = news_item.get("content") or {}
 
     if isinstance(content, dict):
-        return content.get("title") or content.get("summary") or ""
+        title = content.get("title") or news_item.get("title") or ""
+        summary = content.get("summary") or ""
+        publisher = content.get("provider", {}).get("displayName", "Yahoo Finance")
+        link = content.get("canonicalUrl", {}).get("url") or content.get("clickThroughUrl", {}).get("url") or ""
+    else:
+        title = news_item.get("title") or ""
+        summary = ""
+        publisher = news_item.get("publisher") or "Yahoo Finance"
+        link = news_item.get("link") or ""
 
-    return ""
+    return {
+        "title": title,
+        "summary": summary,
+        "publisher": publisher,
+        "link": link,
+    }
 
 
 def get_news_sentiment(ticker: str):
@@ -116,45 +74,51 @@ def get_news_sentiment(ticker: str):
             "sentiment": "Neutral",
             "sentiment_type": "yellow",
             "score": 0,
+            "items": [],
         }
 
     try:
         stock = yf.Ticker(ticker)
-        news_list = stock.news or []
+        raw_news = stock.news or []
     except Exception as error:
         print(f"[NEWS ERROR] {ticker}: {error}")
-        news_list = []
+        raw_news = []
 
-    if not news_list:
+    news_items = []
+
+    for item in raw_news[:5]:
+        parsed = extract_news_item(item)
+
+        if parsed["title"]:
+            sentiment, sentiment_type, score = analyze_text_sentiment(
+                f"{parsed['title']} {parsed['summary']}"
+            )
+
+            parsed["sentiment"] = sentiment
+            parsed["sentiment_type"] = sentiment_type
+            parsed["score"] = score
+
+            news_items.append(parsed)
+
+    if not news_items:
         return {
             "headline": "최근 뉴스 없음",
             "sentiment": "Neutral",
             "sentiment_type": "yellow",
             "score": 0,
+            "items": [],
         }
 
-    headlines = []
+    combined_text = " ".join(
+        [item["title"] for item in news_items]
+    )
 
-    for item in news_list[:5]:
-        title = extract_title(item)
-
-        if title:
-            headlines.append(title)
-
-    if not headlines:
-        return {
-            "headline": "최근 뉴스 제목을 가져오지 못했습니다",
-            "sentiment": "Neutral",
-            "sentiment_type": "yellow",
-            "score": 0,
-        }
-
-    combined_text = " ".join(headlines)
     sentiment, sentiment_type, score = analyze_text_sentiment(combined_text)
 
     return {
-        "headline": headlines[0],
+        "headline": news_items[0]["title"],
         "sentiment": sentiment,
         "sentiment_type": sentiment_type,
         "score": score,
+        "items": news_items,
     }

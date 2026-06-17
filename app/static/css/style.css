@@ -1196,3 +1196,62 @@ table thead th:nth-child(4) {
 .table-container::-webkit-scrollbar-thumb:hover {
     background: #94a3b8;
 }
+
+.news-summary-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.news-summary-row p {
+    margin: 0;
+    color: #374151;
+    font-weight: 800;
+}
+
+.modal-news-list {
+    margin-top: 14px;
+    display: grid;
+    gap: 10px;
+}
+
+.modal-news-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    align-items: center;
+    padding: 14px;
+    background: #f9fafb;
+    border: 1px solid #d1d5db;
+    border-radius: 14px;
+}
+
+.modal-news-item.clickable {
+    cursor: pointer;
+}
+
+.modal-news-item.clickable:hover {
+    background: #eff6ff;
+    border-color: #93c5fd;
+}
+
+.modal-news-item strong {
+    display: block;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.modal-news-item p {
+    margin: 5px 0 0;
+    color: #6b7280;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.modal-news-empty {
+    padding: 14px;
+    color: #6b7280;
+    background: #f9fafb;
+    border-radius: 14px;
+    font-weight: 800;
+}
