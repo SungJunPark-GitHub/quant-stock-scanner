@@ -1,9 +1,8 @@
 <div class="table-container">
-    <table>
+    <table class="scanner-table">
         <thead>
         <tr>
             <th>⭐</th>
-            <th><input type="checkbox"></th>
             <th>#</th>
             <th>종목</th>
             <th>설명</th>
@@ -11,12 +10,9 @@
             <th class="sortable" data-sort="score">점수 ↕</th>
             <th>시그널</th>
             <th class="sortable" data-sort="price">현재가 ↕</th>
-            <th>프리마켓</th>
-            <th>애프터마켓</th>
             <th class="sortable" data-sort="change">등락 ↕</th>
             <th class="sortable" data-sort="rsi">RSI ↕</th>
             <th class="sortable" data-sort="target">목표가 ↕</th>
-            <th>뉴스</th>
             <th>핵심 이유</th>
         </tr>
         </thead>
@@ -28,6 +24,7 @@
             data-name="{{ stock.name }}"
             data-description="{{ stock.description }}"
             data-sector="{{ stock.sector }}">
+
             <td>
                 <button class="watch-btn"
                         data-ticker="{{ stock.ticker }}"
@@ -35,8 +32,6 @@
                     ☆
                 </button>
             </td>
-
-            <td><input type="checkbox"></td>
 
             <td>
                 <span class="rank-circle">{{ stock.rank }}</span>
@@ -49,7 +44,9 @@
                 </div>
             </td>
 
-            <td>{{ stock.description }}</td>
+            <td>
+                <span class="desc-text">{{ stock.description }}</span>
+            </td>
 
             <td>
                 <span class="sector-pill">{{ stock.sector }}</span>
@@ -57,45 +54,34 @@
 
             <td>
                 <div class="score-wrap">
-                    <strong class="score-number">{{ stock.score }}</strong>
+                    <strong class="score-number {% if stock.score >= 70 %}score-text-good{% elif stock.score >= 50 %}score-text-mid{% else %}score-text-bad{% endif %}">
+                        {{ stock.score }}
+                    </strong>
                     <div class="score-bar">
-                        <div class="score-fill {% if stock.score >= 75 %}score-good{% elif stock.score < 50 %}score-bad{% else %}score-mid{% endif %}"
+                        <div class="score-fill {% if stock.score >= 70 %}score-good{% elif stock.score >= 50 %}score-mid{% else %}score-bad{% endif %}"
                              style="width: {{ stock.score }}%;"></div>
                     </div>
                 </div>
             </td>
 
             <td>
-                <span class="signal-badge {{ stock.signal_type }}">
-                    {{ stock.signal }}
-                </span>
-                <span class="small-badge {{ stock.grade_type }}">
-                    {{ stock.grade }}
-                </span>
-            </td>
+                <div class="signal-stack">
+                    <div>
+                        <span class="signal-dot {{ stock.signal_type }}"></span>
+                        <span class="signal-badge {{ stock.signal_type }}">
+                            {{ stock.signal }}
+                        </span>
+                    </div>
 
-            <td>${{ stock.price }}</td>
-
-            <td>
-                {% if stock.premarket_price %}
-                    <strong>${{ stock.premarket_price }}</strong>
-                    <small class="{% if stock.premarket_change >= 0 %}up{% else %}down{% endif %}">
-                        {% if stock.premarket_change >= 0 %}+{% endif %}{{ stock.premarket_change }}%
-                    </small>
-                {% else %}
-                    <span class="na-text">N/A</span>
-                {% endif %}
+                    <div class="mini-tags">
+                        <span class="{{ stock.grade_type }}">{{ stock.grade }}</span>
+                        <span>추세</span>
+                    </div>
+                </div>
             </td>
 
             <td>
-                {% if stock.aftermarket_price %}
-                    <strong>${{ stock.aftermarket_price }}</strong>
-                    <small class="{% if stock.aftermarket_change >= 0 %}up{% else %}down{% endif %}">
-                        {% if stock.aftermarket_change >= 0 %}+{% endif %}{{ stock.aftermarket_change }}%
-                    </small>
-                {% else %}
-                    <span class="na-text">N/A</span>
-                {% endif %}
+                <strong>${{ stock.price }}</strong>
             </td>
 
             <td class="{% if stock.change >= 0 %}up{% else %}down{% endif %}">
@@ -104,37 +90,28 @@
 
             <td>
                 <div class="rsi-cell">
-                    <span class="rsi-badge {{ stock.rsi_status_type }}">
-                        {{ stock.rsi }}
-                    </span>
+                    <strong>{{ stock.rsi }}</strong>
                     <small>{{ stock.rsi_status }}</small>
-                    <div class="rsi-line">
-                        <div class="{% if stock.rsi >= 70 %}rsi-hot{% elif stock.rsi <= 30 %}rsi-cold{% else %}rsi-normal{% endif %}"
-                             style="width: {{ stock.rsi }}%;"></div>
-                    </div>
                 </div>
             </td>
 
             <td>
-                <strong>${{ stock.target }}</strong>
+                <strong class="{% if stock.target_change >= 0 %}up{% else %}down{% endif %}">
+                    {{ stock.target }}
+                </strong>
                 <small class="{% if stock.target_change >= 0 %}up{% else %}down{% endif %}">
                     {% if stock.target_change >= 0 %}+{% endif %}{{ stock.target_change }}%
                 </small>
             </td>
 
             <td>
-                <span class="news-badge {{ stock.news.sentiment_type }}">
-                    {{ stock.news.sentiment }}
-                </span>
-            </td>
-
-            <td>
-                <div class="reason-list">
+                <div class="reason-list compact">
                     {% for item in stock.reason %}
                     <span>{{ item }}</span>
                     {% endfor %}
                 </div>
             </td>
+
         </tr>
         {% endfor %}
         </tbody>

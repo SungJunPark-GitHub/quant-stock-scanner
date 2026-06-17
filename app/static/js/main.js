@@ -381,10 +381,7 @@ function renderPriceChart(stock, range = "6M") {
 
 rows.forEach((row) => {
     row.addEventListener("click", (event) => {
-        if (event.target.type === "checkbox") {
-            return;
-        }
-
+        
         if (event.target.classList.contains("watch-btn")) {
             return;
         }

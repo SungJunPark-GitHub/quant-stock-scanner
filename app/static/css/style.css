@@ -1371,3 +1371,166 @@ table thead th:nth-child(4) {
     font-weight: 800;
     white-space: nowrap;
 }
+
+/* ===============================
+   Reference Style Scanner Table
+   =============================== */
+
+   .scanner-table {
+    min-width: 1280px;
+}
+
+.scanner-table thead th {
+    height: 42px;
+    font-size: 12px;
+    color: #6b7280;
+    background: #f9fafb;
+}
+
+.scanner-table td {
+    height: 78px;
+    font-size: 13px;
+    vertical-align: middle;
+}
+
+.desc-text {
+    color: #374151;
+    font-weight: 800;
+}
+
+.score-text-good {
+    color: #10b981;
+}
+
+.score-text-mid {
+    color: #f59e0b;
+}
+
+.score-text-bad {
+    color: #ef4444;
+}
+
+.signal-stack {
+    display: grid;
+    gap: 6px;
+}
+
+.signal-stack > div {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.signal-dot {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.signal-dot.green {
+    background: #22c55e;
+}
+
+.signal-dot.blue {
+    background: #3b82f6;
+}
+
+.signal-dot.yellow {
+    background: #facc15;
+}
+
+.signal-dot.red {
+    background: #ef4444;
+}
+
+.signal-badge {
+    padding: 4px 8px;
+    font-size: 11px;
+    border-radius: 8px;
+}
+
+.mini-tags {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+}
+
+.mini-tags span {
+    padding: 3px 6px;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: 900;
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+.mini-tags .grade-s {
+    background: #ede9fe;
+    color: #7c3aed;
+}
+
+.mini-tags .grade-a {
+    background: #dbeafe;
+    color: #2563eb;
+}
+
+.mini-tags .grade-b {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.mini-tags .grade-c {
+    background: #fef3c7;
+    color: #b45309;
+}
+
+.mini-tags .grade-d {
+    background: #ffedd5;
+    color: #ea580c;
+}
+
+.mini-tags .grade-f {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.rsi-cell strong {
+    display: block;
+    font-weight: 900;
+}
+
+.reason-list.compact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    max-width: 280px;
+}
+
+.reason-list.compact span {
+    font-size: 11px;
+    padding: 4px 7px;
+    border-radius: 6px;
+    background: #ecfdf5;
+    color: #059669;
+}
+
+/* 기존 sticky 컬럼 위치 재조정 */
+.scanner-table th:nth-child(1),
+.scanner-table td:nth-child(1) {
+    left: 0;
+    min-width: 54px;
+}
+
+.scanner-table th:nth-child(2),
+.scanner-table td:nth-child(2) {
+    left: 54px;
+    min-width: 58px;
+}
+
+.scanner-table th:nth-child(3),
+.scanner-table td:nth-child(3) {
+    left: 112px;
+    min-width: 210px;
+    box-shadow: 8px 0 12px rgba(15, 23, 42, 0.06);
+}
