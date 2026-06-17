@@ -72,8 +72,17 @@
                     </div>
 
                     <div class="chart-card">
-                        <div class="chart-title">
-                            최근 추세 <span>Chart.js</span>
+                        <div class="chart-title chart-title-row">
+                            <div>
+                                최근 추세 <span id="chartRangeLabel">6M</span>
+                            </div>
+                        
+                            <div class="chart-range-buttons">
+                                <button class="range-btn" data-range="1M">1M</button>
+                                <button class="range-btn" data-range="3M">3M</button>
+                                <button class="range-btn active" data-range="6M">6M</button>
+                                <button class="range-btn" data-range="1Y">1Y</button>
+                            </div>
                         </div>
 
                         <div class="real-chart">

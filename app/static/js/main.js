@@ -4,8 +4,11 @@ const closeBtn = document.getElementById("modalClose");
 
 const tabs = document.querySelectorAll(".tab");
 const panels = document.querySelectorAll(".tab-panel");
+const rangeButtons = document.querySelectorAll(".range-btn");
 
 let priceChart = null;
+let currentStock = null;
+let currentRange = "6M";
 
 function formatChange(value) {
     return value >= 0 ? `+${value}%` : `${value}%`;
@@ -13,12 +16,7 @@ function formatChange(value) {
 
 function getNumber(value, fallback = 0) {
     const number = Number(value);
-
-    if (Number.isNaN(number)) {
-        return fallback;
-    }
-
-    return number;
+    return Number.isNaN(number) ? fallback : number;
 }
 
 function openModal(ticker) {
@@ -27,6 +25,10 @@ function openModal(ticker) {
     if (!stock) {
         return;
     }
+
+    currentStock = stock;
+    currentRange = "6M";
+    updateRangeButtons();
 
     document.getElementById("modalName").textContent = stock.name;
     document.getElementById("modalTicker").textContent = stock.ticker;
@@ -86,7 +88,7 @@ function openModal(ticker) {
     modal.classList.remove("hidden");
 
     setTimeout(() => {
-        renderPriceChart(stock);
+        renderPriceChart(stock, currentRange);
     }, 50);
 }
 
@@ -94,23 +96,29 @@ function closeModal() {
     modal.classList.add("hidden");
 }
 
-function renderPriceChart(stock) {
+function updateRangeButtons() {
+    rangeButtons.forEach((button) => {
+        button.classList.toggle("active", button.dataset.range === currentRange);
+    });
+
+    const label = document.getElementById("chartRangeLabel");
+    if (label) {
+        label.textContent = currentRange;
+    }
+}
+
+function renderPriceChart(stock, range = "6M") {
     const canvas = document.getElementById("priceChart");
 
-    if (!canvas) {
+    if (!canvas || !stock.chart || !stock.chart[range]) {
         return;
     }
 
     const ctx = canvas.getContext("2d");
+    const chart = stock.chart[range];
 
     if (priceChart) {
         priceChart.destroy();
-    }
-
-    const chart = stock.chart;
-
-    if (!chart) {
-        return;
     }
 
     const gradient = ctx.createLinearGradient(0, 0, 0, 180);
@@ -210,8 +218,19 @@ rows.forEach((row) => {
             return;
         }
 
-        const ticker = row.dataset.ticker;
-        openModal(ticker);
+        openModal(row.dataset.ticker);
+    });
+});
+
+rangeButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        if (!currentStock) {
+            return;
+        }
+
+        currentRange = button.dataset.range;
+        updateRangeButtons();
+        renderPriceChart(currentStock, currentRange);
     });
 });
 
@@ -239,15 +258,10 @@ tabs.forEach((tab) => {
         tab.classList.add("active");
         document.getElementById(target).classList.add("active");
 
-        if (target === "summary") {
-            const ticker = document.getElementById("modalTicker").textContent;
-            const stock = STOCKS.find((item) => item.ticker === ticker);
-
-            if (stock) {
-                setTimeout(() => {
-                    renderPriceChart(stock);
-                }, 50);
-            }
+        if (target === "summary" && currentStock) {
+            setTimeout(() => {
+                renderPriceChart(currentStock, currentRange);
+            }, 50);
         }
     });
 });
