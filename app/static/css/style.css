@@ -1534,3 +1534,30 @@ table thead th:nth-child(4) {
     min-width: 210px;
     box-shadow: 8px 0 12px rgba(15, 23, 42, 0.06);
 }
+
+.market-toggle {
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    padding: 3px;
+    border: 1px solid #d1d5db;
+    border-radius: 999px;
+    background: #f3f4f6;
+}
+
+.market-toggle-btn {
+    height: 26px;
+    padding: 0 14px;
+    border: none;
+    border-radius: 999px;
+    background: transparent;
+    color: #374151;
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.market-toggle-btn.active {
+    background: #ffffff;
+    color: #111827;
+    box-shadow: 0 1px 4px rgba(15, 23, 42, 0.12);
+}

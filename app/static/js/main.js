@@ -584,14 +584,12 @@ document.querySelectorAll(".chip[data-filter]").forEach((button) => {
 // Market Toggle
 // ===============================
 
-const marketSelect = document.getElementById("marketSelect");
-
-if (marketSelect) {
-    marketSelect.addEventListener("change", () => {
-        const market = marketSelect.value;
+document.querySelectorAll(".market-toggle-btn").forEach((button) => {
+    button.addEventListener("click", () => {
+        const market = button.dataset.market;
         window.location.href = `/?market=${market}`;
     });
-}
+});
 
 // ===============================
 // Sidebar Accordion + Sector Filter

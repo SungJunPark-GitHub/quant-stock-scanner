@@ -4,11 +4,19 @@
             주식<span>분석기</span>
         </div>
 
-        <select id="marketSelect" class="market-select">
-            <option value="US" {% if market == "US" %}selected{% endif %}>🇺🇸 미국</option>
-            <option value="SP500" {% if market == "SP500" %}selected{% endif %}>🇺🇸 S&P500</option>
-            <option value="KR" {% if market == "KR" %}selected{% endif %}>🇰🇷 한국</option>
-        </select>
+        <div class="market-toggle">
+            <button class="market-toggle-btn {% if market == 'US' %}active{% endif %}"
+                    data-market="US"
+                    type="button">
+                🇺🇸 미국
+            </button>
+        
+            <button class="market-toggle-btn {% if market == 'KR' %}active{% endif %}"
+                    data-market="KR"
+                    type="button">
+                🇰🇷 한국
+            </button>
+        </div>
 
         <div class="search-box">
             🔍
