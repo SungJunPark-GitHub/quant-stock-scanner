@@ -3,12 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Quant Stock Scanner</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <h1>Quant Stock Scanner</h1>
-    <p>Flask 기본 실행 성공</p>
 
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<div class="container">
+
+    {% include 'components/sidebar.html' %}
+
+    <div class="main-content">
+
+        {% include 'components/header.html' %}
+
+        {% include 'components/stock_table.html' %}
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
 </body>
 </html>

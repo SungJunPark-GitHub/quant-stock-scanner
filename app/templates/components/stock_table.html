@@ -1,0 +1,71 @@
+<div class="table-container">
+
+    <table>
+
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>종목</th>
+            <th>설명</th>
+            <th>섹터</th>
+            <th>점수</th>
+            <th>시그널</th>
+            <th>현재가</th>
+            <th>등락률</th>
+            <th>RSI</th>
+            <th>목표가</th>
+            <th>핵심 이유</th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        {% for stock in stocks %}
+        <tr>
+
+            <td>{{ stock.rank }}</td>
+
+            <td>
+                <strong>{{ stock.ticker }}</strong><br>
+                {{ stock.name }}
+            </td>
+
+            <td>{{ stock.description }}</td>
+
+            <td>{{ stock.sector }}</td>
+
+            <td>
+                <div class="progress">
+                    <div class="progress-fill"
+                         style="width: {{ stock.score }}%;">
+                        {{ stock.score }}
+                    </div>
+                </div>
+            </td>
+
+            <td>
+                <span class="badge {{ stock.signal|lower }}">
+                    {{ stock.signal }}
+                </span>
+            </td>
+
+            <td>${{ stock.price }}</td>
+
+            <td class="{% if stock.change > 0 %}up{% else %}down{% endif %}">
+                {{ stock.change }}%
+            </td>
+
+            <td>{{ stock.rsi }}</td>
+
+            <td>${{ stock.target }}</td>
+
+            <td>{{ stock.reason }}</td>
+
+        </tr>
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
