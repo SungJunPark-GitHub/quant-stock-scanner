@@ -3,7 +3,12 @@ import csv
 import io
 
 from app.services.backtest_service import run_simple_backtest
-from app.services.market_service import get_market_tickers, get_stock_history, get_stock_info
+from app.services.market_service import (
+    get_market_tickers,
+    get_stock_history,
+    get_stock_info,
+    get_extended_market_info,
+)
 from app.services.indicator_service import (
     calculate_rsi,
     calculate_ma,
@@ -64,6 +69,7 @@ def build_stock_data(market="US"):
     for index, ticker in enumerate(tickers, start=1):
         history = get_stock_history(ticker)
         info = get_stock_info(ticker, market)
+        extended = get_extended_market_info(ticker)
 
         if history is None:
             continue
@@ -133,6 +139,10 @@ def build_stock_data(market="US"):
             "ma_status": "정배열" if ma20 > ma50 > ma200 else "비정배열",
             "ma_status_type": "green" if ma20 > ma50 > ma200 else "red",
             "macd": macd,
+            "premarket_price": extended["premarket_price"],
+            "premarket_change": extended["premarket_change"],
+            "aftermarket_price": extended["aftermarket_price"],
+            "aftermarket_change": extended["aftermarket_change"],
             "high_52w": high_52w,
             "volume_ratio": volume_ratio,
             "canslim": canslim,

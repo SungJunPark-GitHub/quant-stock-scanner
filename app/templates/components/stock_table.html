@@ -27,6 +27,8 @@
             <th>점수</th>
             <th>시그널</th>
             <th>현재가</th>
+            <th>프리마켓</th>
+            <th>애프터마켓</th>
             <th>등락</th>
             <th>RSI</th>
             <th>목표가</th>
@@ -85,6 +87,28 @@
             </td>
 
             <td>${{ stock.price }}</td>
+
+            <td>
+                {% if stock.premarket_price %}
+                    <strong>${{ stock.premarket_price }}</strong>
+                    <small class="{% if stock.premarket_change >= 0 %}up{% else %}down{% endif %}">
+                        {% if stock.premarket_change >= 0 %}+{% endif %}{{ stock.premarket_change }}%
+                    </small>
+                {% else %}
+                    <span class="na-text">N/A</span>
+                {% endif %}
+            </td>
+
+            <td>
+                {% if stock.aftermarket_price %}
+                    <strong>${{ stock.aftermarket_price }}</strong>
+                    <small class="{% if stock.aftermarket_change >= 0 %}up{% else %}down{% endif %}">
+                        {% if stock.aftermarket_change >= 0 %}+{% endif %}{{ stock.aftermarket_change }}%
+                    </small>
+                {% else %}
+                    <span class="na-text">N/A</span>
+                {% endif %}
+            </td>
 
             <td class="{% if stock.change >= 0 %}up{% else %}down{% endif %}">
                 {% if stock.change >= 0 %}+{% endif %}{{ stock.change }}%

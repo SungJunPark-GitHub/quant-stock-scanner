@@ -11,12 +11,24 @@ let currentStock = null;
 let currentRange = "6M";
 
 function formatChange(value) {
+    if (value === null || value === undefined) {
+        return "N/A";
+    }
+
     return value >= 0 ? `+${value}%` : `${value}%`;
 }
 
 function getNumber(value, fallback = 0) {
     const number = Number(value);
     return Number.isNaN(number) ? fallback : number;
+}
+
+function setText(id, value) {
+    const element = document.getElementById(id);
+
+    if (element) {
+        element.textContent = value;
+    }
 }
 
 function openModal(ticker) {
@@ -30,13 +42,27 @@ function openModal(ticker) {
     currentRange = "6M";
     updateRangeButtons();
 
-    document.getElementById("modalName").textContent = stock.name;
-    document.getElementById("modalTicker").textContent = stock.ticker;
-    document.getElementById("modalDescription").textContent = stock.description;
-    document.getElementById("modalScore").textContent = stock.score;
-    document.getElementById("modalPrice").textContent = stock.price;
-    document.getElementById("modalChange").textContent = formatChange(stock.change);
-    document.getElementById("modalRsi").textContent = stock.rsi;
+    setText("modalName", stock.name);
+    setText("modalTicker", stock.ticker);
+    setText("modalDescription", stock.description);
+    setText("modalScore", stock.score);
+    setText("modalPrice", stock.price);
+    setText("modalChange", formatChange(stock.change));
+    setText("modalRsi", stock.rsi);
+
+    const premarket = document.getElementById("modalPremarket");
+    if (premarket) {
+        premarket.textContent = stock.premarket_price
+            ? `$${stock.premarket_price} (${formatChange(stock.premarket_change)})`
+            : "N/A";
+    }
+
+    const aftermarket = document.getElementById("modalAftermarket");
+    if (aftermarket) {
+        aftermarket.textContent = stock.aftermarket_price
+            ? `$${stock.aftermarket_price} (${formatChange(stock.aftermarket_change)})`
+            : "N/A";
+    }
 
     const rsiStatus = document.getElementById("modalRsiStatus");
     if (rsiStatus) {
@@ -64,10 +90,10 @@ function openModal(ticker) {
     const tp1 = price + (atr * 2);
     const tp2 = price + (atr * 3);
 
-    document.getElementById("entryBuy").textContent = buy.toFixed(2);
-    document.getElementById("entryStop").textContent = stop.toFixed(2);
-    document.getElementById("entryTp1").textContent = tp1.toFixed(2);
-    document.getElementById("entryTp2").textContent = tp2.toFixed(2);
+    setText("entryBuy", buy.toFixed(2));
+    setText("entryStop", stop.toFixed(2));
+    setText("entryTp1", tp1.toFixed(2));
+    setText("entryTp2", tp2.toFixed(2));
 
     const atrElement = document.getElementById("modalAtr");
     if (atrElement) {
@@ -77,9 +103,8 @@ function openModal(ticker) {
     const canslim = stock.canslim;
 
     if (canslim) {
-        document.getElementById("modalCanslimScore").textContent = canslim.score;
-        document.getElementById("modalCanslimCount").textContent =
-            `${canslim.passed_count}/${canslim.total_count}`;
+        setText("modalCanslimScore", canslim.score);
+        setText("modalCanslimCount", `${canslim.passed_count}/${canslim.total_count}`);
 
         const summaryCanslimScore = document.getElementById("summaryCanslimScore");
         if (summaryCanslimScore) {
@@ -87,36 +112,32 @@ function openModal(ticker) {
         }
 
         const list = document.getElementById("modalCanslimList");
-        list.innerHTML = "";
 
-        canslim.items.forEach((item) => {
-            const div = document.createElement("div");
-            div.className = item.passed ? "canslim-pass" : "canslim-fail";
-            div.innerHTML = `
-                <b>${item.key}</b>
-                <span>
-                    <strong>${item.label}</strong><br>
-                    ${item.description}
-                </span>
-            `;
-            list.appendChild(div);
-        });
+        if (list) {
+            list.innerHTML = "";
+
+            canslim.items.forEach((item) => {
+                const div = document.createElement("div");
+                div.className = item.passed ? "canslim-pass" : "canslim-fail";
+                div.innerHTML = `
+                    <b>${item.key}</b>
+                    <span>
+                        <strong>${item.label}</strong><br>
+                        ${item.description}
+                    </span>
+                `;
+                list.appendChild(div);
+            });
+        }
     }
 
     const backtest = stock.backtest;
 
     if (backtest) {
-        document.getElementById("backtestTradeCount").textContent =
-            backtest.trade_count;
-
-        document.getElementById("backtestWinRate").textContent =
-            `${backtest.win_rate}%`;
-
-        document.getElementById("backtestAvgReturn").textContent =
-            `${backtest.avg_return}%`;
-
-        document.getElementById("backtestMdd").textContent =
-            `${backtest.mdd}%`;
+        setText("backtestTradeCount", backtest.trade_count);
+        setText("backtestWinRate", `${backtest.win_rate}%`);
+        setText("backtestAvgReturn", `${backtest.avg_return}%`);
+        setText("backtestMdd", `${backtest.mdd}%`);
     }
 
     modal.classList.remove("hidden");
@@ -135,10 +156,7 @@ function updateRangeButtons() {
         button.classList.toggle("active", button.dataset.range === currentRange);
     });
 
-    const label = document.getElementById("chartRangeLabel");
-    if (label) {
-        label.textContent = currentRange;
-    }
+    setText("chartRangeLabel", currentRange);
 }
 
 function renderPriceChart(stock, range = "6M") {

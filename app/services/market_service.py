@@ -125,3 +125,41 @@ def get_stock_info(ticker: str, market: str = "US"):
         "roe": float(info.get("returnOnEquity") or 0),
         "earnings_growth": float(info.get("earningsGrowth") or 0),
     }
+
+def get_extended_market_info(ticker: str):
+    if ticker.endswith(".KS"):
+        return {
+            "premarket_price": None,
+            "premarket_change": None,
+            "aftermarket_price": None,
+            "aftermarket_change": None,
+        }
+
+    stock = yf.Ticker(ticker)
+
+    try:
+        info = stock.info
+    except Exception as error:
+        print(f"[EXTENDED MARKET ERROR] {ticker}: {error}")
+        info = {}
+
+    regular_price = (
+        info.get("regularMarketPrice")
+        or info.get("currentPrice")
+        or 0
+    )
+
+    pre_price = info.get("preMarketPrice")
+    post_price = info.get("postMarketPrice")
+
+    def calc_change(price):
+        if not price or not regular_price:
+            return None
+        return round(((price - regular_price) / regular_price) * 100, 2)
+
+    return {
+        "premarket_price": round(float(pre_price), 2) if pre_price else None,
+        "premarket_change": calc_change(pre_price),
+        "aftermarket_price": round(float(post_price), 2) if post_price else None,
+        "aftermarket_change": calc_change(post_price),
+    }

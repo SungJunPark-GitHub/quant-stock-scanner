@@ -979,3 +979,9 @@ td small {
 .metric-card strong.red {
     color: #dc2626;
 }
+
+.na-text {
+    color: #9ca3af;
+    font-size: 12px;
+    font-weight: 800;
+}
