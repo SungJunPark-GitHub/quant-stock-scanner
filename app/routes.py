@@ -8,6 +8,37 @@ from app.services.canslim_service import build_canslim
 main = Blueprint("main", __name__)
 
 
+def build_chart_data(history):
+    chart_history = history.tail(120)
+
+    labels = [
+        index.strftime("%m-%d")
+        for index in chart_history.index
+    ]
+
+    prices = [
+        round(float(price), 2)
+        for price in chart_history["Close"].tolist()
+    ]
+
+    ma20 = [
+        None if value != value else round(float(value), 2)
+        for value in chart_history["Close"].rolling(window=20).mean().tolist()
+    ]
+
+    ma50 = [
+        None if value != value else round(float(value), 2)
+        for value in chart_history["Close"].rolling(window=50).mean().tolist()
+    ]
+
+    return {
+        "labels": labels,
+        "prices": prices,
+        "ma20": ma20,
+        "ma50": ma50,
+    }
+
+
 def build_stock_data():
     stocks = []
 
@@ -35,7 +66,7 @@ def build_stock_data():
             price=price,
             ma50=ma50,
             ma200=ma200,
-)
+        )
 
         score = calculate_score(rsi, price, ma20, ma50, ma200)
         signal, signal_type = get_signal(score)
@@ -62,6 +93,7 @@ def build_stock_data():
             "ma50": ma50,
             "ma200": ma200,
             "canslim": canslim,
+            "chart": build_chart_data(history),
             "reason": [
                 f"RSI {rsi}",
                 f"MA20 {ma20}",
