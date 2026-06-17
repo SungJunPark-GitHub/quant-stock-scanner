@@ -610,3 +610,93 @@ if (sidebarAll) {
         applyTableFilters();
     });
 }
+
+// ===============================
+// Table Sorting
+// ===============================
+
+let currentSortKey = null;
+let currentSortOrder = "desc";
+
+function getStockValue(stock, key) {
+    if (!stock) {
+        return 0;
+    }
+
+    if (key === "score") {
+        return Number(stock.score || 0);
+    }
+
+    if (key === "price") {
+        return Number(stock.price || 0);
+    }
+
+    if (key === "change") {
+        return Number(stock.change || 0);
+    }
+
+    if (key === "rsi") {
+        return Number(stock.rsi || 0);
+    }
+
+    if (key === "target") {
+        return Number(stock.target || 0);
+    }
+
+    return 0;
+}
+
+function sortStockTable(sortKey) {
+    const tbody = document.querySelector(".stock-row")?.closest("tbody");
+
+    if (!tbody) {
+        return;
+    }
+
+    if (currentSortKey === sortKey) {
+        currentSortOrder = currentSortOrder === "desc" ? "asc" : "desc";
+    } else {
+        currentSortKey = sortKey;
+        currentSortOrder = "desc";
+    }
+
+    const sortedRows = Array.from(document.querySelectorAll(".stock-row")).sort((a, b) => {
+        const stockA = STOCKS.find((item) => item.ticker === a.dataset.ticker);
+        const stockB = STOCKS.find((item) => item.ticker === b.dataset.ticker);
+
+        const valueA = getStockValue(stockA, sortKey);
+        const valueB = getStockValue(stockB, sortKey);
+
+        if (currentSortOrder === "desc") {
+            return valueB - valueA;
+        }
+
+        return valueA - valueB;
+    });
+
+    sortedRows.forEach((row) => {
+        tbody.appendChild(row);
+    });
+
+    updateSortHeaders();
+    applyTableFilters();
+}
+
+function updateSortHeaders() {
+    document.querySelectorAll(".sortable").forEach((header) => {
+        const label = header.textContent.replace(" ▲", "").replace(" ▼", "").replace(" ↕", "");
+        const sortKey = header.dataset.sort;
+
+        if (sortKey === currentSortKey) {
+            header.textContent = `${label} ${currentSortOrder === "desc" ? "▼" : "▲"}`;
+        } else {
+            header.textContent = `${label} ↕`;
+        }
+    });
+}
+
+document.querySelectorAll(".sortable").forEach((header) => {
+    header.addEventListener("click", () => {
+        sortStockTable(header.dataset.sort);
+    });
+});

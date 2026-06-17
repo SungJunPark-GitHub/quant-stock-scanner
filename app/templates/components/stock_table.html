@@ -2,25 +2,25 @@
 <div class="table-container">
     <table>
         <thead>
-        <tr>
-            <th>⭐</th>
-            <th><input type="checkbox"></th>
-            <th>#</th>
-            <th>종목</th>
-            <th>설명</th>
-            <th>섹터</th>
-            <th>점수</th>
-            <th>시그널</th>
-            <th>현재가</th>
-            <th>프리마켓</th>
-            <th>애프터마켓</th>
-            <th>등락</th>
-            <th>RSI</th>
-            <th>목표가</th>
-            <th>뉴스</th>
-            <th>핵심 이유</th>
-        </tr>
-        </thead>
+            <tr>
+                <th>⭐</th>
+                <th><input type="checkbox"></th>
+                <th>#</th>
+                <th>종목</th>
+                <th>설명</th>
+                <th>섹터</th>
+                <th class="sortable" data-sort="score">점수 ↕</th>
+                <th>시그널</th>
+                <th class="sortable" data-sort="price">현재가 ↕</th>
+                <th>프리마켓</th>
+                <th>애프터마켓</th>
+                <th class="sortable" data-sort="change">등락 ↕</th>
+                <th class="sortable" data-sort="rsi">RSI ↕</th>
+                <th class="sortable" data-sort="target">목표가 ↕</th>
+                <th>뉴스</th>
+                <th>핵심 이유</th>
+            </tr>
+            </thead>
 
         <tbody>
         {% for stock in stocks %}

@@ -1099,3 +1099,13 @@ td small {
     color: white;
     border-color: #0d7df2;
 }
+
+.sortable {
+    cursor: pointer;
+    user-select: none;
+}
+
+.sortable:hover {
+    color: #0d7df2;
+    background: #eff6ff;
+}
