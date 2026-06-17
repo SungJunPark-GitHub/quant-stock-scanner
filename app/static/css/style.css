@@ -890,3 +890,8 @@ td small {
 .watch-btn.active {
     color: #f59e0b;
 }
+
+.filter.active {
+    background: #0d7df2;
+    color: white;
+}
