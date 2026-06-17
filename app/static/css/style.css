@@ -1070,3 +1070,32 @@ td small {
     color: #111827;
     text-decoration: none;
 }
+
+/* ===============================
+   Scanner / ETF Panel Toggle Fix
+   =============================== */
+
+   .scanner-tab-content {
+    display: none;
+}
+
+.scanner-tab-content.active {
+    display: block;
+}
+
+.scanner-tab {
+    height: 30px;
+    padding: 0 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 999px;
+    background: #f3f4f6;
+    color: #374151;
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.scanner-tab.active {
+    background: #0d7df2;
+    color: white;
+    border-color: #0d7df2;
+}

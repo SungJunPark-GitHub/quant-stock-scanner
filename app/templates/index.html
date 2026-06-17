@@ -15,7 +15,14 @@
         {% include 'components/macro_bar.html' %}
         {% include 'components/market_bar.html' %}
         {% include 'components/filter_bar.html' %}
-        {% include 'components/stock_table.html' %}
+
+        <div class="scanner-tab-content active" id="stockScannerPanel">
+            {% include 'components/stock_table.html' %}
+        </div>
+
+        <div class="scanner-tab-content" id="etfPanel">
+            {% include 'components/etf_table.html' %}
+        </div>
     </div>
 </div>
 

@@ -62,6 +62,37 @@ def build_chart_data(history):
         "1Y": make_chart(252),
     }
 
+def build_reason_text(rsi, macd_status, volume_ratio, canslim, ma_status):
+    reasons = []
+
+    if ma_status == "정배열":
+        reasons.append("추세 정배열")
+    else:
+        reasons.append("추세 확인 필요")
+
+    if rsi >= 70:
+        reasons.append("RSI 과열 주의")
+    elif rsi <= 30:
+        reasons.append("과매도 반등 후보")
+    else:
+        reasons.append("RSI 중립권")
+
+    if "골든" in macd_status or "상승" in macd_status:
+        reasons.append("MACD 상승 우위")
+    else:
+        reasons.append("MACD 약세")
+
+    if volume_ratio >= 1.2:
+        reasons.append("거래량 증가")
+    else:
+        reasons.append("거래량 보통")
+
+    if canslim and canslim.get("passed_count", 0) >= 5:
+        reasons.append("CAN SLIM 양호")
+    else:
+        reasons.append("성장 조건 확인")
+
+    return reasons[:4]
 
 def build_stock_data(market="US"):
     stocks = []
@@ -150,13 +181,13 @@ def build_stock_data(market="US"):
             "volume_ratio": volume_ratio,
             "canslim": canslim,
             "chart": build_chart_data(history),
-            "reason": [
-                f"RSI {rsi}",
-                f"MACD {macd['status']}",
-                f"거래량 {volume_ratio}x",
-                f"CAN {canslim['passed_count']}/7",
-                f"News {news['sentiment']}",
-            ],
+            "reason": build_reason_text(
+                rsi=rsi,
+                macd_status=macd["status"],
+                volume_ratio=volume_ratio,
+                canslim=canslim,
+                ma_status="정배열" if ma20 > ma50 > ma200 else "비정배열",
+            )
         })
 
     stocks.sort(key=lambda x: x["score"], reverse=True)
@@ -166,12 +197,61 @@ def build_stock_data(market="US"):
 
     return stocks
 
+def build_etf_data():
+    return [
+        {
+            "ticker": "SPY",
+            "name": "SPDR S&P 500 ETF",
+            "category": "미국 대형주",
+            "price": 575.21,
+            "change": 0.42,
+            "rsi": 58.2,
+            "score": 82,
+            "signal": "상승 추세 유지",
+        },
+        {
+            "ticker": "QQQ",
+            "name": "Invesco QQQ Trust",
+            "category": "나스닥 기술주",
+            "price": 498.34,
+            "change": 0.87,
+            "rsi": 61.5,
+            "score": 85,
+            "signal": "기술주 강세",
+        },
+        {
+            "ticker": "SOXX",
+            "name": "iShares Semiconductor ETF",
+            "category": "반도체",
+            "price": 243.12,
+            "change": 1.24,
+            "rsi": 67.1,
+            "score": 88,
+            "signal": "AI 반도체 수급 양호",
+        },
+        {
+            "ticker": "XLE",
+            "name": "Energy Select Sector SPDR",
+            "category": "에너지",
+            "price": 91.45,
+            "change": -0.31,
+            "rsi": 48.6,
+            "score": 61,
+            "signal": "유가 변동성 관망",
+        },
+    ]
 
 @main.route("/")
 def index():
     market = request.args.get("market", "US")
     stocks = build_stock_data(market)
-    return render_template("index.html", stocks=stocks, market=market)
+    etfs = build_etf_data()
+    return render_template(
+        "index.html",
+        stocks=stocks,
+        etfs=etfs,
+        market=market
+    )
 
 
 @main.route("/export/csv")

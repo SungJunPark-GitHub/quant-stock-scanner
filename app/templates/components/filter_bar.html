@@ -1,19 +1,42 @@
 <div class="filter-bar">
 
     <div class="left-info">
-        <span>스캔 종목 <strong>1996개</strong></span>
-        <span>S등급 <strong>26개</strong></span>
+        <span>스캔 종목 <strong>{{ stocks|length }}개</strong></span>
+        <span>등급 <strong>Mag 7</strong></span>
         <span>섹터 <strong>전체</strong></span>
+        <span>점수 신뢰도 <strong>IC +0.07</strong></span>
     </div>
 
     <div class="right-filters">
-        <button class="chip active">전체</button>
-        <button class="chip" id="watchlistFilter">
-            관심종목
+
+        <button class="scanner-tab active" id="stockScannerTab" type="button">
+            📈 종목 스캐너
         </button>
-        <button class="chip">S-A등급</button>
-        <button class="chip green">진입 탐색</button>
-        <button class="chip danger">위험</button>
+
+        <button class="scanner-tab" id="etfTab" type="button">
+            📊 ETF 현황
+        </button>
+
+        <button class="chip active" data-filter="all" type="button">
+            전체
+        </button>
+
+        <button class="chip" data-filter="watchlist" id="watchlistFilter" type="button">
+            💎 관심종목
+        </button>
+
+        <button class="chip" data-filter="grade" type="button">
+            🔥 S-A등급
+        </button>
+
+        <button class="chip green" data-filter="entry" type="button">
+            🟢 진입 탐색
+        </button>
+
+        <button class="chip danger" data-filter="risk" type="button">
+            ⛔ 위험
+        </button>
+
     </div>
 
 </div>

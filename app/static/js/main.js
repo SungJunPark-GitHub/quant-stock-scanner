@@ -9,6 +9,7 @@ const rangeButtons = document.querySelectorAll(".range-btn");
 let priceChart = null;
 let currentStock = null;
 let currentRange = "6M";
+let activeTableFilter = "all";
 
 function formatChange(value) {
     if (value === null || value === undefined) {
@@ -57,24 +58,22 @@ function openModal(ticker) {
             : "N/A";
     }
 
-    const news = stock.news;
-
-    if (news) {
-    setText("modalNewsHeadline", news.headline);
-
-    const newsSentiment = document.getElementById("modalNewsSentiment");
-
-    if (newsSentiment) {
-        newsSentiment.textContent = news.sentiment;
-        newsSentiment.className = `news-badge ${news.sentiment_type}`;
-        }
-    }
-
     const aftermarket = document.getElementById("modalAftermarket");
     if (aftermarket) {
         aftermarket.textContent = stock.aftermarket_price
             ? `$${stock.aftermarket_price} (${formatChange(stock.aftermarket_change)})`
             : "N/A";
+    }
+
+    const news = stock.news;
+    if (news) {
+        setText("modalNewsHeadline", news.headline);
+
+        const newsSentiment = document.getElementById("modalNewsSentiment");
+        if (newsSentiment) {
+            newsSentiment.textContent = news.sentiment;
+            newsSentiment.className = `news-badge ${news.sentiment_type}`;
+        }
     }
 
     const rsiStatus = document.getElementById("modalRsiStatus");
@@ -114,7 +113,6 @@ function openModal(ticker) {
     }
 
     const canslim = stock.canslim;
-
     if (canslim) {
         setText("modalCanslimScore", canslim.score);
         setText("modalCanslimCount", `${canslim.passed_count}/${canslim.total_count}`);
@@ -125,7 +123,6 @@ function openModal(ticker) {
         }
 
         const list = document.getElementById("modalCanslimList");
-
         if (list) {
             list.innerHTML = "";
 
@@ -145,7 +142,6 @@ function openModal(ticker) {
     }
 
     const backtest = stock.backtest;
-
     if (backtest) {
         setText("backtestTradeCount", backtest.trade_count);
         setText("backtestWinRate", `${backtest.win_rate}%`);
@@ -303,16 +299,20 @@ rangeButtons.forEach((button) => {
     });
 });
 
-closeBtn.addEventListener("click", closeModal);
+if (closeBtn) {
+    closeBtn.addEventListener("click", closeModal);
+}
 
-modal.addEventListener("click", (event) => {
-    if (event.target === modal) {
-        closeModal();
-    }
-});
+if (modal) {
+    modal.addEventListener("click", (event) => {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+}
 
 document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
+    if (event.key === "Escape" && modal) {
         closeModal();
     }
 });
@@ -325,7 +325,11 @@ tabs.forEach((tab) => {
         panels.forEach((panel) => panel.classList.remove("active"));
 
         tab.classList.add("active");
-        document.getElementById(target).classList.add("active");
+
+        const targetPanel = document.getElementById(target);
+        if (targetPanel) {
+            targetPanel.classList.add("active");
+        }
 
         if (target === "summary" && currentStock) {
             setTimeout(() => {
@@ -340,8 +344,6 @@ tabs.forEach((tab) => {
 // ===============================
 
 const WATCHLIST_KEY = "quant_watchlist";
-const watchFilter = document.getElementById("watchlistFilter");
-let watchMode = false;
 
 function getWatchlist() {
     return JSON.parse(localStorage.getItem(WATCHLIST_KEY) || "[]");
@@ -362,7 +364,7 @@ function toggleWatchlist(ticker) {
 
     saveWatchlist(watchlist);
     renderWatchButtons();
-    applyStockSearch();
+    applyTableFilters();
 }
 
 function renderWatchButtons() {
@@ -388,21 +390,13 @@ document.querySelectorAll(".watch-btn").forEach((button) => {
     });
 });
 
-if (watchFilter) {
-    watchFilter.addEventListener("click", () => {
-        watchMode = !watchMode;
-        watchFilter.classList.toggle("active");
-        applyStockSearch();
-    });
-}
-
 // ===============================
-// Stock Search
+// Search + Unified Table Filters
 // ===============================
 
 const stockSearchInput = document.getElementById("stockSearchInput");
 
-function applyStockSearch() {
+function applyTableFilters() {
     const keyword = stockSearchInput
         ? stockSearchInput.value.trim().toLowerCase()
         : "";
@@ -413,26 +407,62 @@ function applyStockSearch() {
         const ticker = (row.dataset.ticker || "").toLowerCase();
         const name = (row.dataset.name || "").toLowerCase();
         const description = (row.dataset.description || "").toLowerCase();
+        const stock = STOCKS.find((item) => item.ticker === row.dataset.ticker);
 
         const matchesKeyword =
             ticker.includes(keyword) ||
             name.includes(keyword) ||
             description.includes(keyword);
 
-        const matchesWatchlist =
-            !watchMode || watchlist.includes(row.dataset.ticker);
+        let matchesFilter = true;
+
+        if (activeTableFilter === "watchlist") {
+            matchesFilter = watchlist.includes(row.dataset.ticker);
+        }
+
+        if (activeTableFilter === "grade") {
+            matchesFilter = stock && stock.score >= 75;
+        }
+
+        if (activeTableFilter === "entry") {
+            matchesFilter =
+                stock &&
+                stock.score >= 60 &&
+                stock.rsi >= 35 &&
+                stock.rsi <= 70;
+        }
+
+        if (activeTableFilter === "risk") {
+            matchesFilter =
+                stock &&
+                (
+                    stock.score < 50 ||
+                    stock.rsi >= 70 ||
+                    stock.signal_type === "red"
+                );
+        }
 
         row.style.display =
-            matchesKeyword && matchesWatchlist ? "" : "none";
+            matchesKeyword && matchesFilter ? "" : "none";
     });
 }
 
 if (stockSearchInput) {
-    stockSearchInput.addEventListener("input", applyStockSearch);
+    stockSearchInput.addEventListener("input", applyTableFilters);
 }
 
-renderWatchButtons();
-applyStockSearch();
+document.querySelectorAll(".chip[data-filter]").forEach((button) => {
+    button.addEventListener("click", () => {
+        activeTableFilter = button.dataset.filter;
+
+        document.querySelectorAll(".chip[data-filter]").forEach((item) => {
+            item.classList.remove("active");
+        });
+
+        button.classList.add("active");
+        applyTableFilters();
+    });
+});
 
 // ===============================
 // Market Toggle
@@ -446,3 +476,57 @@ if (marketSelect) {
         window.location.href = `/?market=${market}`;
     });
 }
+
+// ===============================
+// Sidebar Accordion
+// ===============================
+
+document.querySelectorAll(".sidebar-title").forEach((title) => {
+    title.addEventListener("click", () => {
+        const group = title.closest(".sidebar-group");
+
+        if (group) {
+            group.classList.toggle("closed");
+        }
+    });
+});
+
+document.querySelectorAll(".sidebar-sub button").forEach((button) => {
+    button.addEventListener("click", () => {
+        document.querySelectorAll(".sidebar-sub button").forEach((item) => {
+            item.classList.remove("active");
+        });
+
+        button.classList.add("active");
+    });
+});
+
+// ===============================
+// Scanner / ETF Tab
+// ===============================
+
+const stockScannerTab = document.getElementById("stockScannerTab");
+const etfTab = document.getElementById("etfTab");
+const stockScannerPanel = document.getElementById("stockScannerPanel");
+const etfPanel = document.getElementById("etfPanel");
+
+if (stockScannerTab && etfTab && stockScannerPanel && etfPanel) {
+    stockScannerTab.addEventListener("click", () => {
+        stockScannerTab.classList.add("active");
+        etfTab.classList.remove("active");
+
+        stockScannerPanel.classList.add("active");
+        etfPanel.classList.remove("active");
+    });
+
+    etfTab.addEventListener("click", () => {
+        etfTab.classList.add("active");
+        stockScannerTab.classList.remove("active");
+
+        etfPanel.classList.add("active");
+        stockScannerPanel.classList.remove("active");
+    });
+}
+
+renderWatchButtons();
+applyTableFilters();

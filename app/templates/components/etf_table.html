@@ -1,0 +1,60 @@
+
+<div class="table-container">
+    <table>
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>ETF</th>
+            <th>분류</th>
+            <th>점수</th>
+            <th>현재가</th>
+            <th>등락</th>
+            <th>RSI</th>
+            <th>상태</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for etf in etfs %}
+        <tr>
+            <td>
+                <span class="rank-circle">{{ loop.index }}</span>
+            </td>
+
+            <td>
+                <div class="stock-name">
+                    <strong>{{ etf.name }}</strong>
+                    <span>{{ etf.ticker }}</span>
+                </div>
+            </td>
+
+            <td>
+                <span class="sector-pill">{{ etf.category }}</span>
+            </td>
+
+            <td>
+                <div class="score-wrap">
+                    <strong class="score-number">{{ etf.score }}</strong>
+                    <div class="score-bar">
+                        <div class="score-fill {% if etf.score >= 75 %}score-good{% elif etf.score < 50 %}score-bad{% else %}score-mid{% endif %}"
+                             style="width: {{ etf.score }}%;"></div>
+                    </div>
+                </div>
+            </td>
+
+            <td>${{ etf.price }}</td>
+
+            <td class="{% if etf.change >= 0 %}up{% else %}down{% endif %}">
+                {% if etf.change >= 0 %}+{% endif %}{{ etf.change }}%
+            </td>
+
+            <td>{{ etf.rsi }}</td>
+
+            <td>
+                <span class="signal-badge green">{{ etf.signal }}</span>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
