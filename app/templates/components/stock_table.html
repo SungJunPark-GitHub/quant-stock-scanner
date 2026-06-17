@@ -7,7 +7,7 @@
 
     <div class="filter-buttons">
         <button class="filter active">전체</button>
-        <button class="filter">관심종목</button>
+        <button class="filter" id="watchlistFilter">관심종목</button>
         <button class="filter">S-A등급</button>
         <button class="filter">진입 탐색</button>
         <button class="filter danger">위험</button>
@@ -18,6 +18,7 @@
     <table>
         <thead>
         <tr>
+            <th>⭐</th>
             <th><input type="checkbox"></th>
             <th>#</th>
             <th>종목</th>
@@ -36,6 +37,14 @@
         <tbody>
         {% for stock in stocks %}
         <tr class="stock-row" data-ticker="{{ stock.ticker }}">
+            <td>
+                <button class="watch-btn"
+                        data-ticker="{{ stock.ticker }}"
+                        type="button">
+                    ☆
+                </button>
+            </td>
+
             <td><input type="checkbox"></td>
 
             <td>

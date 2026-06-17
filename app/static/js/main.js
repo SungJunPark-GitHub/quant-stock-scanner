@@ -276,3 +276,106 @@ tabs.forEach((tab) => {
         }
     });
 });
+
+const WATCHLIST_KEY = "quant_watchlist";
+
+function getWatchlist() {
+    return JSON.parse(
+        localStorage.getItem(WATCHLIST_KEY) || "[]"
+    );
+}
+
+function saveWatchlist(list) {
+    localStorage.setItem(
+        WATCHLIST_KEY,
+        JSON.stringify(list)
+    );
+}
+
+function toggleWatchlist(ticker) {
+    let watchlist = getWatchlist();
+
+    if (watchlist.includes(ticker)) {
+        watchlist = watchlist.filter(
+            (item) => item !== ticker
+        );
+    } else {
+        watchlist.push(ticker);
+    }
+
+    saveWatchlist(watchlist);
+    renderWatchButtons();
+}
+
+function renderWatchButtons() {
+    const watchlist = getWatchlist();
+
+    document.querySelectorAll(".watch-btn")
+        .forEach((button) => {
+            const ticker = button.dataset.ticker;
+
+            if (watchlist.includes(ticker)) {
+                button.textContent = "★";
+                button.classList.add("active");
+            } else {
+                button.textContent = "☆";
+                button.classList.remove("active");
+            }
+        });
+}
+
+document.querySelectorAll(".watch-btn")
+    .forEach((button) => {
+        button.addEventListener("click", (event) => {
+            event.stopPropagation();
+
+            toggleWatchlist(
+                button.dataset.ticker
+            );
+        });
+    });
+
+renderWatchButtons();
+
+const watchFilter =
+    document.getElementById(
+        "watchlistFilter"
+    );
+
+let watchMode = false;
+
+if (watchFilter) {
+    watchFilter.addEventListener(
+        "click",
+        () => {
+            watchMode = !watchMode;
+
+            watchFilter.classList.toggle(
+                "active"
+            );
+
+            const watchlist =
+                getWatchlist();
+
+            document.querySelectorAll(
+                ".stock-row"
+            ).forEach((row) => {
+                const ticker =
+                    row.dataset.ticker;
+
+                if (
+                    watchMode &&
+                    !watchlist.includes(
+                        ticker
+                    )
+                ) {
+                    row.style.display =
+                        "none";
+                } else {
+                    row.style.display =
+                        "";
+                }
+            });
+        }
+    );
+}

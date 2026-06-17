@@ -873,3 +873,20 @@ td small {
     border-radius: 999px;
     font-size: 18px;
 }
+
+.watch-btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 20px;
+    color: #9ca3af;
+    transition: 0.2s;
+}
+
+.watch-btn:hover {
+    transform: scale(1.15);
+}
+
+.watch-btn.active {
+    color: #f59e0b;
+}
