@@ -895,3 +895,16 @@ td small {
     background: #0d7df2;
     color: white;
 }
+
+.export-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    background: white;
+    border-radius: 8px;
+    font-weight: 700;
+    color: #111827;
+    text-decoration: none;
+}

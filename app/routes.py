@@ -1,4 +1,6 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, Response
+import csv
+import io
 
 from app.services.market_service import MAG7_TICKERS, get_stock_history, get_stock_info
 from app.services.indicator_service import calculate_rsi, calculate_ma, calculate_atr
@@ -126,3 +128,66 @@ def build_stock_data():
 def index():
     stocks = build_stock_data()
     return render_template("index.html", stocks=stocks)
+
+@main.route("/export/csv")
+def export_csv():
+    stocks = build_stock_data()
+
+    output = io.StringIO()
+    writer = csv.writer(output)
+
+    writer.writerow([
+        "순위",
+        "티커",
+        "종목명",
+        "설명",
+        "섹터",
+        "점수",
+        "시그널",
+        "현재가",
+        "등락률",
+        "RSI",
+        "RSI상태",
+        "ATR",
+        "MA20",
+        "MA50",
+        "MA200",
+        "MA상태",
+        "목표가",
+        "목표가괴리율",
+        "CAN_SLIM",
+    ])
+
+    for stock in stocks:
+        writer.writerow([
+            stock["rank"],
+            stock["ticker"],
+            stock["name"],
+            stock["description"],
+            stock["sector"],
+            stock["score"],
+            stock["signal"],
+            stock["price"],
+            stock["change"],
+            stock["rsi"],
+            stock["rsi_status"],
+            stock["atr"],
+            stock["ma20"],
+            stock["ma50"],
+            stock["ma200"],
+            stock["ma_status"],
+            stock["target"],
+            stock["target_change"],
+            f"{stock['canslim']['passed_count']}/{stock['canslim']['total_count']}",
+        ])
+
+    csv_data = "\ufeff" + output.getvalue()
+    output.close()
+
+    return Response(
+        csv_data,
+        mimetype="text/csv; charset=utf-8-sig",
+        headers={
+            "Content-Disposition": "attachment; filename=quant_stock_scanner.csv"
+        },
+    )
