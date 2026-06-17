@@ -6,16 +6,17 @@
 
     <div class="controls">
 
-        <select>
-            <option>🇺🇸 미국</option>
-            <option>🇰🇷 한국</option>
+        <select id="marketSelect">
+            <option value="US" {% if market == "US" %}selected{% endif %}>🇺🇸 미국 Mag7</option>
+            <option value="SP500" {% if market == "SP500" %}selected{% endif %}>🇺🇸 S&P500 Top 50</option>
+            <option value="KR" {% if market == "KR" %}selected{% endif %}>🇰🇷 한국</option>
         </select>
 
         <input type="text" id="stockSearchInput" placeholder="종목명 또는 티커 검색">
 
         <button>스캔</button>
         <button>설정</button>
-        <a href="/export/csv" class="export-btn">내보내기</a>
+        <a href="/export/csv?market={{ market }}" class="export-btn">내보내기</a>
 
     </div>
 

@@ -402,3 +402,16 @@ if (stockSearchInput) {
 
 renderWatchButtons();
 applyStockSearch();
+
+// ===============================
+// Market Toggle
+// ===============================
+
+const marketSelect = document.getElementById("marketSelect");
+
+if (marketSelect) {
+    marketSelect.addEventListener("change", () => {
+        const market = marketSelect.value;
+        window.location.href = `/?market=${market}`;
+    });
+}

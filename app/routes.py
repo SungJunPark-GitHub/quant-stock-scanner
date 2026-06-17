@@ -1,9 +1,9 @@
-from flask import Blueprint, render_template, Response
+from flask import Blueprint, render_template, Response, request
 import csv
 import io
 
 from app.services.backtest_service import run_simple_backtest
-from app.services.market_service import MAG7_TICKERS, get_stock_history, get_stock_info
+from app.services.market_service import get_market_tickers, get_stock_history, get_stock_info
 from app.services.indicator_service import (
     calculate_rsi,
     calculate_ma,
@@ -57,12 +57,13 @@ def build_chart_data(history):
     }
 
 
-def build_stock_data():
+def build_stock_data(market="US"):
     stocks = []
+    tickers = get_market_tickers(market)
 
-    for index, ticker in enumerate(MAG7_TICKERS, start=1):
+    for index, ticker in enumerate(tickers, start=1):
         history = get_stock_history(ticker)
-        info = get_stock_info(ticker)
+        info = get_stock_info(ticker, market)
 
         if history is None:
             continue
@@ -113,7 +114,7 @@ def build_stock_data():
             "ticker": ticker,
             "name": info["name"],
             "description": info["description"],
-            "sector": "Mag 7",
+            "sector": info["sector"] if market == "SP500" else "Korea" if market == "KR" else "Mag 7",
             "score": score,
             "signal": signal,
             "signal_type": signal_type,
@@ -154,13 +155,15 @@ def build_stock_data():
 
 @main.route("/")
 def index():
-    stocks = build_stock_data()
-    return render_template("index.html", stocks=stocks)
+    market = request.args.get("market", "US")
+    stocks = build_stock_data(market)
+    return render_template("index.html", stocks=stocks, market=market)
 
 
 @main.route("/export/csv")
 def export_csv():
-    stocks = build_stock_data()
+    market = request.args.get("market", "US")
+    stocks = build_stock_data(market)
 
     output = io.StringIO()
     writer = csv.writer(output)
