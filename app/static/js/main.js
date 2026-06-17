@@ -37,10 +37,17 @@ function openModal(ticker) {
     document.getElementById("modalPrice").textContent = stock.price;
     document.getElementById("modalChange").textContent = formatChange(stock.change);
     document.getElementById("modalRsi").textContent = stock.rsi;
+
     const rsiStatus = document.getElementById("modalRsiStatus");
     if (rsiStatus) {
         rsiStatus.textContent = stock.rsi_status;
         rsiStatus.className = stock.rsi_status_type;
+    }
+
+    const maStatus = document.getElementById("modalMaStatus");
+    if (maStatus) {
+        maStatus.textContent = stock.ma_status;
+        maStatus.className = stock.ma_status_type;
     }
 
     const macdStatus = document.getElementById("modalMacdStatus");
@@ -51,22 +58,6 @@ function openModal(ticker) {
 
     const price = getNumber(stock.price);
     const atr = getNumber(stock.atr, price * 0.03);
-
-    const backtest = stock.backtest;
-
-        if (backtest) {
-        document.getElementById("backtestTradeCount").textContent =
-            backtest.trade_count;
-
-        document.getElementById("backtestWinRate").textContent =
-            `${backtest.win_rate}%`;
-
-        document.getElementById("backtestAvgReturn").textContent =
-            `${backtest.avg_return}%`;
-
-        document.getElementById("backtestMdd").textContent =
-            `${backtest.mdd}%`;
-    }
 
     const buy = price;
     const stop = price - (atr * 1.5);
@@ -110,6 +101,22 @@ function openModal(ticker) {
             `;
             list.appendChild(div);
         });
+    }
+
+    const backtest = stock.backtest;
+
+    if (backtest) {
+        document.getElementById("backtestTradeCount").textContent =
+            backtest.trade_count;
+
+        document.getElementById("backtestWinRate").textContent =
+            `${backtest.win_rate}%`;
+
+        document.getElementById("backtestAvgReturn").textContent =
+            `${backtest.avg_return}%`;
+
+        document.getElementById("backtestMdd").textContent =
+            `${backtest.mdd}%`;
     }
 
     modal.classList.remove("hidden");
@@ -245,6 +252,10 @@ rows.forEach((row) => {
             return;
         }
 
+        if (event.target.classList.contains("watch-btn")) {
+            return;
+        }
+
         openModal(row.dataset.ticker);
     });
 });
@@ -293,105 +304,101 @@ tabs.forEach((tab) => {
     });
 });
 
+// ===============================
+// Watchlist
+// ===============================
+
 const WATCHLIST_KEY = "quant_watchlist";
+const watchFilter = document.getElementById("watchlistFilter");
+let watchMode = false;
 
 function getWatchlist() {
-    return JSON.parse(
-        localStorage.getItem(WATCHLIST_KEY) || "[]"
-    );
+    return JSON.parse(localStorage.getItem(WATCHLIST_KEY) || "[]");
 }
 
 function saveWatchlist(list) {
-    localStorage.setItem(
-        WATCHLIST_KEY,
-        JSON.stringify(list)
-    );
+    localStorage.setItem(WATCHLIST_KEY, JSON.stringify(list));
 }
 
 function toggleWatchlist(ticker) {
     let watchlist = getWatchlist();
 
     if (watchlist.includes(ticker)) {
-        watchlist = watchlist.filter(
-            (item) => item !== ticker
-        );
+        watchlist = watchlist.filter((item) => item !== ticker);
     } else {
         watchlist.push(ticker);
     }
 
     saveWatchlist(watchlist);
     renderWatchButtons();
+    applyStockSearch();
 }
 
 function renderWatchButtons() {
     const watchlist = getWatchlist();
 
-    document.querySelectorAll(".watch-btn")
-        .forEach((button) => {
-            const ticker = button.dataset.ticker;
+    document.querySelectorAll(".watch-btn").forEach((button) => {
+        const ticker = button.dataset.ticker;
 
-            if (watchlist.includes(ticker)) {
-                button.textContent = "★";
-                button.classList.add("active");
-            } else {
-                button.textContent = "☆";
-                button.classList.remove("active");
-            }
-        });
+        if (watchlist.includes(ticker)) {
+            button.textContent = "★";
+            button.classList.add("active");
+        } else {
+            button.textContent = "☆";
+            button.classList.remove("active");
+        }
+    });
 }
 
-document.querySelectorAll(".watch-btn")
-    .forEach((button) => {
-        button.addEventListener("click", (event) => {
-            event.stopPropagation();
-
-            toggleWatchlist(
-                button.dataset.ticker
-            );
-        });
+document.querySelectorAll(".watch-btn").forEach((button) => {
+    button.addEventListener("click", (event) => {
+        event.stopPropagation();
+        toggleWatchlist(button.dataset.ticker);
     });
-
-renderWatchButtons();
-
-const watchFilter =
-    document.getElementById(
-        "watchlistFilter"
-    );
-
-let watchMode = false;
+});
 
 if (watchFilter) {
-    watchFilter.addEventListener(
-        "click",
-        () => {
-            watchMode = !watchMode;
-
-            watchFilter.classList.toggle(
-                "active"
-            );
-
-            const watchlist =
-                getWatchlist();
-
-            document.querySelectorAll(
-                ".stock-row"
-            ).forEach((row) => {
-                const ticker =
-                    row.dataset.ticker;
-
-                if (
-                    watchMode &&
-                    !watchlist.includes(
-                        ticker
-                    )
-                ) {
-                    row.style.display =
-                        "none";
-                } else {
-                    row.style.display =
-                        "";
-                }
-            });
-        }
-    );
+    watchFilter.addEventListener("click", () => {
+        watchMode = !watchMode;
+        watchFilter.classList.toggle("active");
+        applyStockSearch();
+    });
 }
+
+// ===============================
+// Stock Search
+// ===============================
+
+const stockSearchInput = document.getElementById("stockSearchInput");
+
+function applyStockSearch() {
+    const keyword = stockSearchInput
+        ? stockSearchInput.value.trim().toLowerCase()
+        : "";
+
+    const watchlist = getWatchlist();
+
+    document.querySelectorAll(".stock-row").forEach((row) => {
+        const ticker = (row.dataset.ticker || "").toLowerCase();
+        const name = (row.dataset.name || "").toLowerCase();
+        const description = (row.dataset.description || "").toLowerCase();
+
+        const matchesKeyword =
+            ticker.includes(keyword) ||
+            name.includes(keyword) ||
+            description.includes(keyword);
+
+        const matchesWatchlist =
+            !watchMode || watchlist.includes(row.dataset.ticker);
+
+        row.style.display =
+            matchesKeyword && matchesWatchlist ? "" : "none";
+    });
+}
+
+if (stockSearchInput) {
+    stockSearchInput.addEventListener("input", applyStockSearch);
+}
+
+renderWatchButtons();
+applyStockSearch();
