@@ -33,6 +33,65 @@ function setText(id, value) {
     }
 }
 
+function getHeroByGrade(grade) {
+    if (grade === "S") {
+        return {
+            title: "시장을 이기는 기업은 조정에도 돈이 붙는다",
+            subtitle: "최상위 점수 · 강한 추세 · 우수한 상대강도",
+        };
+    }
+
+    if (grade === "A") {
+        return {
+            title: "장사 잘하는 기업은 시장 조정에도 돈이 붙는다",
+            subtitle: "우수한 점수 · 안정적 추세 · 리스크 관리 가능",
+        };
+    }
+
+    if (grade === "B") {
+        return {
+            title: "좋은 기업도 타이밍은 따져봐야 한다",
+            subtitle: "중상위 점수 · 추세 확인 · 진입 시점 점검",
+        };
+    }
+
+    if (grade === "C") {
+        return {
+            title: "아직은 관망이 필요한 구간입니다",
+            subtitle: "중립 점수 · 모멘텀 약화 · 추가 확인 필요",
+        };
+    }
+
+    if (grade === "D") {
+        return {
+            title: "리스크 관리가 우선인 구간입니다",
+            subtitle: "낮은 점수 · 추세 불안 · 보수적 접근 필요",
+        };
+    }
+
+    return {
+        title: "리스크가 높은 구간입니다",
+        subtitle: "약한 점수 · 손실 위험 · 매수 신중",
+    };
+}
+
+function updateHeroByStock(stock) {
+    const grade = stock.grade || "F";
+    const gradeType = stock.grade_type || "grade-f";
+    const hero = getHeroByGrade(grade);
+
+    setText("modalHeroTitle", hero.title);
+    setText("modalHeroSubtitle", hero.subtitle);
+    setText("modalHeroGrade", grade);
+    setText("modalGradeBadge", grade);
+
+    const badge = document.getElementById("modalGradeBadge");
+
+    if (badge) {
+        badge.className = `grade-badge ${gradeType}`;
+    }
+}
+
 function openModal(ticker) {
     const stock = STOCKS.find((item) => item.ticker === ticker);
 
@@ -48,6 +107,8 @@ function openModal(ticker) {
     setText("modalTicker", stock.ticker);
     setText("modalDescription", stock.description);
     setText("modalScore", stock.score);
+    updateHeroByStock(stock);
+
     setText("modalPrice", stock.price);
     setText("modalChange", formatChange(stock.change));
     setText("modalRsi", stock.rsi);
@@ -67,53 +128,55 @@ function openModal(ticker) {
     }
 
     const news = stock.news;
-if (news) {
-    setText("modalNewsHeadline", news.headline);
 
-    const newsSentiment = document.getElementById("modalNewsSentiment");
-    if (newsSentiment) {
-        newsSentiment.textContent = news.sentiment;
-        newsSentiment.className = `news-badge ${news.sentiment_type}`;
-    }
+    if (news) {
+        setText("modalNewsHeadline", news.headline);
 
-    const newsList = document.getElementById("modalNewsList");
+        const newsSentiment = document.getElementById("modalNewsSentiment");
 
-    if (newsList) {
-        newsList.innerHTML = "";
+        if (newsSentiment) {
+            newsSentiment.textContent = news.sentiment;
+            newsSentiment.className = `news-badge ${news.sentiment_type}`;
+        }
 
-        if (news.items && news.items.length > 0) {
-            news.items.forEach((item) => {
-                const div = document.createElement("div");
-                div.className = "modal-news-item";
+        const newsList = document.getElementById("modalNewsList");
 
-                div.innerHTML = `
-                    <div>
-                        <strong>${item.title}</strong>
-                        <p>${item.publisher || "Yahoo Finance"}</p>
+        if (newsList) {
+            newsList.innerHTML = "";
+
+            if (news.items && news.items.length > 0) {
+                news.items.forEach((item) => {
+                    const div = document.createElement("div");
+                    div.className = "modal-news-item";
+
+                    div.innerHTML = `
+                        <div>
+                            <strong>${item.title}</strong>
+                            <p>${item.publisher || "Yahoo Finance"}</p>
+                        </div>
+                        <span class="news-badge ${item.sentiment_type}">
+                            ${item.sentiment}
+                        </span>
+                    `;
+
+                    if (item.link) {
+                        div.addEventListener("click", () => {
+                            window.open(item.link, "_blank");
+                        });
+                        div.classList.add("clickable");
+                    }
+
+                    newsList.appendChild(div);
+                });
+            } else {
+                newsList.innerHTML = `
+                    <div class="modal-news-empty">
+                        표시할 뉴스가 없습니다.
                     </div>
-                    <span class="news-badge ${item.sentiment_type}">
-                        ${item.sentiment}
-                    </span>
                 `;
-
-                if (item.link) {
-                    div.addEventListener("click", () => {
-                        window.open(item.link, "_blank");
-                    });
-                    div.classList.add("clickable");
-                }
-
-                newsList.appendChild(div);
-            });
-        } else {
-            newsList.innerHTML = `
-                <div class="modal-news-empty">
-                    표시할 뉴스가 없습니다.
-                </div>
-            `;
+            }
         }
     }
-}
 
     const rsiStatus = document.getElementById("modalRsiStatus");
     if (rsiStatus) {
@@ -152,6 +215,7 @@ if (news) {
     }
 
     const canslim = stock.canslim;
+
     if (canslim) {
         setText("modalCanslimScore", canslim.score);
         setText("modalCanslimCount", `${canslim.passed_count}/${canslim.total_count}`);
@@ -162,6 +226,7 @@ if (news) {
         }
 
         const list = document.getElementById("modalCanslimList");
+
         if (list) {
             list.innerHTML = "";
 
@@ -181,6 +246,7 @@ if (news) {
     }
 
     const backtest = stock.backtest;
+
     if (backtest) {
         setText("backtestTradeCount", backtest.trade_count);
         setText("backtestWinRate", `${backtest.win_rate}%`);
@@ -289,6 +355,7 @@ function renderPriceChart(stock, range = "6M") {
                             if (context.parsed.y === null) {
                                 return "";
                             }
+
                             return `${context.dataset.label}: $${context.parsed.y}`;
                         },
                     },
@@ -366,6 +433,7 @@ tabs.forEach((tab) => {
         tab.classList.add("active");
 
         const targetPanel = document.getElementById(target);
+
         if (targetPanel) {
             targetPanel.classList.add("active");
         }
@@ -446,6 +514,7 @@ function applyTableFilters() {
         const ticker = (row.dataset.ticker || "").toLowerCase();
         const name = (row.dataset.name || "").toLowerCase();
         const description = (row.dataset.description || "").toLowerCase();
+        const sector = (row.dataset.sector || "").toLowerCase();
         const stock = STOCKS.find((item) => item.ticker === row.dataset.ticker);
 
         const matchesKeyword =
@@ -460,7 +529,7 @@ function applyTableFilters() {
         }
 
         if (activeTableFilter === "grade") {
-            matchesFilter = stock && stock.score >= 75;
+            matchesFilter = stock && ["S", "A"].includes(stock.grade);
         }
 
         if (activeTableFilter === "entry") {
@@ -481,20 +550,19 @@ function applyTableFilters() {
                 );
         }
 
-            const sector = (row.dataset.sector || "").toLowerCase();
-            const sectorText = `${ticker} ${name} ${description} ${sector}`;
-            
-            let matchesSector = true;
-            
-            if (activeSectorFilter !== "전체") {
-                const keywords = getSectorKeywords(activeSectorFilter);
-                matchesSector = keywords.some((keyword) =>
-                    sectorText.includes(keyword.toLowerCase())
-                );
-            }
-            
-            row.style.display =
-                matchesKeyword && matchesFilter && matchesSector ? "" : "none";
+        const sectorText = `${ticker} ${name} ${description} ${sector}`;
+
+        let matchesSector = true;
+
+        if (activeSectorFilter !== "전체") {
+            const keywords = getSectorKeywords(activeSectorFilter);
+            matchesSector = keywords.some((keyword) =>
+                sectorText.includes(keyword.toLowerCase())
+            );
+        }
+
+        row.style.display =
+            matchesKeyword && matchesFilter && matchesSector ? "" : "none";
     });
 }
 
@@ -529,61 +597,7 @@ if (marketSelect) {
 }
 
 // ===============================
-// Sidebar Accordion
-// ===============================
-
-document.querySelectorAll(".sidebar-title").forEach((title) => {
-    title.addEventListener("click", () => {
-        const group = title.closest(".sidebar-group");
-
-        if (group) {
-            group.classList.toggle("closed");
-        }
-    });
-});
-
-document.querySelectorAll(".sidebar-sub button").forEach((button) => {
-    button.addEventListener("click", () => {
-        document.querySelectorAll(".sidebar-sub button").forEach((item) => {
-            item.classList.remove("active");
-        });
-
-        button.classList.add("active");
-    });
-});
-
-// ===============================
-// Scanner / ETF Tab
-// ===============================
-
-const stockScannerTab = document.getElementById("stockScannerTab");
-const etfTab = document.getElementById("etfTab");
-const stockScannerPanel = document.getElementById("stockScannerPanel");
-const etfPanel = document.getElementById("etfPanel");
-
-if (stockScannerTab && etfTab && stockScannerPanel && etfPanel) {
-    stockScannerTab.addEventListener("click", () => {
-        stockScannerTab.classList.add("active");
-        etfTab.classList.remove("active");
-
-        stockScannerPanel.classList.add("active");
-        etfPanel.classList.remove("active");
-    });
-
-    etfTab.addEventListener("click", () => {
-        etfTab.classList.add("active");
-        stockScannerTab.classList.remove("active");
-
-        etfPanel.classList.add("active");
-        stockScannerPanel.classList.remove("active");
-    });
-}
-
-renderWatchButtons();
-applyTableFilters();
-
-// ===============================
-// Sidebar Sector Filter
+// Sidebar Accordion + Sector Filter
 // ===============================
 
 function getSectorKeywords(label) {
@@ -612,6 +626,16 @@ function getSectorKeywords(label) {
 }
 
 const activeSectorLabel = document.getElementById("activeSectorLabel");
+
+document.querySelectorAll(".sidebar-title").forEach((title) => {
+    title.addEventListener("click", () => {
+        const group = title.closest(".sidebar-group");
+
+        if (group) {
+            group.classList.toggle("closed");
+        }
+    });
+});
 
 document.querySelectorAll(".sidebar-sub button").forEach((button) => {
     button.addEventListener("click", () => {
@@ -646,6 +670,33 @@ if (sidebarAll) {
         });
 
         applyTableFilters();
+    });
+}
+
+// ===============================
+// Scanner / ETF Tab
+// ===============================
+
+const stockScannerTab = document.getElementById("stockScannerTab");
+const etfTab = document.getElementById("etfTab");
+const stockScannerPanel = document.getElementById("stockScannerPanel");
+const etfPanel = document.getElementById("etfPanel");
+
+if (stockScannerTab && etfTab && stockScannerPanel && etfPanel) {
+    stockScannerTab.addEventListener("click", () => {
+        stockScannerTab.classList.add("active");
+        etfTab.classList.remove("active");
+
+        stockScannerPanel.classList.add("active");
+        etfPanel.classList.remove("active");
+    });
+
+    etfTab.addEventListener("click", () => {
+        etfTab.classList.add("active");
+        stockScannerTab.classList.remove("active");
+
+        etfPanel.classList.add("active");
+        stockScannerPanel.classList.remove("active");
     });
 }
 
@@ -722,7 +773,11 @@ function sortStockTable(sortKey) {
 
 function updateSortHeaders() {
     document.querySelectorAll(".sortable").forEach((header) => {
-        const label = header.textContent.replace(" ▲", "").replace(" ▼", "").replace(" ↕", "");
+        const label = header.textContent
+            .replace(" ▲", "")
+            .replace(" ▼", "")
+            .replace(" ↕", "");
+
         const sortKey = header.dataset.sort;
 
         if (sortKey === currentSortKey) {
@@ -738,3 +793,6 @@ document.querySelectorAll(".sortable").forEach((header) => {
         sortStockTable(header.dataset.sort);
     });
 });
+
+renderWatchButtons();
+applyTableFilters();

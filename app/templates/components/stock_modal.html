@@ -30,20 +30,32 @@
         <div class="modal-body">
 
             <section class="tab-panel active" id="summary">
-                <div class="hero-card">
+                <div class="hero-card" id="modalHeroCard">
                     <div>
-                        <h1>장사 잘하는 기업은 시장 조정에도 돈이 붙는다</h1>
-                        <p>실적 · 추세 · 수급 · 리스크를 함께 보는 퀀트 스캐너</p>
+                        <h1 id="modalHeroTitle">장사 잘하는 기업은 시장 조정에도 돈이 붙는다</h1>
+                        <p id="modalHeroSubtitle">실적 · 추세 · 수급 · 리스크를 함께 보는 퀀트 스캐너</p>
                     </div>
-                    <div class="hero-letter">A</div>
+                    <div class="hero-letter" id="modalHeroGrade">A</div>
                 </div>
 
                 <div class="summary-grid">
                     <div class="score-card">
                         <p>종합 점수</p>
-                        <h1><span id="modalScore">91</span><small>점</small></h1>
-                        <span class="grade-badge">S</span>
-                        <span class="risk-badge">Risk 44 / 99 주의</span>
+                    
+                        <h1>
+                            <span id="modalScore">91</span>
+                            <small>점</small>
+                        </h1>
+                    
+                        <span
+                            class="grade-badge grade-a"
+                            id="modalGradeBadge">
+                            A
+                        </span>
+                    
+                        <span class="risk-badge">
+                            Risk 44 / 99 주의
+                        </span>
                     </div>
 
                     <div class="metric-card">

@@ -1,0 +1,23 @@
+<div class="market-bar">
+
+    <span class="market-risk {{ market_overview.risk_label.type }}">
+        ⚠ {{ market_overview.risk_label.text }}
+    </span>
+
+    {% for item in market_overview["items"] %}
+    <span class="market-item">
+        {{ item.name }}
+        <strong>{{ "{:,.2f}".format(item.price) }}</strong>
+
+        <small class="{{ item.change_type }}">
+            {% if item.change > 0 %}+{% endif %}
+            {{ item.change }}%
+        </small>
+    </span>
+    {% endfor %}
+
+    <span class="market-updated">
+        {{ market_overview.updated_at }}
+    </span>
+
+</div>
