@@ -19,6 +19,7 @@ from app.services.indicator_service import (
 )
 from app.services.score_service import calculate_score, get_signal
 from app.services.canslim_service import build_canslim
+from app.services.news_service import get_news_sentiment
 
 main = Blueprint("main", __name__)
 
@@ -70,6 +71,7 @@ def build_stock_data(market="US"):
         history = get_stock_history(ticker)
         info = get_stock_info(ticker, market)
         extended = get_extended_market_info(ticker)
+        news = get_news_sentiment(ticker)
 
         if history is None:
             continue
@@ -143,6 +145,7 @@ def build_stock_data(market="US"):
             "premarket_change": extended["premarket_change"],
             "aftermarket_price": extended["aftermarket_price"],
             "aftermarket_change": extended["aftermarket_change"],
+            "news": news,
             "high_52w": high_52w,
             "volume_ratio": volume_ratio,
             "canslim": canslim,
@@ -152,6 +155,7 @@ def build_stock_data(market="US"):
                 f"MACD {macd['status']}",
                 f"거래량 {volume_ratio}x",
                 f"CAN {canslim['passed_count']}/7",
+                f"News {news['sentiment']}",
             ],
         })
 

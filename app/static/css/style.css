@@ -985,3 +985,26 @@ td small {
     font-size: 12px;
     font-weight: 800;
 }
+
+.news-badge {
+    display: inline-flex;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.news-badge.green {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.news-badge.yellow {
+    background: #fef3c7;
+    color: #b45309;
+}
+
+.news-badge.red {
+    background: #fee2e2;
+    color: #dc2626;
+}

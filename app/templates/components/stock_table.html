@@ -32,6 +32,7 @@
             <th>등락</th>
             <th>RSI</th>
             <th>목표가</th>
+            <th>뉴스</th>
             <th>핵심 이유</th>
         </tr>
         </thead>
@@ -132,6 +133,12 @@
                 <small class="{% if stock.target_change >= 0 %}up{% else %}down{% endif %}">
                     {% if stock.target_change >= 0 %}+{% endif %}{{ stock.target_change }}%
                 </small>
+            </td>
+
+            <td>
+                <span class="news-badge {{ stock.news.sentiment_type }}">
+                    {{ stock.news.sentiment }}
+                </span>
             </td>
 
             <td>

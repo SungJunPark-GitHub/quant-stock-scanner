@@ -57,6 +57,19 @@ function openModal(ticker) {
             : "N/A";
     }
 
+    const news = stock.news;
+
+    if (news) {
+    setText("modalNewsHeadline", news.headline);
+
+    const newsSentiment = document.getElementById("modalNewsSentiment");
+
+    if (newsSentiment) {
+        newsSentiment.textContent = news.sentiment;
+        newsSentiment.className = `news-badge ${news.sentiment_type}`;
+        }
+    }
+
     const aftermarket = document.getElementById("modalAftermarket");
     if (aftermarket) {
         aftermarket.textContent = stock.aftermarket_price
