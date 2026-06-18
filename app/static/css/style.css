@@ -1561,3 +1561,136 @@ table thead th:nth-child(4) {
     color: #111827;
     box-shadow: 0 1px 4px rgba(15, 23, 42, 0.12);
 }
+
+.scanner-table {
+    min-width: 1500px;
+}
+
+.desc-text {
+    color: #374151;
+    font-weight: 800;
+    line-height: 1.4;
+}
+
+.score-text-good {
+    color: #22c55e;
+}
+
+.score-text-mid {
+    color: #f59e0b;
+}
+
+.score-text-bad {
+    color: #ef4444;
+}
+
+.signal-stack {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.signal-dot {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.signal-dot.green {
+    background: #22c55e;
+}
+
+.signal-dot.blue {
+    background: #3b82f6;
+}
+
+.signal-dot.yellow {
+    background: #facc15;
+}
+
+.signal-dot.red {
+    background: #ef4444;
+}
+
+.reason-list.compact {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-start;
+}
+
+.reason-list.compact span {
+    display: inline-flex;
+    padding: 4px 8px;
+    border-radius: 999px;
+    background: #ecfdf5;
+    color: #16a34a;
+    font-size: 11px;
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+.scanner-table {
+    min-width: 1500px;
+}
+
+.scanner-table th:nth-child(1),
+.scanner-table td:nth-child(1) {
+    position: sticky;
+    left: 0;
+    z-index: 5;
+    background: white;
+    min-width: 54px;
+}
+
+.scanner-table th:nth-child(2),
+.scanner-table td:nth-child(2) {
+    position: sticky;
+    left: 54px;
+    z-index: 5;
+    background: white;
+    min-width: 58px;
+}
+
+.scanner-table th:nth-child(3),
+.scanner-table td:nth-child(3) {
+    position: sticky;
+    left: 112px;
+    z-index: 5;
+    background: white;
+    min-width: 220px;
+    box-shadow: 8px 0 12px rgba(15, 23, 42, 0.06);
+}
+
+.scanner-table thead th:nth-child(1),
+.scanner-table thead th:nth-child(2),
+.scanner-table thead th:nth-child(3) {
+    z-index: 8;
+    background: #f9fafb;
+}
+
+.stock-row:hover td:nth-child(1),
+.stock-row:hover td:nth-child(2),
+.stock-row:hover td:nth-child(3) {
+    background: #f0f7ff;
+}
+
+.reason-list.compact {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-start;
+}
+
+.reason-list.compact span {
+    display: inline-flex;
+    padding: 4px 8px;
+    border-radius: 999px;
+    background: #ecfdf5;
+    color: #16a34a;
+    font-size: 11px;
+    font-weight: 900;
+    white-space: nowrap;
+}

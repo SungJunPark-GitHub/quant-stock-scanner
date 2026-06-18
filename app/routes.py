@@ -107,6 +107,57 @@ def build_reason_text(rsi, macd_status, volume_ratio, canslim, ma_status):
     return reasons[:4]
 
 
+def format_large_number(value):
+    value = safe_float(value)
+
+    if value >= 1_000_000_000_000:
+        return f"${round(value / 1_000_000_000_000, 2)}T"
+
+    if value >= 1_000_000_000:
+        return f"${round(value / 1_000_000_000, 2)}B"
+
+    if value >= 1_000_000:
+        return f"{round(value / 1_000_000, 2)}M"
+
+    if value >= 1_000:
+        return f"{round(value / 1_000, 2)}K"
+
+    return "N/A"
+
+
+def build_reason_tags(rsi, high_52w, price, volume_ratio, canslim, target_change, info):
+    tags = []
+
+    if high_52w > 0 and price / high_52w >= 0.95:
+        tags.append("📈 신고가")
+
+    if volume_ratio >= 1.2:
+        tags.append(f"🐳 {round(volume_ratio, 1)}x")
+
+    if rsi >= 70:
+        tags.append(f"RSI {round(rsi)} 과열")
+    elif rsi <= 35:
+        tags.append(f"RSI {round(rsi)} 저점")
+    else:
+        tags.append(f"RSI {round(rsi)}")
+
+    if canslim and canslim.get("passed_count", 0) >= 5:
+        tags.append("🏆 RS 우수")
+
+    if target_change >= 10:
+        tags.append(f"목표가 +{round(target_change)}%")
+
+    roe = safe_float(info.get("roe")) * 100
+    if roe >= 20:
+        tags.append(f"💰 ROE{round(roe)}%")
+
+    growth = safe_float(info.get("earnings_growth")) * 100
+    if growth >= 10:
+        tags.append("📊 EPS↑")
+
+    return tags[:5]
+
+
 def build_stock_data(market="US"):
     stocks = []
     tickers = get_market_tickers(market)

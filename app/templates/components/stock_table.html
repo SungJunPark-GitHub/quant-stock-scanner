@@ -12,7 +12,9 @@
             <th class="sortable" data-sort="price">현재가 ↕</th>
             <th class="sortable" data-sort="change">등락 ↕</th>
             <th class="sortable" data-sort="rsi">RSI ↕</th>
-            <th class="sortable" data-sort="target">목표가 ↕</th>
+            <th>평균거래량</th>
+            <th>시총</th>
+            <th class="sortable" data-sort="target">증권사 목표가 ↕</th>
             <th>핵심 이유</th>
         </tr>
         </thead>
@@ -26,11 +28,7 @@
             data-sector="{{ stock.sector }}">
 
             <td>
-                <button class="watch-btn"
-                        data-ticker="{{ stock.ticker }}"
-                        type="button">
-                    ☆
-                </button>
+                <button class="watch-btn" data-ticker="{{ stock.ticker }}" type="button">☆</button>
             </td>
 
             <td>
@@ -66,22 +64,18 @@
 
             <td>
                 <div class="signal-stack">
-                    <div>
-                        <span class="signal-dot {{ stock.signal_type }}"></span>
-                        <span class="signal-badge {{ stock.signal_type }}">
-                            {{ stock.signal }}
-                        </span>
-                    </div>
-
-                    <div class="mini-tags">
-                        <span class="{{ stock.grade_type }}">{{ stock.grade }}</span>
-                        <span>추세</span>
-                    </div>
+                    <span class="signal-dot {{ stock.signal_type }}"></span>
+                    <span class="signal-badge {{ stock.signal_type }}">
+                        {{ stock.signal }}
+                    </span>
+                    <span class="small-badge {{ stock.grade_type }}">
+                        {{ stock.grade }}
+                    </span>
                 </div>
             </td>
 
             <td>
-                <strong>${{ stock.price }}</strong>
+                <strong>{{ stock.price }}</strong>
             </td>
 
             <td class="{% if stock.change >= 0 %}up{% else %}down{% endif %}">
@@ -91,14 +85,19 @@
             <td>
                 <div class="rsi-cell">
                     <strong>{{ stock.rsi }}</strong>
-                    <small>{{ stock.rsi_status }}</small>
+                    <div class="rsi-line">
+                        <div class="{% if stock.rsi >= 70 %}rsi-hot{% elif stock.rsi <= 30 %}rsi-cold{% else %}rsi-normal{% endif %}"
+                             style="width: {{ stock.rsi }}%;"></div>
+                    </div>
                 </div>
             </td>
 
+            <td>{{ stock.average_volume }}</td>
+
+            <td>{{ stock.market_cap }}</td>
+
             <td>
-                <strong class="{% if stock.target_change >= 0 %}up{% else %}down{% endif %}">
-                    {{ stock.target }}
-                </strong>
+                <strong>{{ stock.target }}</strong>
                 <small class="{% if stock.target_change >= 0 %}up{% else %}down{% endif %}">
                     {% if stock.target_change >= 0 %}+{% endif %}{{ stock.target_change }}%
                 </small>
@@ -106,7 +105,7 @@
 
             <td>
                 <div class="reason-list compact">
-                    {% for item in stock.reason %}
+                    {% for item in stock.reason_tags %}
                     <span>{{ item }}</span>
                     {% endfor %}
                 </div>
