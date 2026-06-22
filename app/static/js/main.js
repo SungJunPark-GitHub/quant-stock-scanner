@@ -16,6 +16,56 @@ let activeTableFilter = "all";
 let activeSectorFilter = "전체";
 let activeIndexFilter = document.querySelector(".index-chip.active")?.dataset.indexKey || "";
 
+function reportClientError(payload) {
+    const config = window.APP_MONITORING || {};
+
+    if (!config.enabled || !config.clientErrorEndpoint) {
+        return;
+    }
+
+    const body = JSON.stringify({
+        ...payload,
+        path: window.location.pathname,
+        href: window.location.href,
+        userAgent: navigator.userAgent,
+        occurredAt: new Date().toISOString(),
+    });
+
+    try {
+        fetch(config.clientErrorEndpoint, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body,
+            keepalive: true,
+        }).catch(() => {});
+    } catch (error) {
+        // Reporting must never break the app itself.
+    }
+}
+
+window.addEventListener("error", (event) => {
+    reportClientError({
+        type: "error",
+        message: event.message,
+        source: event.filename,
+        lineno: event.lineno,
+        colno: event.colno,
+        stack: event.error?.stack,
+    });
+});
+
+window.addEventListener("unhandledrejection", (event) => {
+    const reason = event.reason || {};
+
+    reportClientError({
+        type: "unhandledrejection",
+        message: reason.message || String(reason),
+        stack: reason.stack,
+    });
+});
+
 function formatChange(value) {
     if (value === null || value === undefined) {
         return "N/A";

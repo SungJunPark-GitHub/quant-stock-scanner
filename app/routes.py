@@ -1643,6 +1643,42 @@ def update_status():
     return jsonify(get_auto_update_status())
 
 
+@main.route("/api/client-error", methods=["POST"])
+def client_error():
+    payload = request.get_json(silent=True) or {}
+    message = str(payload.get("message") or "Client error")[:500]
+    source = str(payload.get("source") or "")[:300]
+    lineno = payload.get("lineno")
+    colno = payload.get("colno")
+    path = str(payload.get("path") or "")[:300]
+    user_agent = request.headers.get("User-Agent", "")[:300]
+
+    print(
+        "[CLIENT ERROR]",
+        json.dumps({
+            "message": message,
+            "source": source,
+            "lineno": lineno,
+            "colno": colno,
+            "path": path,
+            "user_agent": user_agent,
+        }, ensure_ascii=False),
+    )
+
+    try:
+        import sentry_sdk
+
+        with sentry_sdk.push_scope() as scope:
+            scope.set_tag("source", "browser")
+            scope.set_extra("client_payload", payload)
+            scope.set_extra("user_agent", user_agent)
+            sentry_sdk.capture_message(message, level="error")
+    except Exception:
+        pass
+
+    return jsonify({"ok": True})
+
+
 @main.route("/api/stock/reference")
 def stock_reference():
     ticker = request.args.get("ticker", "").strip().upper()

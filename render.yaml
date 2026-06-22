@@ -18,3 +18,11 @@ services:
         value: "1"
       - key: WEB_CONCURRENCY
         value: "1"
+      - key: APP_ENV
+        value: "production"
+      - key: SENTRY_TRACES_SAMPLE_RATE
+        value: "0.05"
+      - key: SENTRY_DSN
+        sync: false
+      - key: GA_MEASUREMENT_ID
+        sync: false

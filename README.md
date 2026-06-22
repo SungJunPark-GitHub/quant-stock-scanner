@@ -101,6 +101,47 @@ AUTO_UPDATE_ENABLED=0
 - 장기 운영 시 스냅샷, 채팅, 관심종목, 사용자 메모는 DB로 옮기는 것이 좋습니다.
 - 자동 갱신을 다시 켤 경우 메모리 사용량이 크게 늘 수 있고, 중복 실행을 막기 위해 배포 명령은 `--workers 1`을 유지해야 합니다.
 
+## 운영 모니터링
+
+무료 배포 후 방문자와 에러를 확인할 수 있도록 환경변수 기반 모니터링을 지원합니다.
+
+### 방문자 수
+
+Google Analytics 4의 Measurement ID를 Render 환경변수에 넣으면 자동으로 GA 스크립트가 켜집니다.
+
+```text
+GA_MEASUREMENT_ID=G-XXXXXXXXXX
+```
+
+확인 위치:
+
+- Google Analytics 실시간 보고서
+- Google Analytics 참여도/페이지 보고서
+
+### 서버 에러
+
+Sentry DSN을 Render 환경변수에 넣으면 Flask 서버 에러가 Sentry로 전송됩니다.
+
+```text
+SENTRY_DSN=https://...
+SENTRY_TRACES_SAMPLE_RATE=0.05
+APP_ENV=production
+```
+
+확인 위치:
+
+- Sentry Issues
+- Sentry Performance
+- Render Logs
+- Render Events
+
+### 브라우저 에러
+
+브라우저 JavaScript 에러와 Promise 에러는 `/api/client-error`로 전송됩니다.
+`SENTRY_DSN`이 있으면 Sentry에도 기록되고, 없으면 Render 로그에 `[CLIENT ERROR]`로 남습니다.
+
+개인정보를 줄이기 위해 기본 Sentry 설정은 `send_default_pii=False`입니다.
+
 ## 프로젝트 구조
 
 ```text
