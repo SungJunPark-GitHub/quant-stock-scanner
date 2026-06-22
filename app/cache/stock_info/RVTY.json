@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089596.348247,
+  "info": {
+    "ticker": "RVTY",
+    "name": "Revvity",
+    "sector": "헬스케어",
+    "description": "헬스케어",
+    "price": 100.0,
+    "target": 113.64286,
+    "roe": 0.03227,
+    "earnings_growth": 0.035,
+    "market_cap": 11155977216,
+    "average_volume": 1288359
+  }
+}

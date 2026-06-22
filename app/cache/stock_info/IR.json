@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089465.912761,
+  "info": {
+    "ticker": "IR",
+    "name": "Ingersoll Rand",
+    "sector": "전문 산업기계",
+    "description": "전문 산업기계",
+    "price": 77.91,
+    "target": 93.2,
+    "roe": 0.057150003,
+    "earnings_growth": 0.065,
+    "market_cap": 30489053184,
+    "average_volume": 3820429
+  }
+}

@@ -1,0 +1,142 @@
+[
+  {
+    "code": "247540",
+    "ticker": "247540.KQ",
+    "name": "에코프로비엠",
+    "sector": "이차전지",
+    "description": "양극재 · 배터리 소재"
+  },
+  {
+    "code": "086520",
+    "ticker": "086520.KQ",
+    "name": "에코프로",
+    "sector": "이차전지",
+    "description": "이차전지 소재 · 지주"
+  },
+  {
+    "code": "028300",
+    "ticker": "028300.KQ",
+    "name": "HLB",
+    "sector": "바이오·헬스케어",
+    "description": "바이오 신약 · 항암"
+  },
+  {
+    "code": "196170",
+    "ticker": "196170.KQ",
+    "name": "알테오젠",
+    "sector": "바이오·헬스케어",
+    "description": "바이오 플랫폼 · 기술수출"
+  },
+  {
+    "code": "068760",
+    "ticker": "068760.KQ",
+    "name": "셀트리온제약",
+    "sector": "바이오·헬스케어",
+    "description": "제약 · 바이오시밀러"
+  },
+  {
+    "code": "058470",
+    "ticker": "058470.KQ",
+    "name": "리노공업",
+    "sector": "반도체",
+    "description": "반도체 테스트 소켓"
+  },
+  {
+    "code": "263750",
+    "ticker": "263750.KQ",
+    "name": "펄어비스",
+    "sector": "콘텐츠·엔터",
+    "description": "게임 · 글로벌 IP"
+  },
+  {
+    "code": "293490",
+    "ticker": "293490.KQ",
+    "name": "카카오게임즈",
+    "sector": "콘텐츠·엔터",
+    "description": "게임 퍼블리싱 · IP"
+  },
+  {
+    "code": "035900",
+    "ticker": "035900.KQ",
+    "name": "JYP Ent.",
+    "sector": "콘텐츠·엔터",
+    "description": "엔터테인먼트 · K-POP"
+  },
+  {
+    "code": "041510",
+    "ticker": "041510.KQ",
+    "name": "에스엠",
+    "sector": "콘텐츠·엔터",
+    "description": "엔터테인먼트 · K-POP"
+  },
+  {
+    "code": "035760",
+    "ticker": "035760.KQ",
+    "name": "CJ ENM",
+    "sector": "콘텐츠·엔터",
+    "description": "미디어 · 커머스"
+  },
+  {
+    "code": "240810",
+    "ticker": "240810.KQ",
+    "name": "원익IPS",
+    "sector": "반도체",
+    "description": "반도체 장비"
+  },
+  {
+    "code": "357780",
+    "ticker": "357780.KQ",
+    "name": "솔브레인",
+    "sector": "반도체",
+    "description": "반도체 소재 · 디스플레이"
+  },
+  {
+    "code": "005290",
+    "ticker": "005290.KQ",
+    "name": "동진쎄미켐",
+    "sector": "반도체",
+    "description": "포토레지스트 · 반도체 소재"
+  },
+  {
+    "code": "095340",
+    "ticker": "095340.KQ",
+    "name": "ISC",
+    "sector": "반도체",
+    "description": "반도체 테스트 소켓"
+  },
+  {
+    "code": "403870",
+    "ticker": "403870.KQ",
+    "name": "HPSP",
+    "sector": "반도체",
+    "description": "고압 수소 어닐링 장비"
+  },
+  {
+    "code": "214150",
+    "ticker": "214150.KQ",
+    "name": "클래시스",
+    "sector": "의료기기",
+    "description": "피부미용 의료기기"
+  },
+  {
+    "code": "277810",
+    "ticker": "277810.KQ",
+    "name": "레인보우로보틱스",
+    "sector": "로봇·자동화",
+    "description": "협동로봇 · 휴머노이드"
+  },
+  {
+    "code": "328130",
+    "ticker": "328130.KQ",
+    "name": "루닛",
+    "sector": "디지털헬스·AI의료",
+    "description": "AI 의료영상 · 진단"
+  },
+  {
+    "code": "145020",
+    "ticker": "145020.KQ",
+    "name": "휴젤",
+    "sector": "바이오·헬스케어",
+    "description": "보툴리눔 톡신 · 의료미용"
+  }
+]

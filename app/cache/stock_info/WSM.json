@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089682.933604,
+  "info": {
+    "ticker": "WSM",
+    "name": "Williams-Sonoma",
+    "sector": "경기소비재",
+    "description": "경기소비재",
+    "price": 226.92,
+    "target": 210.52632,
+    "roe": 0.54007,
+    "earnings_growth": 0.043,
+    "market_cap": 26719059968,
+    "average_volume": 1206887
+  }
+}

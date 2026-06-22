@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052727.6493828,
+  "info": {
+    "ticker": "AVY",
+    "name": "Avery Dennison",
+    "sector": "경기소비재",
+    "description": "경기소비재",
+    "price": 158.68,
+    "target": 200.3,
+    "roe": 0.30857,
+    "earnings_growth": 0.043,
+    "market_cap": 12137493504,
+    "average_volume": 681670
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052739.5983381,
+  "info": {
+    "ticker": "BSX",
+    "name": "보스턴 사이언티픽",
+    "sector": "의료기기",
+    "description": "의료기기",
+    "price": 45.29,
+    "target": 76.48276,
+    "roe": 0.14661,
+    "earnings_growth": 1.0,
+    "market_cap": 67317026816,
+    "average_volume": 19723612
+  }
+}

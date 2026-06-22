@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089636.954334,
+  "info": {
+    "ticker": "TXN",
+    "name": "텍사스 인스트루먼트",
+    "sector": "반도체",
+    "description": "아날로그 반도체",
+    "price": 322.86,
+    "target": 294.40625,
+    "roe": 0.32347,
+    "earnings_growth": 0.313,
+    "market_cap": 293832556544,
+    "average_volume": 7920770
+  }
+}

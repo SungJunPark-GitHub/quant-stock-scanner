@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089497.6103308,
+  "info": {
+    "ticker": "LEN",
+    "name": "Lennar",
+    "sector": "경기소비재",
+    "description": "경기소비재",
+    "price": 89.73,
+    "target": 88.53846,
+    "roe": 0.07368,
+    "earnings_growth": -0.315,
+    "market_cap": 22100346880,
+    "average_volume": 2938854
+  }
+}

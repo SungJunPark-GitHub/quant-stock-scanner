@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089643.202852,
+  "info": {
+    "ticker": "TSCO",
+    "name": "Tractor Supply",
+    "sector": "경기소비재",
+    "description": "경기소비재",
+    "price": 30.24,
+    "target": 45.22222,
+    "roe": 0.45504,
+    "earnings_growth": -0.081,
+    "market_cap": 15859355648,
+    "average_volume": 11446038
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089467.493042,
+  "info": {
+    "ticker": "INTC",
+    "name": "인텔",
+    "sector": "반도체",
+    "description": "반도체",
+    "price": 133.99,
+    "target": 94.14146,
+    "roe": -0.02911,
+    "earnings_growth": 0.0,
+    "market_cap": 673433780224,
+    "average_volume": 132945327
+  }
+}

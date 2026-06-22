@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089703.729846,
+  "info": {
+    "ticker": "TRI",
+    "name": "Thomson Reuters",
+    "sector": "산업재",
+    "description": "산업재",
+    "price": 78.58,
+    "target": 123.0,
+    "roe": 0.12734,
+    "earnings_growth": 0.056,
+    "market_cap": 34303223808,
+    "average_volume": 2048661
+  }
+}

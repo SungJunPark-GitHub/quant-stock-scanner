@@ -1,13 +1,22 @@
-<div class="market-bar">
-
-    <span class="market-risk {{ market_overview.risk_label.type }}">
-        ⚠ {{ market_overview.risk_label.text }}
+{% macro market_ticker_items(include_updated=True) %}
+    {% for chip in market_overview.risk_chips %}
+    <span class="market-risk {{ chip.type }}">
+        <span></span>{{ chip.text }}
     </span>
+    {% endfor %}
 
-    {% for item in market_overview["items"] %}
+    {% for item in market_overview["items"] if item.valid %}
     <span class="market-item">
         {{ item.name }}
-        <strong>{{ "{:,.2f}".format(item.price) }}</strong>
+        <strong>
+            {% if item.name in ["BTC", "금", "KOSPI", "나스닥", "S&P500", "원/달러"] %}
+                {{ "{:,.1f}".format(item.price) }}
+            {% elif item.name == "美10Y" %}
+                {{ "{:,.2f}".format(item.price) }}%
+            {% else %}
+                {{ "{:,.2f}".format(item.price) }}
+            {% endif %}
+        </strong>
 
         <small class="{{ item.change_type }}">
             {% if item.change > 0 %}+{% endif %}
@@ -16,8 +25,28 @@
     </span>
     {% endfor %}
 
-    <span class="market-updated">
-        {{ market_overview.updated_at }}
+    {% for rate in market_overview.policy_rates %}
+    <span class="market-item policy-rate">
+        {{ rate.name }} <strong>{{ rate.value }}</strong>
     </span>
+    {% endfor %}
 
+    {% if include_updated %}
+    <span class="market-updated" data-updated-at="{{ market_overview.updated_at }}">
+        방금 전 갱신
+    </span>
+    {% endif %}
+{% endmacro %}
+
+<div class="market-bar">
+    <div class="market-ticker-viewport" aria-label="시장 지표">
+        <div class="market-ticker-track">
+            <div class="market-ticker-set">
+                {{ market_ticker_items(True) }}
+            </div>
+            <div class="market-ticker-set" aria-hidden="true">
+                {{ market_ticker_items(True) }}
+            </div>
+        </div>
+    </div>
 </div>

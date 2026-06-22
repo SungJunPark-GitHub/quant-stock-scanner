@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052405.655265,
+  "info": {
+    "ticker": "A",
+    "name": "Agilent",
+    "sector": "헬스케어",
+    "description": "헬스케어",
+    "price": 127.06,
+    "target": 160.35294,
+    "roe": 0.21330999,
+    "earnings_growth": 0.6,
+    "market_cap": 35885801472,
+    "average_volume": 2228630
+  }
+}

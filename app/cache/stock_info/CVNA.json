@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052751.55214,
+  "info": {
+    "ticker": "CVNA",
+    "name": "카바나",
+    "sector": "자동차 판매",
+    "description": "자동차 판매",
+    "price": 66.56,
+    "target": 92.09524,
+    "roe": 0.60172004,
+    "earnings_growth": 0.119,
+    "market_cap": 73005383680,
+    "average_volume": 12387169
+  }
+}

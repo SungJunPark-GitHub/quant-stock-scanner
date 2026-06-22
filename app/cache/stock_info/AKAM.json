@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052407.7982879,
+  "info": {
+    "ticker": "AKAM",
+    "name": "Akamai",
+    "sector": "클라우드 소프트웨어",
+    "description": "클라우드 소프트웨어",
+    "price": 124.91,
+    "target": 159.30043,
+    "roe": 0.091680005,
+    "earnings_growth": -0.134,
+    "market_cap": 18160097280,
+    "average_volume": 5509596
+  }
+}

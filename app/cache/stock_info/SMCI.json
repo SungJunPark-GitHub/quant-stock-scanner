@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089624.7315772,
+  "info": {
+    "ticker": "SMCI",
+    "name": "Super Micro Computer",
+    "sector": "컴퓨터 하드웨어 · 데이터 인프라",
+    "description": "컴퓨터 하드웨어 · 데이터 인프라",
+    "price": 30.66,
+    "target": 37.25,
+    "roe": 0.17877,
+    "earnings_growth": 3.26,
+    "market_cap": 19833126912,
+    "average_volume": 48982825
+  }
+}

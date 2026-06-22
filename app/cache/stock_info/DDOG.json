@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089366.654379,
+  "info": {
+    "ticker": "DDOG",
+    "name": "데이터독",
+    "sector": "응용 소프트웨어",
+    "description": "응용 소프트웨어",
+    "price": 223.0,
+    "target": 241.35548,
+    "roe": 0.039300002,
+    "earnings_growth": 1.04,
+    "market_cap": 79379120128,
+    "average_volume": 5790769
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089454.074466,
+  "info": {
+    "ticker": "HRL",
+    "name": "Hormel Foods",
+    "sector": "필수소비재",
+    "description": "필수소비재",
+    "price": 24.16,
+    "target": 26.5,
+    "roe": 0.05831,
+    "earnings_growth": -0.051,
+    "market_cap": 13295608832,
+    "average_volume": 5405609
+  }
+}

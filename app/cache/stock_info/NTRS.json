@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089545.804269,
+  "info": {
+    "ticker": "NTRS",
+    "name": "Northern Trust",
+    "sector": "자산운용",
+    "description": "자산운용",
+    "price": 172.11,
+    "target": 171.0,
+    "roe": 0.14462,
+    "earnings_growth": 0.426,
+    "market_cap": 31848484864,
+    "average_volume": 1101716
+  }
+}

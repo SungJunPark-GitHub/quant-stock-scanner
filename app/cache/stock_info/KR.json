@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089492.586323,
+  "info": {
+    "ticker": "KR",
+    "name": "Kroger",
+    "sector": "필수소비재",
+    "description": "필수소비재",
+    "price": 56.61,
+    "target": 71.80952,
+    "roe": 0.14405,
+    "earnings_growth": 0.509,
+    "market_cap": 34701930496,
+    "average_volume": 6316780
+  }
+}

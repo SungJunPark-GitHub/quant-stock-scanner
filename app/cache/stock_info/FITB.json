@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089418.555601,
+  "info": {
+    "ticker": "FITB",
+    "name": "Fifth Third Bancorp",
+    "sector": "지역은행",
+    "description": "지역은행",
+    "price": 52.74,
+    "target": 57.525,
+    "roe": 0.07969,
+    "earnings_growth": -0.789,
+    "market_cap": 47798874112,
+    "average_volume": 7192180
+  }
+}

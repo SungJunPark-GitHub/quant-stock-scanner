@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089494.215144,
+  "info": {
+    "ticker": "LH",
+    "name": "Labcorp",
+    "sector": "헬스케어",
+    "description": "헬스케어",
+    "price": 255.82,
+    "target": 310.11765,
+    "roe": 0.11047,
+    "earnings_growth": 0.329,
+    "market_cap": 20977240064,
+    "average_volume": 636364
+  }
+}

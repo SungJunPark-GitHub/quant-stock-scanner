@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052733.94649,
+  "info": {
+    "ticker": "TECH",
+    "name": "Bio-Techne",
+    "sector": "바이오테크",
+    "description": "바이오테크",
+    "price": 57.94,
+    "target": 61.30769,
+    "roe": 0.053400002,
+    "earnings_growth": 1.286,
+    "market_cap": 9071593472,
+    "average_volume": 2675562
+  }
+}

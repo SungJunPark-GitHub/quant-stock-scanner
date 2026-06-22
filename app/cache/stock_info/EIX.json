@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089388.578207,
+  "info": {
+    "ticker": "EIX",
+    "name": "Edison",
+    "sector": "전력 유틸리티",
+    "description": "전력 유틸리티",
+    "price": 71.89,
+    "target": 74.96429,
+    "roe": 0.18864,
+    "earnings_growth": -0.632,
+    "market_cap": 27662837760,
+    "average_volume": 2713866
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089653.21962,
+  "info": {
+    "ticker": "ULTA",
+    "name": "Ulta Beauty",
+    "sector": "경기소비재",
+    "description": "경기소비재",
+    "price": 456.13,
+    "target": 627.25,
+    "roe": 0.47449002,
+    "earnings_growth": 0.155,
+    "market_cap": 19608715264,
+    "average_volume": 766919
+  }
+}

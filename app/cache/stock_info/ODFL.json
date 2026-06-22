@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089554.806468,
+  "info": {
+    "ticker": "ODFL",
+    "name": "올드 도미니언",
+    "sector": "산업재",
+    "description": "산업재",
+    "price": 221.04,
+    "target": 221.95454,
+    "roe": 0.23331,
+    "earnings_growth": -0.042,
+    "market_cap": 45969309696,
+    "average_volume": 2058801
+  }
+}

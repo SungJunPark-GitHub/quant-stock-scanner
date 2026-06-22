@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089405.345175,
+  "info": {
+    "ticker": "EXC",
+    "name": "Exelon",
+    "sector": "전력 유틸리티",
+    "description": "전력 유틸리티",
+    "price": 45.81,
+    "target": 49.33333,
+    "roe": 0.09764,
+    "earnings_growth": -0.003,
+    "market_cap": 46873165824,
+    "average_volume": 8063638
+  }
+}

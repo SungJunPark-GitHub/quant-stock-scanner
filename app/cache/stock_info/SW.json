@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089613.397135,
+  "info": {
+    "ticker": "SW",
+    "name": "Smurfit WestRock",
+    "sector": "경기소비재",
+    "description": "경기소비재",
+    "price": 44.2,
+    "target": 53.46429,
+    "roe": 0.02113,
+    "earnings_growth": -0.836,
+    "market_cap": 23181312000,
+    "average_volume": 5347524
+  }
+}

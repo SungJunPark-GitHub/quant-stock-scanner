@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089398.977897,
+  "info": {
+    "ticker": "EQR",
+    "name": "Equity Residential",
+    "sector": "부동산",
+    "description": "부동산",
+    "price": 64.09,
+    "target": 71.55556,
+    "roe": 0.08671,
+    "earnings_growth": -0.646,
+    "market_cap": 24762836992,
+    "average_volume": 2924977
+  }
+}

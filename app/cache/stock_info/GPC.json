@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089438.600969,
+  "info": {
+    "ticker": "GPC",
+    "name": "Genuine Parts",
+    "sector": "자동차 부품",
+    "description": "자동차 부품",
+    "price": 108.7,
+    "target": 134.0,
+    "roe": 0.01342,
+    "earnings_growth": -0.021,
+    "market_cap": 15122573312,
+    "average_volume": 1810708
+  }
+}

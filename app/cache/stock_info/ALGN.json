@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052409.939902,
+  "info": {
+    "ticker": "ALGN",
+    "name": "Align",
+    "sector": "헬스케어",
+    "description": "헬스케어",
+    "price": 182.08,
+    "target": 209.07143,
+    "roe": 0.10824,
+    "earnings_growth": 0.239,
+    "market_cap": 13040229376,
+    "average_volume": 1012145
+  }
+}

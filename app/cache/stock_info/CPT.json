@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052747.444809,
+  "info": {
+    "ticker": "CPT",
+    "name": "Camden Property Trust",
+    "sector": "부동산",
+    "description": "부동산",
+    "price": 108.99,
+    "target": 114.26136,
+    "roe": 0.09064999,
+    "earnings_growth": 0.121,
+    "market_cap": 10799883264,
+    "average_volume": 1256858
+  }
+}

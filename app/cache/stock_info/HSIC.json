@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089448.3590348,
+  "info": {
+    "ticker": "HSIC",
+    "name": "Henry Schein",
+    "sector": "의약품 유통",
+    "description": "의약품 유통",
+    "price": 79.92,
+    "target": 88.06667,
+    "roe": 0.08762,
+    "earnings_growth": 0.045,
+    "market_cap": 9104227328,
+    "average_volume": 1383059
+  }
+}

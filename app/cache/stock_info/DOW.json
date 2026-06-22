@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089380.31389,
+  "info": {
+    "ticker": "DOW",
+    "name": "Dow",
+    "sector": "소재",
+    "description": "소재",
+    "price": 31.73,
+    "target": 42.25,
+    "roe": -0.15262,
+    "earnings_growth": 0.0,
+    "market_cap": 22869125120,
+    "average_volume": 13067925
+  }
+}

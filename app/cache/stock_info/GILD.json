@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089439.634294,
+  "info": {
+    "ticker": "GILD",
+    "name": "길리어드 사이언스",
+    "sector": "대형 제약",
+    "description": "대형 제약",
+    "price": 123.76,
+    "target": 157.57143,
+    "roe": 0.4336,
+    "earnings_growth": 0.548,
+    "market_cap": 153656688640,
+    "average_volume": 6749953
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052711.329122,
+  "info": {
+    "ticker": "ADI",
+    "name": "아날로그 디바이시스",
+    "sector": "반도체",
+    "description": "반도체",
+    "price": 434.46,
+    "target": 450.73334,
+    "roe": 0.09639,
+    "earnings_growth": 1.105,
+    "market_cap": 211619823616,
+    "average_volume": 4113954
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089445.842082,
+  "info": {
+    "ticker": "HAS",
+    "name": "Hasbro",
+    "sector": "경기소비재",
+    "description": "경기소비재",
+    "price": 84.74,
+    "target": 113.06667,
+    "roe": -0.23316,
+    "earnings_growth": 0.986,
+    "market_cap": 11989920768,
+    "average_volume": 1951964
+  }
+}

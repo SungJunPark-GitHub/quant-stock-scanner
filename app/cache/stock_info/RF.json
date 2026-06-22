@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089594.0085812,
+  "info": {
+    "ticker": "RF",
+    "name": "Regions Financial",
+    "sector": "지역은행",
+    "description": "지역은행",
+    "price": 28.62,
+    "target": 30.745,
+    "roe": 0.11895,
+    "earnings_growth": 0.216,
+    "market_cap": 24423723008,
+    "average_volume": 11240333
+  }
+}

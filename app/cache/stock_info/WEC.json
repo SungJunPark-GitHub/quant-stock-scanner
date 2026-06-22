@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089677.5895538,
+  "info": {
+    "ticker": "WEC",
+    "name": "WEC Energy",
+    "sector": "전력 유틸리티",
+    "description": "전력 유틸리티",
+    "price": 112.17,
+    "target": 124.19444,
+    "roe": 0.11679,
+    "earnings_growth": 0.079,
+    "market_cap": 36536647680,
+    "average_volume": 2016795
+  }
+}

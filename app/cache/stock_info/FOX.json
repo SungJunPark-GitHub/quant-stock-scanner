@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089426.8485398,
+  "info": {
+    "ticker": "FOX",
+    "name": "Fox",
+    "sector": "콘텐츠 · 엔터",
+    "description": "콘텐츠 · 엔터",
+    "price": 46.95,
+    "target": 0,
+    "roe": 0.152,
+    "earnings_growth": -0.493,
+    "market_cap": 19714334720,
+    "average_volume": 1585432
+  }
+}

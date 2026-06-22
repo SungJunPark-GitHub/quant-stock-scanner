@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089377.067023,
+  "info": {
+    "ticker": "D",
+    "name": "Dominion Energy",
+    "sector": "전력 유틸리티",
+    "description": "전력 유틸리티",
+    "price": 68.41,
+    "target": 69.25,
+    "roe": 0.09787,
+    "earnings_growth": -0.102,
+    "market_cap": 60167454720,
+    "average_volume": 6638150
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089525.563573,
+  "info": {
+    "ticker": "MRNA",
+    "name": "Moderna",
+    "sector": "바이오테크",
+    "description": "바이오테크",
+    "price": 63.96,
+    "target": 43.3,
+    "roe": -0.36556998,
+    "earnings_growth": 0.0,
+    "market_cap": 25378449408,
+    "average_volume": 6878045
+  }
+}

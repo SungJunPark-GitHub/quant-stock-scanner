@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089542.231643,
+  "info": {
+    "ticker": "NKE",
+    "name": "나이키",
+    "sector": "신발 · 스포츠웨어",
+    "description": "스포츠웨어 · 브랜드 소비재",
+    "price": 45.2,
+    "target": 59.58485,
+    "roe": 0.16016,
+    "earnings_growth": -0.348,
+    "market_cap": 66936094720,
+    "average_volume": 23372938
+  }
+}

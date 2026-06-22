@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089364.246604,
+  "info": {
+    "ticker": "CVS",
+    "name": "CVS 헬스",
+    "sector": "건강보험",
+    "description": "건강보험",
+    "price": 98.32,
+    "target": 105.0,
+    "roe": 0.037520003,
+    "earnings_growth": 0.631,
+    "market_cap": 125449175040,
+    "average_volume": 8200709
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089444.161364,
+  "info": {
+    "ticker": "HAL",
+    "name": "Halliburton",
+    "sector": "유전 서비스",
+    "description": "유전 서비스",
+    "price": 34.93,
+    "target": 44.24,
+    "roe": 0.14626999,
+    "earnings_growth": 1.335,
+    "market_cap": 29180444672,
+    "average_volume": 12859622
+  }
+}

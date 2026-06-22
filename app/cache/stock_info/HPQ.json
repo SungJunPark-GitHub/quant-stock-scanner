@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089457.03346,
+  "info": {
+    "ticker": "HPQ",
+    "name": "HP",
+    "sector": "컴퓨터 하드웨어 · 데이터 인프라",
+    "description": "컴퓨터 하드웨어 · 데이터 인프라",
+    "price": 23.5,
+    "target": 22.9125,
+    "roe": 0.0,
+    "earnings_growth": 0.162,
+    "market_cap": 21491283968,
+    "average_volume": 19709879
+  }
+}

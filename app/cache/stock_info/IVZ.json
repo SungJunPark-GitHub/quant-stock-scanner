@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089474.092009,
+  "info": {
+    "ticker": "IVZ",
+    "name": "Invesco Ltd",
+    "sector": "자산운용",
+    "description": "자산운용",
+    "price": 28.14,
+    "target": 29.68182,
+    "roe": -0.01535,
+    "earnings_growth": 0.35,
+    "market_cap": 12474366976,
+    "average_volume": 5479369
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089614.192665,
+  "info": {
+    "ticker": "SNA",
+    "name": "Snap-On",
+    "sector": "산업재",
+    "description": "산업재",
+    "price": 387.25,
+    "target": 393.16666,
+    "roe": 0.18202,
+    "earnings_growth": 0.04,
+    "market_cap": 20060291072,
+    "average_volume": 365509
+  }
+}

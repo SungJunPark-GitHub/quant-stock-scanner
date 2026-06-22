@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089536.2500951,
+  "info": {
+    "ticker": "NTAP",
+    "name": "NetApp",
+    "sector": "클라우드 소프트웨어",
+    "description": "클라우드 소프트웨어",
+    "price": 159.71,
+    "target": 171.75,
+    "roe": 1.06734,
+    "earnings_growth": 0.234,
+    "market_cap": 31290372096,
+    "average_volume": 2922151
+  }
+}

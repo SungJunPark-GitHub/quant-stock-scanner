@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089687.8053708,
+  "info": {
+    "ticker": "XYL",
+    "name": "Xylem",
+    "sector": "전문 산업기계",
+    "description": "전문 산업기계",
+    "price": 111.42,
+    "target": 150.64706,
+    "roe": 0.08724,
+    "earnings_growth": 0.145,
+    "market_cap": 26483808256,
+    "average_volume": 2163516
+  }
+}

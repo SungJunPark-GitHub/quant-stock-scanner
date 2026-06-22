@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052709.1483479,
+  "info": {
+    "ticker": "AME",
+    "name": "AMETEK",
+    "sector": "전문 산업기계",
+    "description": "전문 산업기계",
+    "price": 237.42,
+    "target": 259.05,
+    "roe": 0.14626999,
+    "earnings_growth": 0.145,
+    "market_cap": 54417379328,
+    "average_volume": 1214366
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089529.352749,
+  "info": {
+    "ticker": "MNST",
+    "name": "몬스터 베버리지",
+    "sector": "음료",
+    "description": "음료",
+    "price": 91.34,
+    "target": 89.69333,
+    "roe": 0.26654,
+    "earnings_growth": 0.289,
+    "market_cap": 89331261440,
+    "average_volume": 5280866
+  }
+}

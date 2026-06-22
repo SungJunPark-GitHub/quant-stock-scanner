@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089588.905,
+  "info": {
+    "ticker": "RL",
+    "name": "Ralph Lauren",
+    "sector": "경기소비재",
+    "description": "경기소비재",
+    "price": 413.01,
+    "target": 428.0,
+    "roe": 0.34664002,
+    "earnings_growth": 0.2,
+    "market_cap": 24580845568,
+    "average_volume": 684470
+  }
+}

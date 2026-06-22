@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089619.268411,
+  "info": {
+    "ticker": "SBUX",
+    "name": "스타벅스",
+    "sector": "외식 프랜차이즈",
+    "description": "외식 프랜차이즈",
+    "price": 100.65,
+    "target": 106.25,
+    "roe": 0.0,
+    "earnings_growth": 0.326,
+    "market_cap": 114710806528,
+    "average_volume": 7635450
+  }
+}

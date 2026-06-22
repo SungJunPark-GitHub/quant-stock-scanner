@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089393.0745091,
+  "info": {
+    "ticker": "EMR",
+    "name": "에머슨 일렉트릭",
+    "sector": "전문 산업기계",
+    "description": "전문 산업기계",
+    "price": 150.66,
+    "target": 163.46759,
+    "roe": 0.12328,
+    "earnings_growth": 0.279,
+    "market_cap": 84384661504,
+    "average_volume": 2914785
+  }
+}

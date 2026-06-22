@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089372.699726,
+  "info": {
+    "ticker": "DXCM",
+    "name": "DexCom",
+    "sector": "의료기기",
+    "description": "의료기기",
+    "price": 72.47,
+    "target": 85.20833,
+    "roe": 0.35624,
+    "earnings_growth": 0.922,
+    "market_cap": 27964215296,
+    "average_volume": 5461900
+  }
+}

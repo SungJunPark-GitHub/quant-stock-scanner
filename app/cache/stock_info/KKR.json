@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089490.013916,
+  "info": {
+    "ticker": "KKR",
+    "name": "KKR",
+    "sector": "자산운용",
+    "description": "자산운용",
+    "price": 97.01,
+    "target": 125.53474,
+    "roe": 0.076630004,
+    "earnings_growth": 0.0,
+    "market_cap": 90456154112,
+    "average_volume": 4982116
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089621.326026,
+  "info": {
+    "ticker": "STLD",
+    "name": "Steel Dynamics",
+    "sector": "소재",
+    "description": "소재",
+    "price": 249.91,
+    "target": 268.18182,
+    "roe": 0.15247,
+    "earnings_growth": 0.931,
+    "market_cap": 36040216576,
+    "average_volume": 1182530
+  }
+}

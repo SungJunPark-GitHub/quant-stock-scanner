@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089522.969047,
+  "info": {
+    "ticker": "MU",
+    "name": "마이크론 테크놀로지",
+    "sector": "반도체",
+    "description": "반도체",
+    "price": 1133.99,
+    "target": 945.6,
+    "roe": 0.39823002,
+    "earnings_growth": 7.56,
+    "market_cap": 1278839095296,
+    "average_volume": 50692645
+  }
+}

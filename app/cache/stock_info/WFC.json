@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089678.39341,
+  "info": {
+    "ticker": "WFC",
+    "name": "웰스파고",
+    "sector": "대형은행",
+    "description": "대형은행",
+    "price": 82.2,
+    "target": 96.11364,
+    "roe": 0.12028,
+    "earnings_growth": 0.151,
+    "market_cap": 251547566080,
+    "average_volume": 16593882
+  }
+}

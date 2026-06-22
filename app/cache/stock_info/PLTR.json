@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089561.91058,
+  "info": {
+    "ticker": "PLTR",
+    "name": "팔란티어",
+    "sector": "클라우드 소프트웨어",
+    "description": "클라우드 소프트웨어",
+    "price": 128.47,
+    "target": 182.75407,
+    "roe": 0.32587,
+    "earnings_growth": 3.25,
+    "market_cap": 307982663680,
+    "average_volume": 44418417
+  }
+}

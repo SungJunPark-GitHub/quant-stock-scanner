@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089667.1545222,
+  "info": {
+    "ticker": "VICI",
+    "name": "VICI Properties",
+    "sector": "부동산",
+    "description": "부동산",
+    "price": 26.28,
+    "target": 34.04348,
+    "roe": 0.11331,
+    "earnings_growth": 0.601,
+    "market_cap": 28297783296,
+    "average_volume": 8144025
+  }
+}

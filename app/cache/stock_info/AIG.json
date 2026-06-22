@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052706.343957,
+  "info": {
+    "ticker": "AIG",
+    "name": "American I",
+    "sector": "금융",
+    "description": "금융",
+    "price": 74.02,
+    "target": 87.8,
+    "roe": 0.07723,
+    "earnings_growth": 0.216,
+    "market_cap": 39245860864,
+    "average_volume": 4080417
+  }
+}

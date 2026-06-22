@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089623.772301,
+  "info": {
+    "ticker": "SYK",
+    "name": "스트라이커",
+    "sector": "의료기기",
+    "description": "의료기기",
+    "price": 307.8,
+    "target": 386.8,
+    "roe": 0.152,
+    "earnings_growth": 0.142,
+    "market_cap": 117998436352,
+    "average_volume": 2500190
+  }
+}

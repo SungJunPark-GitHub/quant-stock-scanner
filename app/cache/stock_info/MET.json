@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089519.5710669,
+  "info": {
+    "ticker": "MET",
+    "name": "MetLife",
+    "sector": "금융",
+    "description": "금융",
+    "price": 85.58,
+    "target": 92.0,
+    "roe": 0.13014,
+    "earnings_growth": 0.359,
+    "market_cap": 55065321472,
+    "average_volume": 3530891
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089559.135524,
+  "info": {
+    "ticker": "OTIS",
+    "name": "Otis Worldwide",
+    "sector": "전문 산업기계",
+    "description": "전문 산업기계",
+    "price": 73.27,
+    "target": 94.2,
+    "roe": 0.0,
+    "earnings_growth": 0.426,
+    "market_cap": 28114874368,
+    "average_volume": 3712759
+  }
+}

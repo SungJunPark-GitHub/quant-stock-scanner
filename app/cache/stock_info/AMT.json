@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052707.000142,
+  "info": {
+    "ticker": "AMT",
+    "name": "아메리칸 타워",
+    "sector": "특수 리츠",
+    "description": "특수 리츠",
+    "price": 176.05,
+    "target": 216.13635,
+    "roe": 0.29952,
+    "earnings_growth": 0.769,
+    "market_cap": 82020474880,
+    "average_volume": 3130290
+  }
+}

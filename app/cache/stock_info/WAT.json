@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089676.810494,
+  "info": {
+    "ticker": "WAT",
+    "name": "Waters",
+    "sector": "헬스케어",
+    "description": "헬스케어",
+    "price": 355.44,
+    "target": 400.27274,
+    "roe": 0.05212,
+    "earnings_growth": 0.0,
+    "market_cap": 34899181568,
+    "average_volume": 1011480
+  }
+}

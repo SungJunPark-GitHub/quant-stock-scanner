@@ -1,0 +1,36 @@
+{
+  "US": [
+    {
+      "key": "sp500",
+      "name": "S&P 500",
+      "source_file": "sp500_tickers.json"
+    },
+    {
+      "key": "nasdaq100",
+      "name": "나스닥100",
+      "source_file": "nasdaq100_tickers.json"
+    },
+    {
+      "key": "russell2000",
+      "name": "러셀2000",
+      "source_file": "russell2000_tickers.json"
+    },
+    {
+      "key": "etc",
+      "name": "ETC",
+      "source_file": "etc_tickers.json"
+    }
+  ],
+  "KR": [
+    {
+      "key": "kospi",
+      "name": "코스피",
+      "source_file": "kospi_tickers.json"
+    },
+    {
+      "key": "kosdaq",
+      "name": "코스닥",
+      "source_file": "kosdaq_tickers.json"
+    }
+  ]
+}

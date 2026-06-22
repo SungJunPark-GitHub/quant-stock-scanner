@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052732.530408,
+  "info": {
+    "ticker": "BRK-B",
+    "name": "버크셔 해서웨이",
+    "sector": "금융",
+    "description": "보험 · 철도 · 투자 지주회사",
+    "price": 489.46,
+    "target": 520.3333,
+    "roe": 0.10499,
+    "earnings_growth": 1.196,
+    "market_cap": 1055693602816,
+    "average_volume": 4966335
+  }
+}

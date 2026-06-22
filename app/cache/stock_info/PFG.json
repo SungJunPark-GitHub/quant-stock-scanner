@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089578.245929,
+  "info": {
+    "ticker": "PFG",
+    "name": "Principal Financial",
+    "sector": "자산운용",
+    "description": "자산운용",
+    "price": 109.57,
+    "target": 101.5,
+    "roe": 0.13385999,
+    "earnings_growth": 8.19,
+    "market_cap": 23668475904,
+    "average_volume": 1251240
+  }
+}

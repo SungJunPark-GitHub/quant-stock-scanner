@@ -1,0 +1,182 @@
+[
+  {
+    "ticker": "SPY",
+    "name": "SPDR S&P 500 ETF Trust",
+    "category": "미국 대형주",
+    "theme": "대표지수"
+  },
+  {
+    "ticker": "QQQ",
+    "name": "Invesco QQQ Trust",
+    "category": "나스닥 기술주",
+    "theme": "대표지수"
+  },
+  {
+    "ticker": "DIA",
+    "name": "SPDR Dow Jones Industrial Average ETF",
+    "category": "미국 우량주",
+    "theme": "대표지수"
+  },
+  {
+    "ticker": "IWM",
+    "name": "iShares Russell 2000 ETF",
+    "category": "미국 소형주",
+    "theme": "대표지수"
+  },
+  {
+    "ticker": "VTI",
+    "name": "Vanguard Total Stock Market ETF",
+    "category": "미국 전체시장",
+    "theme": "대표지수"
+  },
+  {
+    "ticker": "VEA",
+    "name": "Vanguard FTSE Developed Markets ETF",
+    "category": "선진국 주식",
+    "theme": "글로벌"
+  },
+  {
+    "ticker": "VWO",
+    "name": "Vanguard FTSE Emerging Markets ETF",
+    "category": "신흥국 주식",
+    "theme": "글로벌"
+  },
+  {
+    "ticker": "XLK",
+    "name": "Technology Select Sector SPDR Fund",
+    "category": "기술",
+    "theme": "섹터"
+  },
+  {
+    "ticker": "XLF",
+    "name": "Financial Select Sector SPDR Fund",
+    "category": "금융",
+    "theme": "섹터"
+  },
+  {
+    "ticker": "XLV",
+    "name": "Health Care Select Sector SPDR Fund",
+    "category": "헬스케어",
+    "theme": "섹터"
+  },
+  {
+    "ticker": "XLE",
+    "name": "Energy Select Sector SPDR Fund",
+    "category": "에너지",
+    "theme": "섹터"
+  },
+  {
+    "ticker": "XLI",
+    "name": "Industrial Select Sector SPDR Fund",
+    "category": "산업재",
+    "theme": "섹터"
+  },
+  {
+    "ticker": "XLY",
+    "name": "Consumer Discretionary Select Sector SPDR Fund",
+    "category": "경기소비재",
+    "theme": "섹터"
+  },
+  {
+    "ticker": "XLP",
+    "name": "Consumer Staples Select Sector SPDR Fund",
+    "category": "필수소비재",
+    "theme": "섹터"
+  },
+  {
+    "ticker": "SOXX",
+    "name": "iShares Semiconductor ETF",
+    "category": "반도체",
+    "theme": "테마"
+  },
+  {
+    "ticker": "SMH",
+    "name": "VanEck Semiconductor ETF",
+    "category": "반도체",
+    "theme": "테마"
+  },
+  {
+    "ticker": "ARKK",
+    "name": "ARK Innovation ETF",
+    "category": "혁신성장",
+    "theme": "테마"
+  },
+  {
+    "ticker": "BOTZ",
+    "name": "Global X Robotics & Artificial Intelligence ETF",
+    "category": "로봇·AI",
+    "theme": "테마"
+  },
+  {
+    "ticker": "ICLN",
+    "name": "iShares Global Clean Energy ETF",
+    "category": "클린에너지",
+    "theme": "테마"
+  },
+  {
+    "ticker": "HACK",
+    "name": "Amplify Cybersecurity ETF",
+    "category": "사이버보안",
+    "theme": "테마"
+  },
+  {
+    "ticker": "GLD",
+    "name": "SPDR Gold Shares",
+    "category": "금",
+    "theme": "원자재"
+  },
+  {
+    "ticker": "SLV",
+    "name": "iShares Silver Trust",
+    "category": "은",
+    "theme": "원자재"
+  },
+  {
+    "ticker": "USO",
+    "name": "United States Oil Fund",
+    "category": "원유",
+    "theme": "원자재"
+  },
+  {
+    "ticker": "TLT",
+    "name": "iShares 20+ Year Treasury Bond ETF",
+    "category": "장기채",
+    "theme": "채권"
+  },
+  {
+    "ticker": "IEF",
+    "name": "iShares 7-10 Year Treasury Bond ETF",
+    "category": "중기채",
+    "theme": "채권"
+  },
+  {
+    "ticker": "SHY",
+    "name": "iShares 1-3 Year Treasury Bond ETF",
+    "category": "단기채",
+    "theme": "채권"
+  },
+  {
+    "ticker": "069500.KS",
+    "name": "KODEX 200",
+    "category": "코스피200",
+    "theme": "한국"
+  },
+  {
+    "ticker": "102110.KS",
+    "name": "TIGER 200",
+    "category": "코스피200",
+    "theme": "한국"
+  },
+  {
+    "ticker": "229200.KS",
+    "name": "KODEX 코스닥150",
+    "category": "코스닥150",
+    "theme": "한국"
+  },
+  {
+    "ticker": "305720.KS",
+    "name": "KODEX 2차전지산업",
+    "category": "이차전지",
+    "theme": "한국"
+  }
+]

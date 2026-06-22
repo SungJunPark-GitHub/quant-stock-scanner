@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089445.008471,
+  "info": {
+    "ticker": "HIG",
+    "name": "Hartford Insurance I",
+    "sector": "금융",
+    "description": "금융",
+    "price": 128.25,
+    "target": 147.65,
+    "roe": 0.22735001,
+    "earnings_growth": 0.414,
+    "market_cap": 35157278720,
+    "average_volume": 1618896
+  }
+}

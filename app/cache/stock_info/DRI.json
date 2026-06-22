@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089365.953519,
+  "info": {
+    "ticker": "DRI",
+    "name": "Darden Restaurants",
+    "sector": "외식 프랜차이즈",
+    "description": "외식 프랜차이즈",
+    "price": 213.45,
+    "target": 226.23077,
+    "roe": 0.51539004,
+    "earnings_growth": -0.033,
+    "market_cap": 24447496192,
+    "average_volume": 1142972
+  }
+}

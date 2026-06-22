@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089491.001576,
+  "info": {
+    "ticker": "KLAC",
+    "name": "KLA",
+    "sector": "반도체 장비 · 소재",
+    "description": "반도체 검사장비 · 수율 관리",
+    "price": 259.56,
+    "target": 200.57143,
+    "roe": 0.94975996,
+    "earnings_growth": 0.118,
+    "market_cap": 339056787456,
+    "average_volume": 10629422
+  }
+}

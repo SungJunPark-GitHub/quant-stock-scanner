@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089385.8239172,
+  "info": {
+    "ticker": "EBAY",
+    "name": "eBay",
+    "sector": "전자상거래",
+    "description": "전자상거래",
+    "price": 108.24,
+    "target": 107.83929,
+    "roe": 0.42875,
+    "earnings_growth": 0.071,
+    "market_cap": 48058560512,
+    "average_volume": 5470396
+  }
+}

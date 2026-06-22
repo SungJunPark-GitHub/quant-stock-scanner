@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052704.192226,
+  "info": {
+    "ticker": "AEE",
+    "name": "Ameren",
+    "sector": "전력 유틸리티",
+    "description": "전력 유틸리티",
+    "price": 108.67,
+    "target": 119.86667,
+    "roe": 0.117469996,
+    "earnings_growth": 0.196,
+    "market_cap": 30074597376,
+    "average_volume": 1674191
+  }
+}

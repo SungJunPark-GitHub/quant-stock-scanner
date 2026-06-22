@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089382.2259421,
+  "info": {
+    "ticker": "DTE",
+    "name": "DTE Energy",
+    "sector": "전력 유틸리티",
+    "description": "전력 유틸리티",
+    "price": 147.56,
+    "target": 159.25,
+    "roe": 0.10423,
+    "earnings_growth": -0.444,
+    "market_cap": 30696658944,
+    "average_volume": 1396535
+  }
+}

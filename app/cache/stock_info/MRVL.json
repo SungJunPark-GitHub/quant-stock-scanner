@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089697.473773,
+  "info": {
+    "ticker": "MRVL",
+    "name": "마벨 테크놀로지",
+    "sector": "반도체",
+    "description": "반도체",
+    "price": 310.58,
+    "target": 238.74557,
+    "roe": 0.16028,
+    "earnings_growth": -0.804,
+    "market_cap": 271695364096,
+    "average_volume": 40881875
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089572.217261,
+  "info": {
+    "ticker": "PSX",
+    "name": "Phillips 66",
+    "sector": "정유 · 에너지",
+    "description": "정유 · 에너지",
+    "price": 166.14,
+    "target": 191.84212,
+    "roe": 0.14547,
+    "earnings_growth": -0.568,
+    "market_cap": 66611343360,
+    "average_volume": 2730404
+  }
+}

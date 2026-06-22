@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052752.966541,
+  "info": {
+    "ticker": "CAT",
+    "name": "캐터필러",
+    "sector": "농기계 · 중장비",
+    "description": "건설장비 · 산업재",
+    "price": 985.82,
+    "target": 945.6404,
+    "roe": 0.51331,
+    "earnings_growth": 0.302,
+    "market_cap": 454060769280,
+    "average_volume": 2581106
+  }
+}

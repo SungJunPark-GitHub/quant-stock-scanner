@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089636.058399,
+  "info": {
+    "ticker": "TSLA",
+    "name": "테슬라",
+    "sector": "자동차 제조",
+    "description": "전기차 · FSD · 에너지",
+    "price": 400.49,
+    "target": 420.54633,
+    "roe": 0.04901,
+    "earnings_growth": 0.083,
+    "market_cap": 1504129843200,
+    "average_volume": 58082137
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089471.617856,
+  "info": {
+    "ticker": "IP",
+    "name": "Paper",
+    "sector": "경기소비재",
+    "description": "경기소비재",
+    "price": 36.82,
+    "target": 39.36364,
+    "roe": -0.16036,
+    "earnings_growth": 0.0,
+    "market_cap": 19496814592,
+    "average_volume": 6982837
+  }
+}

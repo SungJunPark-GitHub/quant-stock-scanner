@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089436.619864,
+  "info": {
+    "ticker": "GIS",
+    "name": "General Mills",
+    "sector": "필수소비재",
+    "description": "필수소비재",
+    "price": 33.42,
+    "target": 37.0,
+    "roe": 0.23591,
+    "earnings_growth": -0.145,
+    "market_cap": 17835624448,
+    "average_volume": 9405358
+  }
+}

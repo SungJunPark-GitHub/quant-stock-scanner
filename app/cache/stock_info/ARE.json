@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052409.272664,
+  "info": {
+    "ticker": "ARE",
+    "name": "Alexandria Real Estate Equities",
+    "sector": "부동산",
+    "description": "부동산",
+    "price": 51.03,
+    "target": 51.5,
+    "roe": -0.04144,
+    "earnings_growth": 0.0,
+    "market_cap": 8892971008,
+    "average_volume": 2285224
+  }
+}

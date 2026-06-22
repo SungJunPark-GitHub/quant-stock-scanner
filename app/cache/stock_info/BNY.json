@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052737.595768,
+  "info": {
+    "ticker": "BNY",
+    "name": "BNY 멜론",
+    "sector": "대형은행",
+    "description": "대형은행",
+    "price": 143.63,
+    "target": 142.84615,
+    "roe": 0.13472,
+    "earnings_growth": 0.418,
+    "market_cap": 98584633344,
+    "average_volume": 3712567
+  }
+}

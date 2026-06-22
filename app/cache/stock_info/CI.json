@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089335.166168,
+  "info": {
+    "ticker": "CI",
+    "name": "시그나",
+    "sector": "건강보험",
+    "description": "건강보험",
+    "price": 279.27,
+    "target": 340.5,
+    "roe": 0.16268998,
+    "earnings_growth": 0.291,
+    "market_cap": 73875963904,
+    "average_volume": 1590450
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089386.692806,
+  "info": {
+    "ticker": "SATS",
+    "name": "EchoStar",
+    "sector": "통신 서비스",
+    "description": "통신 서비스",
+    "price": 109.17,
+    "target": 137.6,
+    "roe": -1.1228399,
+    "earnings_growth": 0.0,
+    "market_cap": 31638939648,
+    "average_volume": 8166912
+  }
+}

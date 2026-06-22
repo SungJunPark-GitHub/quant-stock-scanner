@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089630.734745,
+  "info": {
+    "ticker": "TPR",
+    "name": "Tapestry",
+    "sector": "경기소비재",
+    "description": "경기소비재",
+    "price": 143.5,
+    "target": 164.47368,
+    "roe": 0.60914004,
+    "earnings_growth": 0.737,
+    "market_cap": 28993417216,
+    "average_volume": 2284482
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089338.403999,
+  "info": {
+    "ticker": "C",
+    "name": "씨티그룹",
+    "sector": "대형은행",
+    "description": "대형은행",
+    "price": 143.06,
+    "target": 147.07143,
+    "roe": 0.07649,
+    "earnings_growth": 0.561,
+    "market_cap": 243999834112,
+    "average_volume": 12312479
+  }
+}

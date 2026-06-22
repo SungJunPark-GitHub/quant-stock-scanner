@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089400.517268,
+  "info": {
+    "ticker": "ESS",
+    "name": "Essex Property Trust",
+    "sector": "부동산",
+    "description": "부동산",
+    "price": 273.71,
+    "target": 286.84784,
+    "roe": 0.105579995,
+    "earnings_growth": -0.478,
+    "market_cap": 18865786880,
+    "average_volume": 480517
+  }
+}

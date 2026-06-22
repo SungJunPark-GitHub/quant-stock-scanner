@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089681.196331,
+  "info": {
+    "ticker": "WDC",
+    "name": "웨스턴디지털",
+    "sector": "컴퓨터 하드웨어 · 데이터 인프라",
+    "description": "하드디스크 · 낸드 스토리지",
+    "price": 746.23,
+    "target": 554.13043,
+    "roe": 0.85920995,
+    "earnings_growth": 4.829,
+    "market_cap": 257212153856,
+    "average_volume": 7860895
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089399.7811651,
+  "info": {
+    "ticker": "ERIE",
+    "name": "Erie Indemnity",
+    "sector": "보험 중개",
+    "description": "보험 중개",
+    "price": 221.14,
+    "target": 0,
+    "roe": 0.2585,
+    "earnings_growth": 0.087,
+    "market_cap": 11563381760,
+    "average_volume": 210912
+  }
+}

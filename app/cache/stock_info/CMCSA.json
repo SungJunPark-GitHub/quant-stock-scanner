@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089347.327894,
+  "info": {
+    "ticker": "CMCSA",
+    "name": "컴캐스트",
+    "sector": "통신 서비스",
+    "description": "통신 서비스",
+    "price": 22.43,
+    "target": 32.40476,
+    "roe": 0.20918,
+    "earnings_growth": -0.326,
+    "market_cap": 80125091840,
+    "average_volume": 30768401
+  }
+}

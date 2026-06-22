@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052699.354259,
+  "info": {
+    "ticker": "LNT",
+    "name": "Alliant Energy",
+    "sector": "전력 유틸리티",
+    "description": "전력 유틸리티",
+    "price": 73.0,
+    "target": 79.125,
+    "roe": 0.113120005,
+    "earnings_growth": 0.049,
+    "market_cap": 18854223872,
+    "average_volume": 2295866
+  }
+}

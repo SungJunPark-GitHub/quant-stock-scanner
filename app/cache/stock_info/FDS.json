@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089412.36043,
+  "info": {
+    "ticker": "FDS",
+    "name": "FactSet Research",
+    "sector": "금융데이터 · 거래소",
+    "description": "금융데이터 · 거래소",
+    "price": 221.29,
+    "target": 247.5,
+    "roe": 0.28084,
+    "earnings_growth": -0.045,
+    "market_cap": 8061843968,
+    "average_volume": 952230
+  }
+}

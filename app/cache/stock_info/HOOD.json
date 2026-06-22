@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089597.227136,
+  "info": {
+    "ticker": "HOOD",
+    "name": "로빈후드",
+    "sector": "투자은행 · 자본시장",
+    "description": "투자은행 · 자본시장",
+    "price": 108.15,
+    "target": 101.15,
+    "roe": 0.21461001,
+    "earnings_growth": 0.027,
+    "market_cap": 97389625344,
+    "average_volume": 31177762
+  }
+}

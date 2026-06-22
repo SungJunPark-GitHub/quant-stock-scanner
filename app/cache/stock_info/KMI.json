@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089489.009933,
+  "info": {
+    "ticker": "KMI",
+    "name": "킨더 모건",
+    "sector": "천연가스 파이프라인",
+    "description": "천연가스 파이프라인",
+    "price": 31.59,
+    "target": 35.33333,
+    "roe": 0.10597,
+    "earnings_growth": 0.36,
+    "market_cap": 70282248192,
+    "average_volume": 11478370
+  }
+}

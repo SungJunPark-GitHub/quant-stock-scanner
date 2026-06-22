@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089331.5898979,
+  "info": {
+    "ticker": "CMG",
+    "name": "Chipotle Mexican Grill",
+    "sector": "외식 프랜차이즈",
+    "description": "외식 프랜차이즈",
+    "price": 32.49,
+    "target": 42.87879,
+    "roe": 0.49231997,
+    "earnings_growth": -0.179,
+    "market_cap": 41676029952,
+    "average_volume": 17509088
+  }
+}

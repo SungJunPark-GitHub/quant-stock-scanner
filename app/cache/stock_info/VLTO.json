@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089661.378137,
+  "info": {
+    "ticker": "VLTO",
+    "name": "Veralto",
+    "sector": "산업재",
+    "description": "산업재",
+    "price": 84.02,
+    "target": 108.05882,
+    "roe": 0.36463,
+    "earnings_growth": 0.133,
+    "market_cap": 20635248640,
+    "average_volume": 2190448
+  }
+}

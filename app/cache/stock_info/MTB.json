@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089507.8292139,
+  "info": {
+    "ticker": "MTB",
+    "name": "M&T Bank",
+    "sector": "지역은행",
+    "description": "지역은행",
+    "price": 225.12,
+    "target": 233.33333,
+    "roe": 0.102910005,
+    "earnings_growth": 0.244,
+    "market_cap": 32967710720,
+    "average_volume": 1050035
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089713.061771,
+  "info": {
+    "ticker": "APPF",
+    "name": "AppFolio",
+    "sector": "응용 소프트웨어",
+    "description": "응용 소프트웨어",
+    "price": 151.5,
+    "target": 224.25,
+    "roe": 0.32598,
+    "earnings_growth": 0.372,
+    "market_cap": 5356817408,
+    "average_volume": 363562
+  }
+}

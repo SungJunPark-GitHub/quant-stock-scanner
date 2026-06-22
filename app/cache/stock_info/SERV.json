@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089746.725481,
+  "info": {
+    "ticker": "SERV",
+    "name": "서브 로보틱스",
+    "sector": "전문 산업기계",
+    "description": "자율주행 배달 로봇",
+    "price": 6.99,
+    "target": 18.45,
+    "roe": -0.51955,
+    "earnings_growth": 0.0,
+    "market_cap": 594780672,
+    "average_volume": 4545874
+  }
+}

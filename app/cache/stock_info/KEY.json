@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089485.499489,
+  "info": {
+    "ticker": "KEY",
+    "name": "Key",
+    "sector": "지역은행",
+    "description": "지역은행",
+    "price": 22.59,
+    "target": 25.06316,
+    "roe": 0.09977,
+    "earnings_growth": 0.333,
+    "market_cap": 24382939136,
+    "average_volume": 12434087
+  }
+}

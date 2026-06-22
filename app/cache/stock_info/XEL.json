@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089687.049908,
+  "info": {
+    "ticker": "XEL",
+    "name": "Xcel Energy",
+    "sector": "전력 유틸리티",
+    "description": "전력 유틸리티",
+    "price": 77.41,
+    "target": 91.38889,
+    "roe": 0.0959,
+    "earnings_growth": 0.06,
+    "market_cap": 48324710400,
+    "average_volume": 5354006
+  }
+}

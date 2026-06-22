@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089521.2765281,
+  "info": {
+    "ticker": "MGM",
+    "name": "MGM Resorts",
+    "sector": "경기소비재",
+    "description": "경기소비재",
+    "price": 46.84,
+    "target": 46.61111,
+    "roe": 0.13488,
+    "earnings_growth": -0.059,
+    "market_cap": 11984071680,
+    "average_volume": 5001164
+  }
+}

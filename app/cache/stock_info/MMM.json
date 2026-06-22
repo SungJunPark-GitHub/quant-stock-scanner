@@ -1,0 +1,15 @@
+{
+  "created_at": 1782025561.900396,
+  "info": {
+    "ticker": "MMM",
+    "name": "3M",
+    "sector": "복합 산업재",
+    "description": "복합 산업재",
+    "price": 160.6,
+    "target": 170.9679,
+    "roe": 0.71458,
+    "earnings_growth": -0.397,
+    "market_cap": 83763707904,
+    "average_volume": 3787577
+  }
+}

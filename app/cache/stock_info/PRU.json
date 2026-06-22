@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089581.691822,
+  "info": {
+    "ticker": "PRU",
+    "name": "Prudential Financial",
+    "sector": "금융",
+    "description": "금융",
+    "price": 106.53,
+    "target": 100.46667,
+    "roe": 0.10711,
+    "earnings_growth": -0.143,
+    "market_cap": 37000544256,
+    "average_volume": 2097727
+  }
+}

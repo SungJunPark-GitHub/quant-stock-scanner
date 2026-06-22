@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089663.729009,
+  "info": {
+    "ticker": "VZ",
+    "name": "버라이즌",
+    "sector": "통신 서비스",
+    "description": "통신 대형주 · 5G",
+    "price": 45.37,
+    "target": 51.90435,
+    "roe": 0.17198,
+    "earnings_growth": 0.043,
+    "market_cap": 189445095424,
+    "average_volume": 24419169
+  }
+}

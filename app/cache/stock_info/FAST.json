@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089414.229126,
+  "info": {
+    "ticker": "FAST",
+    "name": "패스널",
+    "sector": "산업재",
+    "description": "산업재",
+    "price": 45.89,
+    "target": 46.65833,
+    "roe": 0.33842,
+    "earnings_growth": 0.138,
+    "market_cap": 52683329536,
+    "average_volume": 6952467
+  }
+}

@@ -2,8 +2,7 @@
     <table class="scanner-table">
         <thead>
         <tr>
-            <th>⭐</th>
-            <th>#</th>
+            <th>관심</th>
             <th>종목</th>
             <th>설명</th>
             <th>섹터</th>
@@ -12,9 +11,8 @@
             <th class="sortable" data-sort="price">현재가 ↕</th>
             <th class="sortable" data-sort="change">등락 ↕</th>
             <th class="sortable" data-sort="rsi">RSI ↕</th>
-            <th>평균거래량</th>
-            <th>시총</th>
-            <th class="sortable" data-sort="target">증권사 목표가 ↕</th>
+            <th class="sortable" data-sort="average_volume">평균거래량 ↕</th>
+            <th class="sortable" data-sort="market_cap">시총 ↕</th>
             <th>핵심 이유</th>
         </tr>
         </thead>
@@ -28,17 +26,52 @@
             data-sector="{{ stock.sector }}">
 
             <td>
-                <button class="watch-btn" data-ticker="{{ stock.ticker }}" type="button">☆</button>
+                <button class="watch-btn table-watch-btn"
+                        data-ticker="{{ stock.ticker }}"
+                        type="button"
+                        aria-label="관심종목 추가"></button>
             </td>
 
             <td>
-                <span class="rank-circle">{{ stock.rank }}</span>
-            </td>
-
-            <td>
-                <div class="stock-name">
-                    <strong>{{ stock.name }}</strong>
-                    <span>{{ stock.ticker }}</span>
+                <div class="stock-name-cell">
+                    <div class="stock-logo-wrap {% if stock.logo_url %}has-logo{% endif %}">
+                        <span class="stock-logo-fallback">{{ stock.logo_initial or '?' }}</span>
+                        {% if stock.logo_url %}
+                        <img class="stock-logo"
+                             src="{{ stock.logo_url }}"
+                             data-fallback-src="{{ stock.logo_fallback_url or '' }}"
+                             alt=""
+                             loading="lazy"
+                             referrerpolicy="no-referrer"
+                             onerror="if (this.dataset.fallbackSrc && this.src !== this.dataset.fallbackSrc) { this.src = this.dataset.fallbackSrc; this.dataset.fallbackSrc = ''; } else { this.parentElement.classList.remove('has-logo'); this.remove(); }">
+                        {% endif %}
+                    </div>
+                    <div class="stock-name">
+                        <strong>{{ stock.name }}</strong>
+                        <span>{{ stock.ticker }}</span>
+                    </div>
+                    <div class="stock-hover-card">
+                        <div class="hover-title-row">
+                            <div class="stock-logo-wrap hover-logo {% if stock.logo_url %}has-logo{% endif %}">
+                                <span class="stock-logo-fallback">{{ stock.logo_initial or '?' }}</span>
+                                {% if stock.logo_url %}
+                                <img class="stock-logo"
+                                     src="{{ stock.logo_url }}"
+                                     data-fallback-src="{{ stock.logo_fallback_url or '' }}"
+                                     alt=""
+                                     loading="lazy"
+                                     referrerpolicy="no-referrer"
+                                     onerror="if (this.dataset.fallbackSrc && this.src !== this.dataset.fallbackSrc) { this.src = this.dataset.fallbackSrc; this.dataset.fallbackSrc = ''; } else { this.parentElement.classList.remove('has-logo'); this.remove(); }">
+                                {% endif %}
+                            </div>
+                            <div>
+                                <strong>{{ stock.name }}</strong>
+                                <span>{{ stock.ticker }}</span>
+                            </div>
+                        </div>
+                        <b>{{ stock.sector }}</b>
+                        <p>{{ stock.description }}</p>
+                    </div>
                 </div>
             </td>
 
@@ -52,30 +85,39 @@
 
             <td>
                 <div class="score-wrap">
-                    <strong class="score-number {% if stock.score >= 70 %}score-text-good{% elif stock.score >= 50 %}score-text-mid{% else %}score-text-bad{% endif %}">
+                    <strong class="score-number {% if stock.score >= 68 %}score-text-good{% elif stock.score >= 40 %}score-text-mid{% else %}score-text-bad{% endif %}">
                         {{ stock.score }}
                     </strong>
                     <div class="score-bar">
-                        <div class="score-fill {% if stock.score >= 70 %}score-good{% elif stock.score >= 50 %}score-mid{% else %}score-bad{% endif %}"
+                        <div class="score-fill {% if stock.score >= 68 %}score-good{% elif stock.score >= 40 %}score-mid{% else %}score-bad{% endif %}"
                              style="width: {{ stock.score }}%;"></div>
                     </div>
                 </div>
             </td>
 
             <td>
-                <div class="signal-stack">
-                    <span class="signal-dot {{ stock.signal_type }}"></span>
-                    <span class="signal-badge {{ stock.signal_type }}">
-                        {{ stock.signal }}
+                <div class="signal-compact {{ stock.signal_type }}">
+                    <span class="signal-status">
+                        {% if stock.signal == 'GREEN' %}
+                            매수관심
+                        {% elif stock.signal == 'BLUE' %}
+                            관망우세
+                        {% elif stock.signal == 'YELLOW' %}
+                            중립
+                        {% elif stock.signal == 'RED' %}
+                            주의
+                        {% else %}
+                            {{ stock.signal }}
+                        {% endif %}
                     </span>
-                    <span class="small-badge {{ stock.grade_type }}">
+                    <span class="signal-grade {{ stock.grade_type }}">
                         {{ stock.grade }}
                     </span>
                 </div>
             </td>
 
             <td>
-                <strong>{{ stock.price }}</strong>
+                <strong>{{ stock.price_display or stock.price }}</strong>
             </td>
 
             <td class="{% if stock.change >= 0 %}up{% else %}down{% endif %}">
@@ -97,13 +139,6 @@
             <td>{{ stock.market_cap }}</td>
 
             <td>
-                <strong>{{ stock.target }}</strong>
-                <small class="{% if stock.target_change >= 0 %}up{% else %}down{% endif %}">
-                    {% if stock.target_change >= 0 %}+{% endif %}{{ stock.target_change }}%
-                </small>
-            </td>
-
-            <td>
                 <div class="reason-list compact">
                     {% for item in stock.reason_tags %}
                     <span>{{ item }}</span>
@@ -113,6 +148,13 @@
 
         </tr>
         {% endfor %}
+        {% if not stocks %}
+        <tr>
+            <td class="empty-stock-cell" colspan="12">
+                저장된 스캔 데이터가 없습니다. 자동 갱신이 곧 실행되니 잠시 후 새로고침해 주세요.
+            </td>
+        </tr>
+        {% endif %}
         </tbody>
     </table>
 </div>

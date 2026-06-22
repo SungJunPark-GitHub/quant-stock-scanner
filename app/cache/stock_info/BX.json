@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052736.1132338,
+  "info": {
+    "ticker": "BX",
+    "name": "블랙스톤",
+    "sector": "자산운용",
+    "description": "대체투자 · 사모펀드",
+    "price": 123.79,
+    "target": 143.45,
+    "roe": 0.29533002,
+    "earnings_growth": 0.039,
+    "market_cap": 151303815168,
+    "average_volume": 5977683
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052744.476776,
+  "info": {
+    "ticker": "BG",
+    "name": "Bunge",
+    "sector": "필수소비재",
+    "description": "필수소비재",
+    "price": 112.58,
+    "target": 142.0,
+    "roe": 0.04933,
+    "earnings_growth": -0.764,
+    "market_cap": 21842558976,
+    "average_volume": 1670745
+  }
+}

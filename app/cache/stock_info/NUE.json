@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089549.425218,
+  "info": {
+    "ticker": "NUE",
+    "name": "Nucor",
+    "sector": "소재",
+    "description": "소재",
+    "price": 243.83,
+    "target": 257.81134,
+    "roe": 0.12285,
+    "earnings_growth": 3.821,
+    "market_cap": 55530074112,
+    "average_volume": 1559879
+  }
+}

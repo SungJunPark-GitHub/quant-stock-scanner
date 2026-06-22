@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089404.254516,
+  "info": {
+    "ticker": "ES",
+    "name": "에버소스 에너지",
+    "sector": "전력 유틸리티",
+    "description": "전력 · 가스 유틸리티",
+    "price": 69.59,
+    "target": 72.16667,
+    "roe": 0.10912,
+    "earnings_growth": 0.074,
+    "market_cap": 26171408384,
+    "average_volume": 2508941
+  }
+}

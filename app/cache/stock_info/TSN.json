@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089649.4680629,
+  "info": {
+    "ticker": "TSN",
+    "name": "Tyson Foods",
+    "sector": "필수소비재",
+    "description": "필수소비재",
+    "price": 55.46,
+    "target": 70.91667,
+    "roe": 0.02619,
+    "earnings_growth": 36.022,
+    "market_cap": 19529097216,
+    "average_volume": 3087056
+  }
+}

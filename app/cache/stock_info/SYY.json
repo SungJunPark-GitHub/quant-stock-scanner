@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089627.3622131,
+  "info": {
+    "ticker": "SYY",
+    "name": "Sysco",
+    "sector": "필수소비재",
+    "description": "필수소비재",
+    "price": 78.7,
+    "target": 86.86667,
+    "roe": 0.81894994,
+    "earnings_growth": -0.135,
+    "market_cap": 37632966656,
+    "average_volume": 4777870
+  }
+}

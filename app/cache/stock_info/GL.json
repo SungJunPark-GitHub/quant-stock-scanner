@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089441.255677,
+  "info": {
+    "ticker": "GL",
+    "name": "Globe Life",
+    "sector": "금융",
+    "description": "금융",
+    "price": 170.76,
+    "target": 175.90909,
+    "roe": 0.20455,
+    "earnings_growth": 0.126,
+    "market_cap": 13258618880,
+    "average_volume": 556501
+  }
+}

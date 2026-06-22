@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089350.017928,
+  "info": {
+    "ticker": "COP",
+    "name": "ConocoPhillips",
+    "sector": "석유 · 가스 개발",
+    "description": "석유 · 가스 개발",
+    "price": 107.74,
+    "target": 142.76923,
+    "roe": 0.112840004,
+    "earnings_growth": -0.202,
+    "market_cap": 131258990592,
+    "average_volume": 8311985
+  }
+}

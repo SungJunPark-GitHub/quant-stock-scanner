@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089569.302946,
+  "info": {
+    "ticker": "PFE",
+    "name": "화이자",
+    "sector": "대형 제약",
+    "description": "대형 제약",
+    "price": 25.21,
+    "target": 29.18778,
+    "roe": 0.083100006,
+    "earnings_growth": -0.101,
+    "market_cap": 143682977792,
+    "average_volume": 36630208
+  }
+}

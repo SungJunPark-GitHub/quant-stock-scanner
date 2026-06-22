@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089482.692301,
+  "info": {
+    "ticker": "JPM",
+    "name": "JP모건 체이스",
+    "sector": "대형은행",
+    "description": "대형은행 · 투자은행",
+    "price": 325.22,
+    "target": 342.0,
+    "roe": 0.16465001,
+    "earnings_growth": 0.172,
+    "market_cap": 871430684672,
+    "average_volume": 9008248
+  }
+}

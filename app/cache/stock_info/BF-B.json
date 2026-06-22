@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052743.120427,
+  "info": {
+    "ticker": "BF-B",
+    "name": "Brown Forman",
+    "sector": "필수소비재",
+    "description": "필수소비재",
+    "price": 26.64,
+    "target": 27.775,
+    "roe": 0.17846,
+    "earnings_growth": -0.627,
+    "market_cap": 12224143360,
+    "average_volume": 4587172
+  }
+}

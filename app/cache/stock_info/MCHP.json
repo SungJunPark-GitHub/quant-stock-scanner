@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089522.202345,
+  "info": {
+    "ticker": "MCHP",
+    "name": "Microchip orporat",
+    "sector": "반도체",
+    "description": "반도체",
+    "price": 99.77,
+    "target": 112.95833,
+    "roe": 0.03405,
+    "earnings_growth": 0.0,
+    "market_cap": 54083248128,
+    "average_volume": 10714545
+  }
+}

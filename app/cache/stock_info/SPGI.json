@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089602.564138,
+  "info": {
+    "ticker": "SPGI",
+    "name": "S&P 글로벌",
+    "sector": "금융데이터 · 거래소",
+    "description": "금융데이터 · 신용평가",
+    "price": 410.92,
+    "target": 532.8095,
+    "roe": 0.13939999,
+    "earnings_growth": 0.325,
+    "market_cap": 121632325632,
+    "average_volume": 1979524
+  }
+}

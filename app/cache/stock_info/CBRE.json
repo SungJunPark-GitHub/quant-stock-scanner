@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052754.306998,
+  "info": {
+    "ticker": "CBRE",
+    "name": "CBRE",
+    "sector": "부동산",
+    "description": "부동산",
+    "price": 131.55,
+    "target": 177.16667,
+    "roe": 0.15597,
+    "earnings_growth": 0.981,
+    "market_cap": 38520020992,
+    "average_volume": 2249243
+  }
+}

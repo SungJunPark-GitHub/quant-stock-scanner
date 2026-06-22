@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089691.544547,
+  "info": {
+    "ticker": "ALAB",
+    "name": "아스테라 랩스",
+    "sector": "반도체",
+    "description": "AI 데이터센터 연결 반도체",
+    "price": 417.07,
+    "target": 244.96773,
+    "roe": 0.21110001,
+    "earnings_growth": 1.444,
+    "market_cap": 71489110016,
+    "average_volume": 5989785
+  }
+}

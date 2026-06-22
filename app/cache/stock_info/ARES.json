@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052718.320456,
+  "info": {
+    "ticker": "ARES",
+    "name": "Ares Management",
+    "sector": "자산운용",
+    "description": "자산운용",
+    "price": 129.34,
+    "target": 145.23529,
+    "roe": 0.14182,
+    "earnings_growth": 7.705,
+    "market_cap": 42662363136,
+    "average_volume": 2966329
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089450.125417,
+  "info": {
+    "ticker": "HPE",
+    "name": "Hewlett Packard Enterprise Comp",
+    "sector": "기술",
+    "description": "기술",
+    "price": 47.41,
+    "target": 64.12947,
+    "roe": 0.06315,
+    "earnings_growth": 0.0,
+    "market_cap": 62780489728,
+    "average_volume": 25369341
+  }
+}

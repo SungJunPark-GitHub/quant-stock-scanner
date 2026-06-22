@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089611.429306,
+  "info": {
+    "ticker": "SWKS",
+    "name": "Skyworks Solutions",
+    "sector": "반도체",
+    "description": "반도체",
+    "price": 72.45,
+    "target": 72.52941,
+    "roe": 0.06171,
+    "earnings_growth": -0.449,
+    "market_cap": 10896912384,
+    "average_volume": 4359706
+  }
+}

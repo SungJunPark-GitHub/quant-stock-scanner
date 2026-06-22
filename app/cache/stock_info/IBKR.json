@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089468.583931,
+  "info": {
+    "ticker": "IBKR",
+    "name": "인터랙티브 브로커스",
+    "sector": "투자은행 · 자본시장",
+    "description": "온라인 브로커리지 · 거래 플랫폼",
+    "price": 96.0,
+    "target": 88.27273,
+    "roe": 0.2356,
+    "earnings_growth": 0.229,
+    "market_cap": 162837331968,
+    "average_volume": 4972390
+  }
+}

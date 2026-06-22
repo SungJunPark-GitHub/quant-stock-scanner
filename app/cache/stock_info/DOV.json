@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089379.508677,
+  "info": {
+    "ticker": "DOV",
+    "name": "Dover",
+    "sector": "전문 산업기계",
+    "description": "전문 산업기계",
+    "price": 223.57,
+    "target": 250.85,
+    "roe": 0.14998001,
+    "earnings_growth": 0.053,
+    "market_cap": 30106251264,
+    "average_volume": 957082
+  }
+}

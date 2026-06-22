@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089582.4926999,
+  "info": {
+    "ticker": "PEG",
+    "name": "Public Service Enterprise",
+    "sector": "전력 유틸리티",
+    "description": "전력 유틸리티",
+    "price": 79.89,
+    "target": 89.63889,
+    "roe": 0.13441,
+    "earnings_growth": 0.254,
+    "market_cap": 39810895872,
+    "average_volume": 2794898
+  }
+}

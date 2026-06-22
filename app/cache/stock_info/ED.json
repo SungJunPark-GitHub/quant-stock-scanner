@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089351.053076,
+  "info": {
+    "ticker": "ED",
+    "name": "Consolidated Edison",
+    "sector": "전력 유틸리티",
+    "description": "전력 유틸리티",
+    "price": 106.36,
+    "target": 109.75,
+    "roe": 0.08732,
+    "earnings_growth": 0.129,
+    "market_cap": 39196819456,
+    "average_volume": 2253940
+  }
+}

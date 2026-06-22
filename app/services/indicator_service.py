@@ -70,8 +70,15 @@ def calculate_macd(df: pd.DataFrame):
 
 
 def calculate_52w_high(df: pd.DataFrame) -> float:
-    high = df["High"].rolling(window=252).max()
-    return round(float(high.iloc[-1]), 2)
+    if df is None or df.empty or "High" not in df:
+        return 0
+
+    high = df["High"].tail(252).dropna()
+
+    if high.empty:
+        return 0
+
+    return round(float(high.max()), 2)
 
 
 def calculate_volume_ratio(df: pd.DataFrame) -> float:

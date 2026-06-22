@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089587.242935,
+  "info": {
+    "ticker": "DGX",
+    "name": "Quest Diagnostics",
+    "sector": "헬스케어",
+    "description": "헬스케어",
+    "price": 195.0,
+    "target": 223.4375,
+    "roe": 0.14538999,
+    "earnings_growth": 0.155,
+    "market_cap": 21585803264,
+    "average_volume": 899288
+  }
+}

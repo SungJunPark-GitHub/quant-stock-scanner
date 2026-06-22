@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089339.169201,
+  "info": {
+    "ticker": "CFG",
+    "name": "Citizens Financial",
+    "sector": "지역은행",
+    "description": "지역은행",
+    "price": 67.08,
+    "target": 72.91176,
+    "roe": 0.07739,
+    "earnings_growth": 0.468,
+    "market_cap": 28366921728,
+    "average_volume": 4451677
+  }
+}

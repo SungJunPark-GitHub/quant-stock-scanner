@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089358.669316,
+  "info": {
+    "ticker": "COST",
+    "name": "코스트코",
+    "sector": "대형 리테일",
+    "description": "회원제 창고형 리테일",
+    "price": 951.45,
+    "target": 1082.9393,
+    "roe": 0.29152,
+    "earnings_growth": 0.455,
+    "market_cap": 421947932672,
+    "average_volume": 2050075
+  }
+}

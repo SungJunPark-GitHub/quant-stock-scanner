@@ -1,7 +1,9 @@
 <div class="macro-bar">
-    <span class="event red">D-1 FOMC</span>
-    <span class="event blue">D-16 고용보고서</span>
-    <span class="event orange">D-29 CPI</span>
-    <span class="event red">D-43 FOMC</span>
-    <span class="event blue">D-57 고용보고서</span>
+    {% for event in market_overview.macro_events %}
+    <span class="macro-event">
+        <b>{{ event.d_label }}</b>
+        <em class="{{ event.tone }}">{{ event.type }}</em>
+        {{ event.label }}
+    </span>
+    {% endfor %}
 </div>

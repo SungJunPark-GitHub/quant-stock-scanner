@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089620.422718,
+  "info": {
+    "ticker": "STT",
+    "name": "State Street",
+    "sector": "자산운용",
+    "description": "자산운용",
+    "price": 168.31,
+    "target": 161.17857,
+    "roe": 0.11261,
+    "earnings_growth": -0.241,
+    "market_cap": 46582661120,
+    "average_volume": 2110488
+  }
+}

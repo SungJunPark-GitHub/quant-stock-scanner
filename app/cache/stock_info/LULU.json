@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089505.135186,
+  "info": {
+    "ticker": "LULU",
+    "name": "lululemon athletica inc.",
+    "sector": "의류 리테일",
+    "description": "의류 리테일",
+    "price": 111.77,
+    "target": 132.16,
+    "roe": 0.32027,
+    "earnings_growth": -0.35,
+    "market_cap": 12691920896,
+    "average_volume": 3440182
+  }
+}

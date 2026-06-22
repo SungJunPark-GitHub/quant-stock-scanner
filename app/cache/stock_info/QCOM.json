@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089586.484267,
+  "info": {
+    "ticker": "QCOM",
+    "name": "퀄컴",
+    "sector": "반도체",
+    "description": "모바일 칩 · 통신 반도체",
+    "price": 226.11,
+    "target": 183.83333,
+    "roe": 0.36083,
+    "earnings_growth": 1.73,
+    "market_cap": 238319943680,
+    "average_volume": 20726606
+  }
+}

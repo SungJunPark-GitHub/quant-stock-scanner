@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089342.643671,
+  "info": {
+    "ticker": "KO",
+    "name": "코카콜라",
+    "sector": "음료",
+    "description": "음료 · 브랜드 소비재",
+    "price": 79.39,
+    "target": 85.97417,
+    "roe": 0.43372002,
+    "earnings_growth": 0.182,
+    "market_cap": 341574090752,
+    "average_volume": 15566679
+  }
+}

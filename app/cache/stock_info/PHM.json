@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089584.75982,
+  "info": {
+    "ticker": "PHM",
+    "name": "Pulte",
+    "sector": "경기소비재",
+    "description": "경기소비재",
+    "price": 126.96,
+    "target": 138.07692,
+    "roe": 0.16178,
+    "earnings_growth": -0.304,
+    "market_cap": 24184147968,
+    "average_volume": 1842987
+  }
+}

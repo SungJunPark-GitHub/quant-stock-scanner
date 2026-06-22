@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089748.044938,
+  "info": {
+    "ticker": "SPCX",
+    "name": "스페이스X",
+    "sector": "항공우주 · 방산",
+    "description": "우주 발사체 · 위성 인터넷",
+    "price": 185.0,
+    "target": 187.8,
+    "roe": 0.0,
+    "earnings_growth": 0.0,
+    "market_cap": 2437224595456,
+    "average_volume": 288941860
+  }
+}

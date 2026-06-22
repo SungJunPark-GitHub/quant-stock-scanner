@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089367.39829,
+  "info": {
+    "ticker": "DVA",
+    "name": "DaVita",
+    "sector": "헬스케어",
+    "description": "헬스케어",
+    "price": 207.91,
+    "target": 193.7143,
+    "roe": 0.80981004,
+    "earnings_growth": 0.435,
+    "market_cap": 13344703488,
+    "average_volume": 824358
+  }
+}

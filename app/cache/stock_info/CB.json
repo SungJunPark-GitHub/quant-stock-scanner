@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089332.335503,
+  "info": {
+    "ticker": "CB",
+    "name": "처브",
+    "sector": "손해보험",
+    "description": "손해보험 · 재보험",
+    "price": 323.4,
+    "target": 345.0435,
+    "roe": 0.15433,
+    "earnings_growth": 0.787,
+    "market_cap": 125433954304,
+    "average_volume": 1609014
+  }
+}

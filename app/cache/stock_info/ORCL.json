@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089558.263093,
+  "info": {
+    "ticker": "ORCL",
+    "name": "오라클",
+    "sector": "클라우드 소프트웨어",
+    "description": "클라우드 소프트웨어",
+    "price": 184.29,
+    "target": 252.6405,
+    "roe": 0.53376,
+    "earnings_growth": 0.219,
+    "market_cap": 530026528768,
+    "average_volume": 26464450
+  }
+}

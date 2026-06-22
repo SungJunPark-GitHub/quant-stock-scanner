@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089652.423723,
+  "info": {
+    "ticker": "UDR",
+    "name": "UDR",
+    "sector": "부동산",
+    "description": "부동산",
+    "price": 37.56,
+    "target": 40.54762,
+    "roe": 0.123500004,
+    "earnings_growth": 1.516,
+    "market_cap": 13916568576,
+    "average_volume": 4350654
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089375.241645,
+  "info": {
+    "ticker": "DG",
+    "name": "Dollar General",
+    "sector": "대형 리테일",
+    "description": "대형 리테일",
+    "price": 113.45,
+    "target": 131.24138,
+    "roe": 0.1891,
+    "earnings_growth": 0.124,
+    "market_cap": 25025554432,
+    "average_volume": 3605220
+  }
+}

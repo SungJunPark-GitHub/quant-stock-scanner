@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052731.190712,
+  "info": {
+    "ticker": "BAX",
+    "name": "Baxter",
+    "sector": "헬스케어",
+    "description": "헬스케어",
+    "price": 19.89,
+    "target": 21.54167,
+    "roe": -0.15010999,
+    "earnings_growth": 0.0,
+    "market_cap": 10272568320,
+    "average_volume": 7465314
+  }
+}

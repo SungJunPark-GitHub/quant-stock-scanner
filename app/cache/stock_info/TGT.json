@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089632.858901,
+  "info": {
+    "ticker": "TGT",
+    "name": "Target",
+    "sector": "대형 리테일",
+    "description": "대형 리테일",
+    "price": 130.74,
+    "target": 132.20152,
+    "roe": 0.22015,
+    "earnings_growth": -0.247,
+    "market_cap": 59380948992,
+    "average_volume": 5146766
+  }
+}

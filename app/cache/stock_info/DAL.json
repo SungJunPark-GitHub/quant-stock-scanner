@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089370.968081,
+  "info": {
+    "ticker": "DAL",
+    "name": "Delta Air Lines",
+    "sector": "산업재",
+    "description": "산업재",
+    "price": 84.18,
+    "target": 82.012,
+    "roe": 0.2499,
+    "earnings_growth": 0.0,
+    "market_cap": 55305785344,
+    "average_volume": 9337145
+  }
+}

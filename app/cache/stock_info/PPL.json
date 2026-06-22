@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089577.466094,
+  "info": {
+    "ticker": "PPL",
+    "name": "PPL",
+    "sector": "전력 유틸리티",
+    "description": "전력 유틸리티",
+    "price": 35.38,
+    "target": 41.2,
+    "roe": 0.08316,
+    "earnings_growth": 0.073,
+    "market_cap": 26618155008,
+    "average_volume": 8436775
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089410.3492968,
+  "info": {
+    "ticker": "XOM",
+    "name": "엑슨모빌",
+    "sector": "석유 · 가스",
+    "description": "석유 · 가스 · 에너지",
+    "price": 137.81,
+    "target": 169.90909,
+    "roe": 0.09873,
+    "earnings_growth": -0.434,
+    "market_cap": 571215183872,
+    "average_volume": 19527538
+  }
+}

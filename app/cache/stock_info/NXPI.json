@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089552.167519,
+  "info": {
+    "ticker": "NXPI",
+    "name": "NXP Semiconductors N.V.",
+    "sector": "반도체",
+    "description": "반도체",
+    "price": 313.27,
+    "target": 303.93103,
+    "roe": 0.25812998,
+    "earnings_growth": 1.307,
+    "market_cap": 79091613696,
+    "average_volume": 3761277
+  }
+}

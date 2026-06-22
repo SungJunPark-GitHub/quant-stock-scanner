@@ -2,39 +2,87 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Quant Stock Scanner</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>종목탐색기</title>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=20260620-update-progress">
 </head>
 <body>
 
 <div class="container">
-    {% include 'components/sidebar.html' %}
-
     <div class="main-content">
         {% include 'components/header.html' %}
         {% include 'components/macro_bar.html' %}
         {% include 'components/market_bar.html' %}
         {% include 'components/filter_bar.html' %}
 
-        <div class="scanner-tab-content active" id="stockScannerPanel">
-            {% include 'components/stock_table.html' %}
+        <div class="index-strip">
+            <span class="index-label">📊 지수</span>
+
+            <button class="index-chip active"
+                    type="button"
+                    data-index-key="">
+                전체 <small>{{ stocks | length }}</small>
+            </button>
+
+            {% for group in market_overview.index_groups %}
+            <button class="index-chip"
+                    type="button"
+                    data-index-key="{{ group.key }}">
+                {{ group.name }} <small>{{ group.count }}</small>
+            </button>
+            {% endfor %}
+
+            <span class="index-note">
+                명단 {{ market_overview.list_updated_at }} · 시세 {{ market_overview.quote_lag }} ⚠
+            </span>
         </div>
 
-        <div class="scanner-tab-content" id="etfPanel">
-            {% include 'components/etf_table.html' %}
+        <div class="content-shell">
+            {% include 'components/sidebar.html' %}
+
+            <div class="content-panel">
+                <div class="scanner-tab-content active" id="stockScannerPanel">
+                    {% include 'components/stock_table.html' %}
+                </div>
+
+                <div class="scanner-tab-content" id="etfPanel">
+                    {% include 'components/etf_table.html' %}
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
 {% include 'components/stock_modal.html' %}
 
+<div class="anon-chat" id="anonChat">
+    <div class="anon-chat-panel hidden" id="anonChatPanel">
+        <div class="anon-chat-header">
+            <strong>익명 토론방</strong>
+            <span id="anonOnlineCount">0명 접속</span>
+        </div>
+
+        <div class="anon-chat-body" id="anonChatBody"></div>
+
+        <form class="anon-chat-form" id="anonChatForm">
+            <input id="anonChatInput" type="text" maxlength="180" placeholder="메시지를 입력하세요..." autocomplete="off">
+            <button id="anonChatSend" type="submit">전송</button>
+        </form>
+    </div>
+
+    <button class="anon-chat-toggle" id="anonChatToggle" type="button" aria-label="익명 토론방 열기">
+        💬
+    </button>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
     const STOCKS = {{ stocks | tojson }};
+    const INDEX_MEMBERS = {{ market_overview.index_members | tojson }};
 </script>
 
-<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script src="{{ url_for('static', filename='js/main.js') }}?v=20260620-update-progress"></script>
 
 </body>
 </html>

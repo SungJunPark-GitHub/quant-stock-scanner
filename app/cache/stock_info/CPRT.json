@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089354.559784,
+  "info": {
+    "ticker": "CPRT",
+    "name": "Copart",
+    "sector": "산업재",
+    "description": "산업재",
+    "price": 30.23,
+    "target": 41.44444,
+    "roe": 0.17607,
+    "earnings_growth": 0.023,
+    "market_cap": 27987279872,
+    "average_volume": 9256440
+  }
+}

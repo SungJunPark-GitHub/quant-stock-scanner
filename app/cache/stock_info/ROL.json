@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089598.930072,
+  "info": {
+    "ticker": "ROL",
+    "name": "Rollins",
+    "sector": "경기소비재",
+    "description": "경기소비재",
+    "price": 44.96,
+    "target": 62.9375,
+    "roe": 0.38671002,
+    "earnings_growth": 0.013,
+    "market_cap": 21646604288,
+    "average_volume": 3477411
+  }
+}

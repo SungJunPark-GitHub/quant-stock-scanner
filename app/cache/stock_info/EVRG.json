@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089403.308383,
+  "info": {
+    "ticker": "EVRG",
+    "name": "Evergy",
+    "sector": "전력 유틸리티",
+    "description": "전력 유틸리티",
+    "price": 82.5,
+    "target": 90.45833,
+    "roe": 0.08866999,
+    "earnings_growth": 0.185,
+    "market_cap": 19017324544,
+    "average_volume": 1878319
+  }
+}

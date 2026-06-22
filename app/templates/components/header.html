@@ -1,7 +1,7 @@
 <div class="top-header">
     <div class="header-left">
         <div class="app-logo">
-            주식<span>분석기</span>
+            종목<span>탐색기</span>
         </div>
 
         <div class="market-toggle">
@@ -20,14 +20,19 @@
 
         <div class="search-box">
             🔍
-            <input type="text" id="stockSearchInput" placeholder="종목명 또는 티커 검색 (예: RF, 삼성, AAPL)">
+            <input type="text" id="stockSearchInput" placeholder="종목명 또는 티커 검색 (예: 알파벳, 삼성)">
         </div>
 
-        <button class="scan-btn">🔍 스캔</button>
-        <button class="more-btn">•••</button>
     </div>
 
-    <div class="header-date">
-        2026. 06. 17.
+    <div class="header-status">
+        <span>자동갱신 <strong id="autoUpdateStatus">{{ auto_update_status.task }}</strong></span>
+        <div class="auto-progress hidden" id="autoUpdateProgress">
+            <div class="auto-progress-track">
+                <b id="autoUpdateProgressBar"></b>
+            </div>
+            <em id="autoUpdateProgressText">0%</em>
+        </div>
     </div>
+
 </div>

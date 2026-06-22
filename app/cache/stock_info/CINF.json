@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089335.929182,
+  "info": {
+    "ticker": "CINF",
+    "name": "Cincinnati Financial oratio",
+    "sector": "손해보험",
+    "description": "손해보험",
+    "price": 170.2,
+    "target": 181.5,
+    "roe": 0.18735,
+    "earnings_growth": 0.0,
+    "market_cap": 26327681024,
+    "average_volume": 714774
+  }
+}

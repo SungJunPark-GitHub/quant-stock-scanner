@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052702.866407,
+  "info": {
+    "ticker": "AMZN",
+    "name": "아마존",
+    "sector": "전자상거래",
+    "description": "AWS · 이커머스 · 광고",
+    "price": 244.39,
+    "target": 312.98715,
+    "roe": 0.24285,
+    "earnings_growth": 0.748,
+    "market_cap": 2628929978368,
+    "average_volume": 44954648
+  }
+}

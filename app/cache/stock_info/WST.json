@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089680.248561,
+  "info": {
+    "ticker": "WST",
+    "name": "West Pharmaceutical I",
+    "sector": "헬스케어",
+    "description": "헬스케어",
+    "price": 327.95,
+    "target": 358.7857,
+    "roe": 0.19131,
+    "earnings_growth": 0.561,
+    "market_cap": 23168878592,
+    "average_volume": 842893
+  }
+}

@@ -1,22 +1,48 @@
+<div class="etf-control-strip">
+    <span class="index-label">📊 ETF</span>
+
+    <button class="index-chip etf-chip active"
+            type="button"
+            data-etf-theme="">
+        전체 <small>{{ etf_overview.total }}</small>
+    </button>
+
+    {% for theme in etf_overview.themes %}
+    <button class="index-chip etf-chip"
+            type="button"
+            data-etf-theme="{{ theme.key }}">
+        {{ theme.name }} <small>{{ theme.count }}</small>
+    </button>
+    {% endfor %}
+</div>
 
 <div class="table-container">
-    <table>
+    <table class="scanner-table etf-table">
         <thead>
         <tr>
             <th>#</th>
             <th>ETF</th>
             <th>분류</th>
+            <th>테마</th>
             <th>점수</th>
             <th>현재가</th>
             <th>등락</th>
             <th>RSI</th>
+            <th>평균거래량</th>
+            <th>추세</th>
             <th>상태</th>
         </tr>
         </thead>
 
         <tbody>
         {% for etf in etfs %}
-        <tr>
+        <tr class="etf-row"
+            data-ticker="{{ etf.ticker }}"
+            data-name="{{ etf.name }}"
+            data-category="{{ etf.category }}"
+            data-theme="{{ etf.theme }}"
+            data-score="{{ etf.score }}"
+            data-signal-type="{{ etf.signal_type or 'yellow' }}">
             <td>
                 <span class="rank-circle">{{ loop.index }}</span>
             </td>
@@ -33,6 +59,10 @@
             </td>
 
             <td>
+                <span class="sector-pill">{{ etf.theme }}</span>
+            </td>
+
+            <td>
                 <div class="score-wrap">
                     <strong class="score-number">{{ etf.score }}</strong>
                     <div class="score-bar">
@@ -42,7 +72,9 @@
                 </div>
             </td>
 
-            <td>${{ etf.price }}</td>
+            <td>
+                <strong>{{ etf.price_display or etf.price }}</strong>
+            </td>
 
             <td class="{% if etf.change >= 0 %}up{% else %}down{% endif %}">
                 {% if etf.change >= 0 %}+{% endif %}{{ etf.change }}%
@@ -50,11 +82,22 @@
 
             <td>{{ etf.rsi }}</td>
 
+            <td>{{ etf.average_volume }}</td>
+
+            <td>{{ etf.ma_status }}</td>
+
             <td>
-                <span class="signal-badge green">{{ etf.signal }}</span>
+                <span class="signal-badge {{ etf.signal_type or 'yellow' }}">{{ etf.signal }}</span>
             </td>
         </tr>
         {% endfor %}
+        {% if not etfs %}
+        <tr>
+            <td class="empty-stock-cell" colspan="11">
+                ETF 목록이 없습니다. app/data/etf_universe.json을 확인해주세요.
+            </td>
+        </tr>
+        {% endif %}
         </tbody>
     </table>
 </div>

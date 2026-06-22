@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089357.95976,
+  "info": {
+    "ticker": "CSGP",
+    "name": "CoStar",
+    "sector": "부동산",
+    "description": "부동산",
+    "price": 30.12,
+    "target": 48.25,
+    "roe": 0.00303,
+    "earnings_growth": 0.0,
+    "market_cap": 12299674624,
+    "average_volume": 7315593
+  }
+}

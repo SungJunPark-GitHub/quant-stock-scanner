@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089427.709232,
+  "info": {
+    "ticker": "BEN",
+    "name": "Franklin Resources",
+    "sector": "자산운용",
+    "description": "자산운용",
+    "price": 33.05,
+    "target": 31.59091,
+    "roe": 0.06704,
+    "earnings_growth": 0.872,
+    "market_cap": 17174007808,
+    "average_volume": 4871151
+  }
+}

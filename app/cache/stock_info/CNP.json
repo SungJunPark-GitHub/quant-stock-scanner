@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052757.042419,
+  "info": {
+    "ticker": "CNP",
+    "name": "센터포인트 에너지",
+    "sector": "전력 유틸리티",
+    "description": "전력 · 가스 유틸리티",
+    "price": 42.82,
+    "target": 46.125,
+    "roe": 0.09561,
+    "earnings_growth": 0.067,
+    "market_cap": 28011536384,
+    "average_volume": 4897727
+  }
+}

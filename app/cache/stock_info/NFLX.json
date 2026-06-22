@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089537.025198,
+  "info": {
+    "ticker": "NFLX",
+    "name": "넷플릭스",
+    "sector": "콘텐츠 · 엔터",
+    "description": "스트리밍 플랫폼",
+    "price": 77.38,
+    "target": 114.14591,
+    "roe": 0.48494998,
+    "earnings_growth": 0.864,
+    "market_cap": 325831589888,
+    "average_volume": 39290182
+  }
+}

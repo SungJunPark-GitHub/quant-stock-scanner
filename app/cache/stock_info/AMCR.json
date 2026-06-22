@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052703.51347,
+  "info": {
+    "ticker": "AMCR",
+    "name": "Amcor",
+    "sector": "경기소비재",
+    "description": "경기소비재",
+    "price": 41.08,
+    "target": 48.21455,
+    "roe": 0.08737001,
+    "earnings_growth": -0.117,
+    "market_cap": 18993162240,
+    "average_volume": 4312575
+  }
+}

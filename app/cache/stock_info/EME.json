@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089392.286143,
+  "info": {
+    "ticker": "EME",
+    "name": "EMCOR",
+    "sector": "엔지니어링 · 건설",
+    "description": "엔지니어링 · 건설",
+    "price": 836.59,
+    "target": 1000.1429,
+    "roe": 0.39229,
+    "earnings_growth": 0.3,
+    "market_cap": 37255503872,
+    "average_volume": 367600
+  }
+}

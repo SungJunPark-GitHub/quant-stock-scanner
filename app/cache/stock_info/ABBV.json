@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052402.1309052,
+  "info": {
+    "ticker": "ABBV",
+    "name": "애브비",
+    "sector": "대형 제약",
+    "description": "면역질환 · 바이오 의약품",
+    "price": 216.49,
+    "target": 253.55173,
+    "roe": 0.0,
+    "earnings_growth": -0.462,
+    "market_cap": 382492999680,
+    "average_volume": 6115579
+  }
+}

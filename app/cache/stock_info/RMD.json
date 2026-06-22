@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089595.576313,
+  "info": {
+    "ticker": "RMD",
+    "name": "ResMed",
+    "sector": "헬스케어",
+    "description": "헬스케어",
+    "price": 188.63,
+    "target": 262.2,
+    "roe": 0.25246,
+    "earnings_growth": 0.105,
+    "market_cap": 27361986560,
+    "average_volume": 1369872
+  }
+}

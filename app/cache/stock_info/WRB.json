@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089670.5893319,
+  "info": {
+    "ticker": "WRB",
+    "name": "W.R. Berkley",
+    "sector": "손해보험",
+    "description": "손해보험",
+    "price": 67.18,
+    "target": 67.0,
+    "roe": 0.20164,
+    "earnings_growth": 0.26,
+    "market_cap": 25009551360,
+    "average_volume": 2155379
+  }
+}

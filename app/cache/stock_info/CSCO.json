@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089337.616425,
+  "info": {
+    "ticker": "CSCO",
+    "name": "시스코",
+    "sector": "기술",
+    "description": "네트워크 장비 · 보안",
+    "price": 119.54,
+    "target": 127.04667,
+    "roe": 0.25229,
+    "earnings_growth": 0.371,
+    "market_cap": 471159111680,
+    "average_volume": 23434951
+  }
+}

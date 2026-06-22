@@ -1,22 +1,27 @@
-<div class="filter-bar">
+<div class="summary-filter-row">
+    <div class="summary-left">
+        <div class="scanner-tab-shell">
+            <button class="scanner-tab active" id="stockScannerTab" type="button">
+                📈 종목 스캐너
+            </button>
 
-    <div class="left-info">
-        <span>스캔 종목 <strong>{{ stocks|length }}개</strong></span>
-        <span>등급 <strong>Mag 7</strong></span>
-        <span>섹터 <strong id="activeSectorLabel">전체</strong></span>
-        <span>점수 신뢰도 <strong>IC +0.07</strong></span>
+            <button class="scanner-tab" id="etfTab" type="button">
+                📊 ETF 현황
+            </button>
+        </div>
+
+        <div class="scanner-summary">
+            <span><em id="summaryTotalLabel">스캔 종목</em> <strong id="summaryScanCount">{{ market_overview.scanner_summary.total }}개</strong></span>
+            <i></i>
+            <span><em id="summaryGradeLabel">S등급</em> <strong id="summaryTopGradeCount">{{ market_overview.scanner_summary.top_grade }}개</strong></span>
+            <i></i>
+            <span><em id="summarySectorLabel">섹터</em> <strong id="activeSectorLabel">{{ market_overview.scanner_summary.sector }}</strong></span>
+            <i></i>
+            <span id="summaryReliabilityTooltip" title="최근 데이터 기준으로 점수가 높았던 종목이 이후 20거래일 동안 실제로 더 잘 움직였는지 검증한 값입니다. {{ market_overview.scanner_summary.reliability_detail }}">점수 검증 <b id="summaryReliabilityLabel">{{ market_overview.scanner_summary.reliability }}</b></span>
+        </div>
     </div>
 
-    <div class="right-filters">
-
-        <button class="scanner-tab active" id="stockScannerTab" type="button">
-            📈 종목 스캐너
-        </button>
-
-        <button class="scanner-tab" id="etfTab" type="button">
-            📊 ETF 현황
-        </button>
-
+    <div class="summary-filters">
         <button class="chip active" data-filter="all" type="button">
             전체
         </button>
@@ -26,17 +31,27 @@
         </button>
 
         <button class="chip" data-filter="grade" type="button">
-            🔥 S-A등급
+            🔥 S·A등급
         </button>
 
-        <button class="chip green" data-filter="entry" type="button">
-            🟢 진입 탐색
+        <button class="chip" data-filter="bottom-buy" type="button">
+            🧲 저점매수
         </button>
 
-        <button class="chip danger" data-filter="risk" type="button">
-            ⛔ 위험
+        <button class="chip" data-filter="oversold" type="button">
+            😱 과매도
         </button>
 
+        <button class="chip danger" data-filter="overheat" type="button">
+            🔥 과열주의
+        </button>
+
+        <button class="chip green" data-filter="leader" type="button">
+            🏆 주도주
+        </button>
+
+        <button class="chip green" data-filter="hidden-strong" type="button">
+            💎 숨은강자
+        </button>
     </div>
-
 </div>

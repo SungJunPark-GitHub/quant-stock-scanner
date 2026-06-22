@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052748.138529,
+  "info": {
+    "ticker": "CPB",
+    "name": "Campbell's",
+    "sector": "필수소비재",
+    "description": "필수소비재",
+    "price": 21.15,
+    "target": 21.44444,
+    "roe": 0.15389,
+    "earnings_growth": 0.864,
+    "market_cap": 6307061760,
+    "average_volume": 9398653
+  }
+}

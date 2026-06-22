@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089437.545913,
+  "info": {
+    "ticker": "GM",
+    "name": "제너럴모터스",
+    "sector": "자동차 제조",
+    "description": "자동차 · 전기차",
+    "price": 79.29,
+    "target": 94.80769,
+    "roe": 0.040149998,
+    "earnings_growth": -0.158,
+    "market_cap": 71493033984,
+    "average_volume": 7442187
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089402.422697,
+  "info": {
+    "ticker": "EG",
+    "name": "Everest Ltd.",
+    "sector": "금융",
+    "description": "금융",
+    "price": 335.63,
+    "target": 388.26666,
+    "roe": 0.13822,
+    "earnings_growth": 2.307,
+    "market_cap": 13281416192,
+    "average_volume": 378053
+  }
+}

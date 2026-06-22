@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089544.197516,
+  "info": {
+    "ticker": "NDSN",
+    "name": "Nordson",
+    "sector": "전문 산업기계",
+    "description": "전문 산업기계",
+    "price": 295.92,
+    "target": 319.125,
+    "roe": 0.1714,
+    "earnings_growth": 0.061,
+    "market_cap": 16488055808,
+    "average_volume": 385732
+  }
+}

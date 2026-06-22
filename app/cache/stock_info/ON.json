@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089556.336141,
+  "info": {
+    "ticker": "ON",
+    "name": "ON Semiconductor",
+    "sector": "반도체",
+    "description": "반도체",
+    "price": 121.62,
+    "target": 107.14815,
+    "roe": 0.074939996,
+    "earnings_growth": 0.0,
+    "market_cap": 47286247424,
+    "average_volume": 11397811
+  }
+}

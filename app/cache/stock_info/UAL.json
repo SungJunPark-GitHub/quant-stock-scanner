@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089654.8075929,
+  "info": {
+    "ticker": "UAL",
+    "name": "United Airlines",
+    "sector": "산업재",
+    "description": "산업재",
+    "price": 118.32,
+    "target": 132.08333,
+    "roe": 0.25726998,
+    "earnings_growth": 0.845,
+    "market_cap": 38403088384,
+    "average_volume": 6859174
+  }
+}

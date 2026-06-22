@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052700.8368618,
+  "info": {
+    "ticker": "GOOGL",
+    "name": "알파벳",
+    "sector": "인터넷 플랫폼",
+    "description": "검색 광고 · 유튜브 · 제미나이",
+    "price": 368.03,
+    "target": 432.83453,
+    "roe": 0.38884997,
+    "earnings_growth": 0.82,
+    "market_cap": 4490912595968,
+    "average_volume": 29821472
+  }
+}

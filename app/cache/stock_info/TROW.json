@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089629.213707,
+  "info": {
+    "ticker": "TROW",
+    "name": "T. Rowe Price",
+    "sector": "자산운용",
+    "description": "자산운용",
+    "price": 107.65,
+    "target": 97.83333,
+    "roe": 0.18688999,
+    "earnings_growth": 0.037,
+    "market_cap": 23065800704,
+    "average_volume": 2176495
+  }
+}

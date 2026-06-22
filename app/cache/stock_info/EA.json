@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089390.267392,
+  "info": {
+    "ticker": "EA",
+    "name": "Electronic Arts",
+    "sector": "커뮤니케이션",
+    "description": "커뮤니케이션",
+    "price": 202.15,
+    "target": 202.8,
+    "roe": 0.1349,
+    "earnings_growth": 0.853,
+    "market_cap": 50689413120,
+    "average_volume": 1912414
+  }
+}

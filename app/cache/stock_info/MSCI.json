@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089534.3191512,
+  "info": {
+    "ticker": "MSCI",
+    "name": "MSCI",
+    "sector": "금융데이터 · 거래소",
+    "description": "금융데이터 · 거래소",
+    "price": 581.19,
+    "target": 690.4375,
+    "roe": 0.0,
+    "earnings_growth": 0.491,
+    "market_cap": 42268549120,
+    "average_volume": 593427
+  }
+}

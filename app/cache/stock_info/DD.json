@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089383.953186,
+  "info": {
+    "ticker": "DD",
+    "name": "DuPont de Nemours",
+    "sector": "특수화학",
+    "description": "특수화학",
+    "price": 47.71,
+    "target": 56.8125,
+    "roe": 0.00896,
+    "earnings_growth": 0.0,
+    "market_cap": 19325327360,
+    "average_volume": 3605880
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052745.174625,
+  "info": {
+    "ticker": "BXP",
+    "name": "BXP",
+    "sector": "부동산",
+    "description": "부동산",
+    "price": 64.7,
+    "target": 69.55,
+    "roe": 0.05525,
+    "earnings_growth": 0.655,
+    "market_cap": 11536748544,
+    "average_volume": 1732300
+  }
+}

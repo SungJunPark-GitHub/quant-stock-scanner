@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052730.485877,
+  "info": {
+    "ticker": "BAC",
+    "name": "뱅크오브아메리카",
+    "sector": "대형은행",
+    "description": "대형은행 · 금융 서비스",
+    "price": 56.2,
+    "target": 63.15909,
+    "roe": 0.10644,
+    "earnings_growth": 0.244,
+    "market_cap": 398828404736,
+    "average_volume": 36277153
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089407.505111,
+  "info": {
+    "ticker": "EXPE",
+    "name": "Expedia",
+    "sector": "여행 서비스",
+    "description": "여행 서비스",
+    "price": 240.9,
+    "target": 286.32352,
+    "roe": 0.71494,
+    "earnings_growth": 0.0,
+    "market_cap": 28913317888,
+    "average_volume": 1652240
+  }
+}

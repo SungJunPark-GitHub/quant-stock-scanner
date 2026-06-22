@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052713.447978,
+  "info": {
+    "ticker": "APO",
+    "name": "아폴로 글로벌",
+    "sector": "자산운용",
+    "description": "자산운용",
+    "price": 137.5,
+    "target": 150.375,
+    "roe": 0.08492,
+    "earnings_growth": 0.0,
+    "market_cap": 79271157760,
+    "average_volume": 3961612
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052736.912118,
+  "info": {
+    "ticker": "XYZ",
+    "name": "Block",
+    "sector": "클라우드 소프트웨어",
+    "description": "클라우드 소프트웨어",
+    "price": 74.78,
+    "target": 90.404,
+    "roe": 0.03743,
+    "earnings_growth": 0.0,
+    "market_cap": 44507635712,
+    "average_volume": 5749062
+  }
+}

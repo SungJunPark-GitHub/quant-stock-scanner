@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052709.876981,
+  "info": {
+    "ticker": "AMGN",
+    "name": "암젠",
+    "sector": "대형 제약",
+    "description": "바이오 의약품 · 항암제",
+    "price": 337.6,
+    "target": 352.76666,
+    "roe": 1.01318,
+    "earnings_growth": 0.044,
+    "market_cap": 182205513728,
+    "average_volume": 2751216
+  }
+}

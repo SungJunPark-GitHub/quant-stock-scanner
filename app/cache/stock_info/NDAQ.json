@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089535.380058,
+  "info": {
+    "ticker": "NDAQ",
+    "name": "Nasdaq",
+    "sector": "금융데이터 · 거래소",
+    "description": "금융데이터 · 거래소",
+    "price": 82.24,
+    "target": 106.53333,
+    "roe": 0.162,
+    "earnings_growth": 0.338,
+    "market_cap": 46510075904,
+    "average_volume": 3322303
+  }
+}

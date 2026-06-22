@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089524.735649,
+  "info": {
+    "ticker": "MAA",
+    "name": "Mid-America Apartment Communiti",
+    "sector": "부동산",
+    "description": "부동산",
+    "price": 132.5,
+    "target": 141.58333,
+    "roe": 0.06711,
+    "earnings_growth": -0.315,
+    "market_cap": 15810780160,
+    "average_volume": 975696
+  }
+}

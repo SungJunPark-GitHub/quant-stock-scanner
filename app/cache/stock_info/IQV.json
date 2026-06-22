@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089475.579556,
+  "info": {
+    "ticker": "IQV",
+    "name": "IQVIA",
+    "sector": "헬스케어",
+    "description": "헬스케어",
+    "price": 167.77,
+    "target": 225.47368,
+    "roe": 0.22490999,
+    "earnings_growth": 0.15,
+    "market_cap": 28000813056,
+    "average_volume": 1626677
+  }
+}

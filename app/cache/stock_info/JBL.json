@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089478.013073,
+  "info": {
+    "ticker": "JBL",
+    "name": "Jabil",
+    "sector": "전자부품",
+    "description": "전자부품",
+    "price": 371.88,
+    "target": 441.44443,
+    "roe": 0.65876,
+    "earnings_growth": 0.276,
+    "market_cap": 39234318336,
+    "average_volume": 1201379
+  }
+}

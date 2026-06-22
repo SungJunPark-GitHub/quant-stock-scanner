@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089570.346263,
+  "info": {
+    "ticker": "PCG",
+    "name": "Pacific Gas & Electric Co.",
+    "sector": "전력 유틸리티",
+    "description": "전력 유틸리티",
+    "price": 16.48,
+    "target": 22.59375,
+    "roe": 0.08826999,
+    "earnings_growth": 0.398,
+    "market_cap": 36292661248,
+    "average_volume": 20555729
+  }
+}

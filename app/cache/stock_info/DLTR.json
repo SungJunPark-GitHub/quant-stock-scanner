@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089376.0401611,
+  "info": {
+    "ticker": "DLTR",
+    "name": "Dollar Tree",
+    "sector": "대형 리테일",
+    "description": "대형 리테일",
+    "price": 111.65,
+    "target": 125.0,
+    "roe": 0.33976,
+    "earnings_growth": 0.095,
+    "market_cap": 21456293888,
+    "average_volume": 3593135
+  }
+}

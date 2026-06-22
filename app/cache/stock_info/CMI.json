@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089363.37778,
+  "info": {
+    "ticker": "CMI",
+    "name": "커민스",
+    "sector": "전문 산업기계",
+    "description": "엔진 · 전력시스템",
+    "price": 716.86,
+    "target": 744.3342,
+    "roe": 0.21993999,
+    "earnings_growth": -0.21,
+    "market_cap": 98918842368,
+    "average_volume": 925698
+  }
+}

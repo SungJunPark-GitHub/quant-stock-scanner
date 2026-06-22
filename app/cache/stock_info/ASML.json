@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089693.984013,
+  "info": {
+    "ticker": "ASML",
+    "name": "ASML",
+    "sector": "반도체 장비 · 소재",
+    "description": "EUV 노광장비",
+    "price": 1929.68,
+    "target": 1724.3755,
+    "roe": 0.52236,
+    "earnings_growth": 0.192,
+    "market_cap": 743732805632,
+    "average_volume": 1855475
+  }
+}

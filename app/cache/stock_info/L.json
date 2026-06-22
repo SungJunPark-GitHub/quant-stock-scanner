@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089503.347182,
+  "info": {
+    "ticker": "L",
+    "name": "Loews",
+    "sector": "손해보험",
+    "description": "손해보험",
+    "price": 107.28,
+    "target": 0,
+    "roe": 0.09217,
+    "earnings_growth": -0.063,
+    "market_cap": 22074886144,
+    "average_volume": 798632
+  }
+}

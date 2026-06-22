@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089397.047241,
+  "info": {
+    "ticker": "EFX",
+    "name": "Equifax",
+    "sector": "산업재",
+    "description": "산업재",
+    "price": 153.93,
+    "target": 222.42857,
+    "roe": 0.1437,
+    "earnings_growth": 0.34,
+    "market_cap": 18569283584,
+    "average_volume": 1785145
+  }
+}

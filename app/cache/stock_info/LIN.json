@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089500.687434,
+  "info": {
+    "ticker": "LIN",
+    "name": "린데",
+    "sector": "특수화학",
+    "description": "산업용 가스 · 화학",
+    "price": 512.15,
+    "target": 545.44,
+    "roe": 0.18229,
+    "earnings_growth": 0.134,
+    "market_cap": 236791185408,
+    "average_volume": 2251169
+  }
+}

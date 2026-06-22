@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052729.778868,
+  "info": {
+    "ticker": "BALL",
+    "name": "Ball",
+    "sector": "경기소비재",
+    "description": "경기소비재",
+    "price": 57.72,
+    "target": 70.78571,
+    "roe": 0.16785999,
+    "earnings_growth": 0.219,
+    "market_cap": 15367748608,
+    "average_volume": 2752491
+  }
+}

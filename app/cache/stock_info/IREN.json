@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089732.188499,
+  "info": {
+    "ticker": "IREN",
+    "name": "아이렌",
+    "sector": "투자은행 · 자본시장",
+    "description": "AI 데이터센터 · 비트코인 채굴",
+    "price": 59.96,
+    "target": 80.93333,
+    "roe": 0.07729,
+    "earnings_growth": 0.0,
+    "market_cap": 21428426752,
+    "average_volume": 44619300
+  }
+}

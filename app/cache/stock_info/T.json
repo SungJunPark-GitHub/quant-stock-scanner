@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052722.729302,
+  "info": {
+    "ticker": "T",
+    "name": "AT&T",
+    "sector": "통신 서비스",
+    "description": "통신 · 5G · 미디어",
+    "price": 22.01,
+    "target": 30.28261,
+    "roe": 0.18370001,
+    "earnings_growth": -0.113,
+    "market_cap": 152932941824,
+    "average_volume": 40989798
+  }
+}

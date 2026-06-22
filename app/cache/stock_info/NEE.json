@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089540.614378,
+  "info": {
+    "ticker": "NEE",
+    "name": "NextEra Energy",
+    "sector": "전력 유틸리티",
+    "description": "전력 · 신재생 에너지",
+    "price": 86.75,
+    "target": 98.9,
+    "roe": 0.10325,
+    "earnings_growth": 1.6,
+    "market_cap": 180926267392,
+    "average_volume": 10583082
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089576.3586009,
+  "info": {
+    "ticker": "PPG",
+    "name": "PPG Industries",
+    "sector": "특수화학",
+    "description": "특수화학",
+    "price": 118.25,
+    "target": 123.0,
+    "roe": 0.20748,
+    "earnings_growth": 0.042,
+    "market_cap": 26357925888,
+    "average_volume": 1996427
+  }
+}

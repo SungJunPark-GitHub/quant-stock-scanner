@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089673.32454,
+  "info": {
+    "ticker": "WMT",
+    "name": "월마트",
+    "sector": "대형 리테일",
+    "description": "대형마트 · 리테일",
+    "price": 117.18,
+    "target": 138.65,
+    "roe": 0.24132,
+    "earnings_growth": 0.194,
+    "market_cap": 932527669248,
+    "average_volume": 20324183
+  }
+}

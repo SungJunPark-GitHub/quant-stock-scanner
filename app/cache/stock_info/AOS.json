@@ -1,0 +1,15 @@
+{
+  "created_at": 1782025562.6531682,
+  "info": {
+    "ticker": "AOS",
+    "name": "A.O. Smith",
+    "sector": "전문 산업기계",
+    "description": "전문 산업기계",
+    "price": 58.22,
+    "target": 70.45455,
+    "roe": 0.28267,
+    "earnings_growth": -0.105,
+    "market_cap": 8024382464,
+    "average_volume": 1666179
+  }
+}

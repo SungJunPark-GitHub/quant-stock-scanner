@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052704.91228,
+  "info": {
+    "ticker": "AEP",
+    "name": "아메리칸 일렉트릭 파워",
+    "sector": "전력 유틸리티",
+    "description": "전력 유틸리티",
+    "price": 127.69,
+    "target": 144.09525,
+    "roe": 0.12585,
+    "earnings_growth": 0.067,
+    "market_cap": 69476769792,
+    "average_volume": 4019648
+  }
+}

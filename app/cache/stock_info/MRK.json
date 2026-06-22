@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089517.9911838,
+  "info": {
+    "ticker": "MRK",
+    "name": "머크",
+    "sector": "대형 제약",
+    "description": "항암제 · 백신 · 제약",
+    "price": 113.87,
+    "target": 129.74074,
+    "roe": 0.18944,
+    "earnings_growth": 0.0,
+    "market_cap": 281238929408,
+    "average_volume": 9962700
+  }
+}

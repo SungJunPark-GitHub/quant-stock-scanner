@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089421.095603,
+  "info": {
+    "ticker": "FE",
+    "name": "FirstEnergy",
+    "sector": "전력 유틸리티",
+    "description": "전력 유틸리티",
+    "price": 46.45,
+    "target": 52.15385,
+    "roe": 0.094610006,
+    "earnings_growth": 0.129,
+    "market_cap": 26868127744,
+    "average_volume": 5018256
+  }
+}

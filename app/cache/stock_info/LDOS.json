@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089496.526779,
+  "info": {
+    "ticker": "LDOS",
+    "name": "Leidos",
+    "sector": "기술",
+    "description": "기술",
+    "price": 107.12,
+    "target": 178.26666,
+    "roe": 0.30579,
+    "earnings_growth": -0.076,
+    "market_cap": 13474139136,
+    "average_volume": 1276182
+  }
+}

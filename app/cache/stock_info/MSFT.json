@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089523.904638,
+  "info": {
+    "ticker": "MSFT",
+    "name": "마이크로소프트",
+    "sector": "클라우드 소프트웨어",
+    "description": "애저 클라우드 · 코파일럿",
+    "price": 379.4,
+    "target": 561.38763,
+    "roe": 0.34013999,
+    "earnings_growth": 0.234,
+    "market_cap": 2818348154880,
+    "average_volume": 35850962
+  }
+}

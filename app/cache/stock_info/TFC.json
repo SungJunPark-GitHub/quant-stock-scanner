@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089647.6954439,
+  "info": {
+    "ticker": "TFC",
+    "name": "Truist Financial",
+    "sector": "지역은행",
+    "description": "지역은행",
+    "price": 48.33,
+    "target": 55.88158,
+    "roe": 0.08579001,
+    "earnings_growth": 0.253,
+    "market_cap": 60213350400,
+    "average_volume": 9134629
+  }
+}

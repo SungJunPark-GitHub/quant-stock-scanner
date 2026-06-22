@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089329.773152,
+  "info": {
+    "ticker": "CHTR",
+    "name": "차터 커뮤니케이션스",
+    "sector": "통신 서비스",
+    "description": "통신 서비스",
+    "price": 126.23,
+    "target": 239.17647,
+    "roe": 0.27504998,
+    "earnings_growth": 0.089,
+    "market_cap": 19777511424,
+    "average_volume": 3194222
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089766.18408,
+  "info": {
+    "ticker": "CCJ",
+    "name": "카메코",
+    "sector": "에너지",
+    "description": "우라늄 채굴 · 원전 연료",
+    "price": 106.49,
+    "target": 132.1416,
+    "roe": 0.095979996,
+    "earnings_growth": 0.875,
+    "market_cap": 46379909120,
+    "average_volume": 3152637
+  }
+}

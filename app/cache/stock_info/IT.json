@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089430.430218,
+  "info": {
+    "ticker": "IT",
+    "name": "Gartner",
+    "sector": "기술",
+    "description": "기술",
+    "price": 127.49,
+    "target": 166.53847,
+    "roe": 0.94878,
+    "earnings_growth": 0.173,
+    "market_cap": 8535695872,
+    "average_volume": 1594193
+  }
+}

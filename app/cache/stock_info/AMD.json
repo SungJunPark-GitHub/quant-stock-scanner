@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052403.929185,
+  "info": {
+    "ticker": "AMD",
+    "name": "AMD",
+    "sector": "반도체",
+    "description": "CPU · GPU · AI 가속기",
+    "price": 537.37,
+    "target": 487.89584,
+    "roe": 0.08063,
+    "earnings_growth": 0.912,
+    "market_cap": 876235849728,
+    "average_volume": 37960051
+  }
+}

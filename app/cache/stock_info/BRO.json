@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052742.4147542,
+  "info": {
+    "ticker": "BRO",
+    "name": "Brown & Brown",
+    "sector": "보험 중개",
+    "description": "보험 중개",
+    "price": 59.1,
+    "target": 71.5,
+    "roe": 0.11926,
+    "earnings_growth": -0.079,
+    "market_cap": 20031817728,
+    "average_volume": 3292977
+  }
+}

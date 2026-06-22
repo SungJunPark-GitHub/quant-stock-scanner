@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089616.186322,
+  "info": {
+    "ticker": "SO",
+    "name": "서던 컴퍼니",
+    "sector": "전력 유틸리티",
+    "description": "전력 유틸리티",
+    "price": 93.09,
+    "target": 101.28947,
+    "roe": 0.109910004,
+    "earnings_growth": -0.008,
+    "market_cap": 104940453888,
+    "average_volume": 5503601
+  }
+}

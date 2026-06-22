@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052756.284637,
+  "info": {
+    "ticker": "CNC",
+    "name": "Centene",
+    "sector": "건강보험",
+    "description": "건강보험",
+    "price": 61.02,
+    "target": 61.35294,
+    "roe": -0.26044,
+    "earnings_growth": 0.183,
+    "market_cap": 30131492864,
+    "average_volume": 6161422
+  }
+}

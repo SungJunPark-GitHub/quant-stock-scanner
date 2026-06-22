@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089657.292796,
+  "info": {
+    "ticker": "UNH",
+    "name": "유나이티드헬스",
+    "sector": "건강보험",
+    "description": "건강보험 · 헬스케어 서비스",
+    "price": 400.96,
+    "target": 409.76923,
+    "roe": 0.121759996,
+    "earnings_growth": 0.007,
+    "market_cap": 364129550336,
+    "average_volume": 7842764
+  }
+}

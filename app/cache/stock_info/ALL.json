@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052700.063333,
+  "info": {
+    "ticker": "ALL",
+    "name": "Allstate",
+    "sector": "손해보험",
+    "description": "손해보험",
+    "price": 221.17,
+    "target": 240.86365,
+    "roe": 0.45221,
+    "earnings_growth": 3.384,
+    "market_cap": 56933785600,
+    "average_volume": 1553119
+  }
+}

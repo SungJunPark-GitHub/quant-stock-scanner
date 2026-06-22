@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052708.369,
+  "info": {
+    "ticker": "AMP",
+    "name": "Ameriprise Financial",
+    "sector": "자산운용",
+    "description": "자산운용",
+    "price": 467.43,
+    "target": 540.8182,
+    "roe": 0.66936,
+    "earnings_growth": 0.66,
+    "market_cap": 42020593664,
+    "average_volume": 644574
+  }
+}

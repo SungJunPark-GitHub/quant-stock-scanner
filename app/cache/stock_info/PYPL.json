@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089566.620556,
+  "info": {
+    "ticker": "PYPL",
+    "name": "페이팔",
+    "sector": "결제 · 신용서비스",
+    "description": "결제 · 신용서비스",
+    "price": 42.51,
+    "target": 51.54212,
+    "roe": 0.25120002,
+    "earnings_growth": -0.062,
+    "market_cap": 37498302464,
+    "average_volume": 15262979
+  }
+}

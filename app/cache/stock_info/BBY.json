@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052733.195474,
+  "info": {
+    "ticker": "BBY",
+    "name": "Best Buy Co.",
+    "sector": "경기소비재",
+    "description": "경기소비재",
+    "price": 74.73,
+    "target": 78.65,
+    "roe": 0.39104,
+    "earnings_growth": 0.379,
+    "market_cap": 15750627328,
+    "average_volume": 4199254
+  }
+}

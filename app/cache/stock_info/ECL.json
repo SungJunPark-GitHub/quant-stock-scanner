@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089387.650653,
+  "info": {
+    "ticker": "ECL",
+    "name": "이콜랩",
+    "sector": "특수화학",
+    "description": "특수화학",
+    "price": 269.12,
+    "target": 317.14285,
+    "roe": 0.22427,
+    "earnings_growth": 0.078,
+    "market_cap": 75740463104,
+    "average_volume": 1644470
+  }
+}

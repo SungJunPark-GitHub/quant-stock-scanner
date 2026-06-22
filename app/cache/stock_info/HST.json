@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089454.8453639,
+  "info": {
+    "ticker": "HST",
+    "name": "Host Hotels & Resorts",
+    "sector": "부동산",
+    "description": "부동산",
+    "price": 25.01,
+    "target": 24.2375,
+    "roe": 0.1487,
+    "earnings_growth": 1.053,
+    "market_cap": 17351094272,
+    "average_volume": 8825487
+  }
+}

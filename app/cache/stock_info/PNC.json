@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089574.090066,
+  "info": {
+    "ticker": "PNC",
+    "name": "PNC 파이낸셜",
+    "sector": "지역은행",
+    "description": "지역은행",
+    "price": 232.04,
+    "target": 255.8,
+    "roe": 0.12104,
+    "earnings_growth": 0.177,
+    "market_cap": 93179060224,
+    "average_volume": 2078650
+  }
+}

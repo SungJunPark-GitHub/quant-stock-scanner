@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089545.035234,
+  "info": {
+    "ticker": "NSC",
+    "name": "노퍽 서던",
+    "sector": "철도 운송",
+    "description": "철도 물류 · 화물 운송",
+    "price": 300.08,
+    "target": 335.70587,
+    "roe": 0.17615,
+    "earnings_growth": -0.266,
+    "market_cap": 67396165632,
+    "average_volume": 1253245
+  }
+}

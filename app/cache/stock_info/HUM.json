@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089458.739261,
+  "info": {
+    "ticker": "HUM",
+    "name": "Humana",
+    "sector": "건강보험",
+    "description": "건강보험",
+    "price": 360.65,
+    "target": 301.625,
+    "roe": 0.062800005,
+    "earnings_growth": -0.046,
+    "market_cap": 43300179968,
+    "average_volume": 1712820
+  }
+}

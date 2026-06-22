@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089692.976934,
+  "info": {
+    "ticker": "ARM",
+    "name": "Arm 홀딩스",
+    "sector": "반도체",
+    "description": "반도체",
+    "price": 439.46,
+    "target": 278.29,
+    "roe": 0.119540006,
+    "earnings_growth": 0.479,
+    "market_cap": 469377908736,
+    "average_volume": 11606303
+  }
+}

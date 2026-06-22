@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089461.4718678,
+  "info": {
+    "ticker": "IBM",
+    "name": "IBM",
+    "sector": "기술",
+    "description": "하이브리드 클라우드 · AI",
+    "price": 249.1,
+    "target": 290.8857,
+    "roe": 0.35772,
+    "earnings_growth": 0.142,
+    "market_cap": 234125443072,
+    "average_volume": 8118825
+  }
+}

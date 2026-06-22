@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052741.6298509,
+  "info": {
+    "ticker": "BR",
+    "name": "Broadridge Financial Solutions",
+    "sector": "기술",
+    "description": "기술",
+    "price": 137.6,
+    "target": 206.5,
+    "roe": 0.42314,
+    "earnings_growth": 0.151,
+    "market_cap": 15914582016,
+    "average_volume": 1527688
+  }
+}

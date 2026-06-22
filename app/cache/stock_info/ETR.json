@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089394.003853,
+  "info": {
+    "ticker": "ETR",
+    "name": "Entergy",
+    "sector": "전력 유틸리티",
+    "description": "전력 유틸리티",
+    "price": 111.11,
+    "target": 121.88095,
+    "roe": 0.10751,
+    "earnings_growth": 0.012,
+    "market_cap": 50875809792,
+    "average_volume": 3600035
+  }
+}

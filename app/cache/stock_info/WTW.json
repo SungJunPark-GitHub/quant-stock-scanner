@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089684.591,
+  "info": {
+    "ticker": "WTW",
+    "name": "Willis Towers Watson Public Lim",
+    "sector": "보험 중개",
+    "description": "보험 중개",
+    "price": 255.2,
+    "target": 331.6842,
+    "roe": 0.20611,
+    "earnings_growth": 0.33,
+    "market_cap": 24103122944,
+    "average_volume": 741696
+  }
+}

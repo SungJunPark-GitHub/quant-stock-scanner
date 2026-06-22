@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089415.8149471,
+  "info": {
+    "ticker": "FDX",
+    "name": "페덱스",
+    "sector": "종합 물류",
+    "description": "택배 · 항공 물류",
+    "price": 326.2,
+    "target": 339.71136,
+    "roe": 0.15869,
+    "earnings_growth": 0.173,
+    "market_cap": 77833527296,
+    "average_volume": 2012019
+  }
+}

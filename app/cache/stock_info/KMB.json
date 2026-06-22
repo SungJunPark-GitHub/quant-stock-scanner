@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089487.043427,
+  "info": {
+    "ticker": "KMB",
+    "name": "Kimberly-Clark",
+    "sector": "생활용품",
+    "description": "생활용품",
+    "price": 102.56,
+    "target": 114.66667,
+    "roe": 1.11727,
+    "earnings_growth": 0.179,
+    "market_cap": 34043801600,
+    "average_volume": 4650669
+  }
+}

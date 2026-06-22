@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052740.9586298,
+  "info": {
+    "ticker": "AVGO",
+    "name": "브로드컴",
+    "sector": "반도체",
+    "description": "AI 네트워크 · 반도체",
+    "price": 411.35,
+    "target": 523.84,
+    "roe": 0.37280998,
+    "earnings_growth": 0.854,
+    "market_cap": 1957030658048,
+    "average_volume": 25691456
+  }
+}

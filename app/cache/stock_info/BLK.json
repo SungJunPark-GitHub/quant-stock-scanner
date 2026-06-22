@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052735.355985,
+  "info": {
+    "ticker": "BLK",
+    "name": "블랙록",
+    "sector": "자산운용",
+    "description": "자산운용 · ETF",
+    "price": 1050.09,
+    "target": 1246.25,
+    "roe": 0.118990004,
+    "earnings_growth": 0.459,
+    "market_cap": 171005591552,
+    "average_volume": 689935
+  }
+}

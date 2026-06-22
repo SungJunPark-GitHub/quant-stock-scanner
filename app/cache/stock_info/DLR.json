@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089374.431529,
+  "info": {
+    "ticker": "DLR",
+    "name": "디지털 리얼티",
+    "sector": "특수 리츠",
+    "description": "데이터센터 리츠",
+    "price": 188.15,
+    "target": 218.72414,
+    "roe": 0.05688,
+    "earnings_growth": 0.676,
+    "market_cap": 67301076992,
+    "average_volume": 2156161
+  }
+}

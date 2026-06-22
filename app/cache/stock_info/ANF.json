@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089707.521694,
+  "info": {
+    "ticker": "ANF",
+    "name": "Abercrombie & Fitch",
+    "sector": "의류 리테일",
+    "description": "의류 리테일",
+    "price": 87.24,
+    "target": 111.3,
+    "roe": 0.39224,
+    "earnings_growth": -0.075,
+    "market_cap": 3876222464,
+    "average_volume": 1328030
+  }
+}

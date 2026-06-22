@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089480.951437,
+  "info": {
+    "ticker": "JNJ",
+    "name": "존슨앤드존슨",
+    "sector": "대형 제약",
+    "description": "제약 · 의료기기 · 소비자 헬스",
+    "price": 228.39,
+    "target": 252.86957,
+    "roe": 0.26416,
+    "earnings_growth": -0.529,
+    "market_cap": 549784256512,
+    "average_volume": 7767832
+  }
+}

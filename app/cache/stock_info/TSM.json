@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089736.908681,
+  "info": {
+    "ticker": "TSM",
+    "name": "TSMC",
+    "sector": "반도체",
+    "description": "파운드리 · 첨단 공정",
+    "price": 462.12,
+    "target": 473.39584,
+    "roe": 0.3621,
+    "earnings_growth": 0.584,
+    "market_cap": 2396773416960,
+    "average_volume": 13555148
+  }
+}

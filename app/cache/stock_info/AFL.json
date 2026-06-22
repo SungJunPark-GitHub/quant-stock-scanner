@@ -1,0 +1,15 @@
+{
+  "created_at": 1782025567.1772952,
+  "info": {
+    "ticker": "AFL",
+    "name": "AFLAC",
+    "sector": "금융",
+    "description": "금융",
+    "price": 115.47,
+    "target": 112.42857,
+    "roe": 0.16469,
+    "earnings_growth": 38.6,
+    "market_cap": 58772488192,
+    "average_volume": 2473487
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089575.129478,
+  "info": {
+    "ticker": "POOL",
+    "name": "Pool",
+    "sector": "산업재",
+    "description": "산업재",
+    "price": 198.99,
+    "target": 255.90909,
+    "roe": 0.34241,
+    "earnings_growth": 0.021,
+    "market_cap": 7251793408,
+    "average_volume": 971108
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089651.27855,
+  "info": {
+    "ticker": "UBER",
+    "name": "우버",
+    "sector": "응용 소프트웨어",
+    "description": "응용 소프트웨어",
+    "price": 71.64,
+    "target": 104.48157,
+    "roe": 0.3531,
+    "earnings_growth": -0.846,
+    "market_cap": 145830313984,
+    "average_volume": 17511408
+  }
+}

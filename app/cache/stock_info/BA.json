@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052738.336681,
+  "info": {
+    "ticker": "BA",
+    "name": "보잉",
+    "sector": "항공우주 · 방산",
+    "description": "항공우주 · 방산",
+    "price": 222.72,
+    "target": 270.0,
+    "roe": 1.69947,
+    "earnings_growth": 0.0,
+    "market_cap": 175570698240,
+    "average_volume": 6634946
+  }
+}

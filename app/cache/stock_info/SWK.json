@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089618.2143092,
+  "info": {
+    "ticker": "SWK",
+    "name": "Stanley Black & Decker",
+    "sector": "산업재",
+    "description": "산업재",
+    "price": 86.75,
+    "target": 92.65357,
+    "roe": 0.04165,
+    "earnings_growth": -0.348,
+    "market_cap": 13485770752,
+    "average_volume": 1904593
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "created_at": 1782089362.0865011,
+  "info": {
+    "ticker": "CSX",
+    "name": "CSX",
+    "sector": "철도 운송",
+    "description": "철도 운송",
+    "price": 45.63,
+    "target": 46.25,
+    "roe": 0.23684,
+    "earnings_growth": 0.265,
+    "market_cap": 84786880512,
+    "average_volume": 12742237
+  }
+}

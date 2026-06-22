@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052721.569946,
+  "info": {
+    "ticker": "AIZ",
+    "name": "Assurant",
+    "sector": "손해보험",
+    "description": "손해보험",
+    "price": 259.86,
+    "target": 283.83334,
+    "roe": 0.18016,
+    "earnings_growth": 0.912,
+    "market_cap": 12875448320,
+    "average_volume": 409520
+  }
+}

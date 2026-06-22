@@ -1,0 +1,15 @@
+{
+  "created_at": 1782052728.962302,
+  "info": {
+    "ticker": "BKR",
+    "name": "베이커휴즈",
+    "sector": "유전 서비스",
+    "description": "유전 서비스",
+    "price": 58.41,
+    "target": 71.2381,
+    "roe": 0.17184,
+    "earnings_growth": 1.325,
+    "market_cap": 57946730496,
+    "average_volume": 8173211
+  }
+}
