@@ -779,28 +779,6 @@ def build_listing_placeholder_stock(listing):
     }
 
 
-def merge_static_kr_listings(stocks):
-    if not stocks:
-        stocks = []
-
-    seen = {
-        str(stock.get("ticker", "")).upper()
-        for stock in stocks
-    }
-    merged = list(stocks)
-
-    for listing in get_kr_listings():
-        ticker = str(listing.get("ticker", "")).upper()
-
-        if not ticker or ticker in seen:
-            continue
-
-        merged.append(build_listing_placeholder_stock(listing))
-        seen.add(ticker)
-
-    return merged
-
-
 def load_stock_snapshot(market):
     path = get_snapshot_path(market)
 
@@ -815,9 +793,6 @@ def load_stock_snapshot(market):
         payload = json.loads(path.read_text(encoding="utf-8"))
         updated_at = payload.get("updated_at")
         stocks = normalize_snapshot_stocks(market, payload.get("stocks") or [])
-
-        if market == "KR":
-            stocks = normalize_snapshot_stocks(market, merge_static_kr_listings(stocks))
 
         return {
             "stocks": stocks,
