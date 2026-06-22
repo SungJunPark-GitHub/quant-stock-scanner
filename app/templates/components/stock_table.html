@@ -85,9 +85,17 @@
 
             <td>
                 <div class="score-wrap">
-                    <strong class="score-number {% if stock.score >= 68 %}score-text-good{% elif stock.score >= 40 %}score-text-mid{% else %}score-text-bad{% endif %}">
-                        {{ stock.score }}
-                    </strong>
+                    <div class="score-head">
+                        <strong class="score-number {% if stock.score >= 68 %}score-text-good{% elif stock.score >= 40 %}score-text-mid{% else %}score-text-bad{% endif %}">
+                            {{ stock.score }}
+                        </strong>
+                        {% if stock.score_delta is not none %}
+                        <span class="score-delta {{ stock.score_trend_type }}"
+                              title="최근 20거래일 추세점수 변화: {{ stock.score_trend }}">
+                            {% if stock.score_delta > 0 %}+{% endif %}{{ stock.score_delta }}
+                        </span>
+                        {% endif %}
+                    </div>
                     <div class="score-bar">
                         <div class="score-fill {% if stock.score >= 68 %}score-good{% elif stock.score >= 40 %}score-mid{% else %}score-bad{% endif %}"
                              style="width: {{ stock.score }}%;"></div>

@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: quant-stock-scanner
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn run:app --bind 0.0.0.0:$PORT --workers 1 --threads 4 --timeout 180
+    envVars:
+      - key: START_BACKGROUND_UPDATES
+        value: "1"
+      - key: AUTO_UPDATE_ENABLED
+        value: "1"
+      - key: AUTO_UPDATE_INTERVAL_MINUTES
+        value: "60"
+      - key: AUTO_UPDATE_INITIAL_DELAY_SECONDS
+        value: "30"
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      - key: WEB_CONCURRENCY
+        value: "1"

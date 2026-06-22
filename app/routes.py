@@ -305,6 +305,7 @@ def normalize_snapshot_stocks(market, stocks):
             )
 
         refresh_snapshot_score(item)
+        item.update(calculate_score_trend(item))
         item["average_volume"] = format_share_volume(item.get("average_volume_value"))
         item["market_cap"] = format_market_cap(item.get("market_cap_value"), normalized_market)
         apply_stock_logo_fields(item)
@@ -628,6 +629,56 @@ def estimate_historical_score(prices, index):
     score -= volatility * 2200
 
     return max(0, min(100, score))
+
+
+def calculate_score_trend(stock, lookback=20):
+    prices = stock.get("chart", {}).get("1Y", {}).get("prices", [])
+    clean_prices = [
+        float(price)
+        for price in prices
+        if is_finite_number(price) and float(price) > 0
+    ]
+
+    if len(clean_prices) <= lookback + 200:
+        return {
+            "score_delta": None,
+            "score_trend": "데이터 부족",
+            "score_trend_type": "flat",
+        }
+
+    current_score = estimate_historical_score(clean_prices, len(clean_prices) - 1)
+    previous_score = estimate_historical_score(clean_prices, len(clean_prices) - lookback - 1)
+
+    if current_score is None or previous_score is None:
+        return {
+            "score_delta": None,
+            "score_trend": "데이터 부족",
+            "score_trend_type": "flat",
+        }
+
+    delta = int(round(current_score - previous_score))
+
+    if delta >= 8:
+        trend = "강한 개선"
+        trend_type = "up"
+    elif delta >= 3:
+        trend = "개선"
+        trend_type = "up"
+    elif delta <= -8:
+        trend = "악화"
+        trend_type = "down"
+    elif delta <= -3:
+        trend = "약화"
+        trend_type = "down"
+    else:
+        trend = "유지"
+        trend_type = "flat"
+
+    return {
+        "score_delta": delta,
+        "score_trend": trend,
+        "score_trend_type": trend_type,
+    }
 
 
 def calculate_score_reliability(stocks, horizon=20):

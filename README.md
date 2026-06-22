@@ -54,6 +54,44 @@ http://127.0.0.1:5050
 
 현재 `run.py`는 `5050` 포트로 실행됩니다. 기존 `5000` 포트에서 브라우저 403 문제가 날 수 있어 5050을 사용합니다.
 
+## 무료 배포
+
+Render 무료 Web Service 기준 배포 파일을 포함합니다.
+
+```text
+Procfile
+render.yaml
+.python-version
+```
+
+Render에서 GitHub 저장소를 연결한 뒤 Blueprint 또는 Web Service로 생성하면 됩니다.
+
+수동 설정으로 배포할 경우:
+
+```bash
+pip install -r requirements.txt
+gunicorn run:app --bind 0.0.0.0:$PORT --workers 1 --threads 4 --timeout 180
+```
+
+배포 환경변수 예시:
+
+```text
+START_BACKGROUND_UPDATES=1
+AUTO_UPDATE_ENABLED=1
+AUTO_UPDATE_INTERVAL_MINUTES=60
+AUTO_UPDATE_INITIAL_DELAY_SECONDS=30
+PYTHONUNBUFFERED=1
+WEB_CONCURRENCY=1
+```
+
+무료 배포 주의사항:
+
+- 무료 인스턴스는 일정 시간 미사용 시 잠들 수 있어 첫 접속이 느릴 수 있습니다.
+- Render 무료 Web Service의 로컬 파일 변경은 재시작/재배포 때 유지되지 않을 수 있습니다.
+- 현재 앱은 저장된 JSON 스냅샷을 먼저 보여주므로 재시작 직후에도 기본 화면은 표시됩니다.
+- 장기 운영 시 스냅샷, 채팅, 관심종목, 사용자 메모는 DB로 옮기는 것이 좋습니다.
+- 백그라운드 자동 갱신이 중복 실행되지 않도록 배포 명령은 `--workers 1`을 사용합니다.
+
 ## 프로젝트 구조
 
 ```text

@@ -688,13 +688,33 @@ function getLegacyHeroByStock(stock) {
     };
 }
 
+function getOptionalNumber(value) {
+    const number = Number(value);
+    return Number.isFinite(number) ? number : null;
+}
+
+function formatHeroNumber(value, digits = 0) {
+    if (!Number.isFinite(value)) {
+        return "N/A";
+    }
+
+    return value.toFixed(digits).replace(/\.0+$/, "");
+}
+
 function getHeroFactLine(stock, score, rsi, change, volumeRatio, highDiff) {
-    const facts = [
-        `점수 ${score}`,
-        `RSI ${rsi}`,
-        `거래량 ${volumeRatio.toFixed(1)}x`,
-        `등락 ${formatChange(change)}`,
-    ];
+    const facts = [`점수 ${score}`];
+
+    if (Number.isFinite(rsi)) {
+        facts.push(`RSI ${formatHeroNumber(rsi, 1)}`);
+    }
+
+    if (Number.isFinite(volumeRatio) && volumeRatio > 0) {
+        facts.push(`거래량 ${volumeRatio.toFixed(1)}x`);
+    }
+
+    if (Number.isFinite(change)) {
+        facts.push(`등락 ${formatChange(change)}`);
+    }
 
     if (highDiff !== "N/A") {
         facts.push(`52주고가 ${highDiff}`);
@@ -707,73 +727,152 @@ function getHeroFactLine(stock, score, rsi, change, volumeRatio, highDiff) {
     return facts.slice(0, 5).join(" · ");
 }
 
+function buildHeroComment(metrics) {
+    const { score, rsi, change, volumeRatio, highDiffNumber, moatScore } = metrics;
+    const notes = [];
+
+    if (score >= 85) {
+        notes.push("점수는 상위권입니다");
+    } else if (score >= 70) {
+        notes.push("기본기는 통과권입니다");
+    } else if (score >= 55) {
+        notes.push("아직 확인할 조건이 남아 있습니다");
+    } else {
+        notes.push("지금은 리스크 체크가 먼저입니다");
+    }
+
+    if (Number.isFinite(rsi) && rsi >= 72) {
+        notes.push("RSI 과열이라 추격은 부담입니다");
+    } else if (Number.isFinite(rsi) && rsi <= 35) {
+        notes.push("과매도권이지만 반등 확인이 필요합니다");
+    }
+
+    if (Number.isFinite(volumeRatio) && volumeRatio >= 1.6 && Number.isFinite(change) && change > 0) {
+        notes.push("거래량과 가격 반응이 같이 붙었습니다");
+    } else if (Number.isFinite(volumeRatio) && volumeRatio >= 1.6 && Number.isFinite(change) && change < 0) {
+        notes.push("거래량 동반 하락이라 매도 압력도 봐야 합니다");
+    } else if (Number.isFinite(volumeRatio) && volumeRatio < 0.8) {
+        notes.push("거래량이 얇아 신호 확신은 낮습니다");
+    }
+
+    if (Number.isFinite(highDiffNumber) && highDiffNumber >= -5) {
+        notes.push("52주 고가 근처라 힘은 살아 있습니다");
+    } else if (Number.isFinite(highDiffNumber) && highDiffNumber <= -30) {
+        notes.push("고점 대비 낙폭이 커 회복 확인이 중요합니다");
+    }
+
+    if (Number.isFinite(moatScore) && moatScore >= 7) {
+        notes.push("해자 점수가 높아 장기 경쟁력은 플러스입니다");
+    }
+
+    return notes.slice(0, 2).join(" · ");
+}
+
 function getHeroByStock(stock) {
     const grade = stock.grade || "F";
     const score = getNumber(stock.score);
-    const rsi = getNumber(stock.rsi);
-    const change = getNumber(stock.change);
-    const volumeRatio = getNumber(stock.volume_ratio);
+    const rsi = getOptionalNumber(stock.rsi);
+    const change = getOptionalNumber(stock.change);
+    const volumeRatio = getOptionalNumber(stock.volume_ratio);
+    const moatScore = getOptionalNumber(stock.moat?.total);
     const highDiff = calcHigh52wDiff(stock);
     const highDiffNumber = typeof highDiff === "string" ? Number(highDiff.replace("%", "")) : null;
     const sectorText = `${stock.sector || ""} ${stock.description || ""}`.toLowerCase();
     const factLine = getHeroFactLine(stock, score, rsi, change, volumeRatio, highDiff);
-    const isNearHigh = Number.isFinite(highDiffNumber) && highDiffNumber >= -5;
+    const baseComment = buildHeroComment({ score, rsi, change, volumeRatio, highDiffNumber, moatScore });
+    const isNearHigh = Number.isFinite(highDiffNumber) && highDiffNumber >= -7;
     const isDeepPullback = Number.isFinite(highDiffNumber) && highDiffNumber <= -25;
+    const isSeverePullback = Number.isFinite(highDiffNumber) && highDiffNumber <= -45;
+    const isOverheat = Number.isFinite(rsi) && rsi >= 72;
+    const isOversold = Number.isFinite(rsi) && rsi <= 35;
+    const isHealthyRsi = Number.isFinite(rsi) && rsi >= 45 && rsi <= 68;
+    const isHighVolume = Number.isFinite(volumeRatio) && volumeRatio >= 1.5;
+    const isQuietVolume = Number.isFinite(volumeRatio) && volumeRatio > 0 && volumeRatio < 0.85;
+    const isUp = Number.isFinite(change) && change > 0;
+    const isDown = Number.isFinite(change) && change < 0;
+    const hasStrongMoat = Number.isFinite(moatScore) && moatScore >= 7;
     const isSemiconductor = /semiconductor|반도체|hbm|gpu|chip/.test(sectorText);
     const isCloud = /cloud|software|ai|data|platform|클라우드|소프트웨어|인터넷/.test(sectorText);
     const isHealth = /health|bio|pharma|medical|헬스|바이오|의료|제약/.test(sectorText);
     const isFinance = /financial|bank|insurance|금융|은행|보험/.test(sectorText);
     const isEnergy = /energy|oil|gas|utilities|에너지|가스|유틸리티/.test(sectorText);
+    const isDefense = /defense|aerospace|우주|방산|항공|위성|드론/.test(sectorText);
+    const isConsumer = /consumer|retail|food|restaurant|beauty|소비|유통|푸드|음료|뷰티|외식/.test(sectorText);
 
     const variants = [
         {
-            when: () => score >= 92 && rsi < 72,
+            when: () => score >= 92 && !isOverheat,
             className: "hero-elite",
             letter: "S",
             copies: [
-                ["숫자가 먼저 합격 도장 찍은 종목", "점수는 최상위권. 이제 볼 건 비싸게 따라가는지만 피하는 것"],
-                ["강한데 과열은 아직 덜한 우등생", "추세와 점수가 같이 좋음. 진입가는 차분히 따져야 함"],
-                ["이 정도면 관심종목 맨 위에 둘 자격 있음", "데이터는 좋다. 몰빵 말고 기준가만 세우자"],
+                ["숫자가 먼저 합격 도장 찍은 최상위권", "점수는 매우 높습니다. 매수가는 차분히 따져야 합니다"],
+                ["좋은 종목이라는 말보다 데이터가 먼저 말함", "추세와 점수는 강합니다. 추격보다 기준가가 중요합니다"],
+                ["관심종목 맨 위에 올릴 자격은 있음", "팩트는 좋습니다. 다만 좋은 기업도 비싸게 사면 피곤합니다"],
+                ["이 정도면 시장이 그냥 지나치기 어려움", "상위 점수권입니다. 눌림과 거래량 유지 여부를 보세요"],
             ],
         },
         {
-            when: () => score >= 82 && rsi >= 50 && rsi <= 70,
+            when: () => score >= 86 && hasStrongMoat && !isOverheat,
+            className: "hero-quality",
+            letter: "MOAT",
+            copies: [
+                ["점수도 높은데 해자까지 있으면 얘기가 달라짐", "경쟁 우위 점수가 높습니다. 장기 체력은 플러스입니다"],
+                ["장사 잘하고 방어력도 있는 타입", "해자와 종합점수가 같이 좋습니다. 단기 타점만 따로 보세요"],
+                ["쉽게 무너지지 않는 기업은 조정 때 표정이 다름", "경쟁력은 양호합니다. 가격 부담만 체크하면 됩니다"],
+            ],
+        },
+        {
+            when: () => score >= 82 && isHealthyRsi,
             className: "hero-leader",
             letter: "L",
             copies: [
-                ["시장보다 앞서 걷는 주도주 후보", "RSI가 과열 전이고 점수도 높음. 눌림에서 더 예쁨"],
-                ["힘은 있는데 아직 정신줄은 잡고 있음", "추세 양호. 고점 추격보다 지지 확인이 낫다"],
-                ["차트가 버티는 이유가 숫자에도 있음", "주도주 후보지만 손절선 없는 진입은 금지"],
+                ["시장보다 앞서 걷는 주도주 후보", "RSI가 과열 전이고 점수도 높습니다. 눌림에서 더 예쁩니다"],
+                ["힘은 있는데 아직 정신줄은 잡고 있음", "추세 양호. 고점 추격보다 지지 확인이 낫습니다"],
+                ["차트가 버티는 이유가 숫자에도 있음", "주도주 후보지만 손절선 없는 진입은 금지입니다"],
+                ["강한데 아직 폭주 모드는 아님", "점수와 RSI 균형이 좋습니다. 거래량 유지가 핵심입니다"],
             ],
         },
         {
-            when: () => score >= 78 && volumeRatio < 1.0 && rsi < 72,
+            when: () => score >= 78 && isQuietVolume && !isOverheat,
             className: "hero-stealth",
             letter: "H",
             copies: [
-                ["조용한데 점수는 높은 숨은 강자", "거래량 과열 없이 버티는 중. 터지면 빨라질 수 있음"],
-                ["아직 시끄럽진 않은데 데이터는 괜찮음", "관심종목에 넣고 거래량 붙는 날을 보자"],
-                ["소문보다 숫자가 먼저 움직이는 타입", "좋은 조용함인지 무관심인지 다음 수급이 판정함"],
+                ["조용한데 점수는 높은 숨은 강자", "거래량 과열 없이 버티는 중입니다. 수급 붙는 날을 보세요"],
+                ["아직 시끄럽진 않은데 데이터는 괜찮음", "관심종목에 넣고 거래량 붙는 날을 기다릴 만합니다"],
+                ["소문보다 숫자가 먼저 움직이는 타입", "좋은 조용함인지 무관심인지 다음 수급이 판정합니다"],
+                ["시장 관심은 적은데 성적표는 나쁘지 않음", "거래량만 살아나면 카드 색깔이 달라질 수 있습니다"],
             ],
         },
         {
-            when: () => rsi >= 72,
+            when: () => isOverheat && score >= 70,
             className: "hero-overheat",
             letter: "HOT",
             copies: [
-                ["좋은 종목이어도 지금은 손이 뜨거운 구간", "RSI 과열. 따라 사면 수익보다 심장박동이 먼저 옴"],
-                ["차트는 신났고 매수자는 조심해야 함", "단기 과열 신호. 눌림 확인 전 추격은 벌점 큼"],
-                ["불꽃은 예쁜데 손으로 잡는 건 다른 문제", "강하면 눌림 후에도 기회는 온다. 지금은 속도 조절"],
+                ["좋은 종목이어도 지금은 손이 뜨거운 구간", "RSI 과열입니다. 따라 사면 수익보다 심장박동이 먼저 옵니다"],
+                ["차트는 신났고 매수자는 조심해야 함", "단기 과열 신호입니다. 눌림 확인 전 추격은 벌점이 큽니다"],
+                ["불꽃은 예쁜데 손으로 잡는 건 다른 문제", "강하면 눌림 후에도 기회는 옵니다. 지금은 속도 조절입니다"],
+                ["급등 구간은 박수칠 자리와 살 자리가 다름", "점수는 좋아도 단기 과열이면 진입 타이밍은 따로 봐야 합니다"],
             ],
         },
         {
-            when: () => rsi <= 35 && score >= 45,
+            when: () => isOversold && score >= 45,
             className: "hero-rebound",
             letter: "LOW",
             copies: [
-                ["많이 식었다. 이제 반등 증거가 필요함", "과매도권이지만 바닥 확인 전엔 칼날일 수 있음"],
-                ["저점매수 후보지만 확인 버튼은 아직 안 눌림", "가격은 눌렸고 리스크는 남아 있음. 분할만 허용"],
-                ["싸 보이는 것과 싸진 것은 다름", "RSI는 낮다. 거래량 회복이 붙어야 이야기가 됨"],
+                ["많이 식었다. 이제 반등 증거가 필요함", "과매도권이지만 바닥 확인 전엔 칼날일 수 있습니다"],
+                ["저점매수 후보지만 확인 버튼은 아직 안 눌림", "가격은 눌렸고 리스크는 남아 있습니다. 분할만 허용입니다"],
+                ["싸 보이는 것과 싸진 것은 다름", "RSI는 낮습니다. 거래량 회복이 붙어야 이야기가 됩니다"],
+                ["바닥 냄새는 나는데 지하실 문도 같이 보임", "과매도는 신호일 뿐입니다. 반등 캔들과 거래량을 보세요"],
+            ],
+        },
+        {
+            when: () => isSeverePullback,
+            className: "hero-danger",
+            letter: "DROP",
+            copies: [
+                ["많이 빠진 건 팩트, 안전하다는 뜻은 아님", "52주 고가 대비 낙폭이 큽니다. 회복 신호 전엔 방어가 먼저입니다"],
+                ["할인매장인지 사고현장인지 아직 판정 중", "낙폭은 큽니다. 거래량 없는 반등은 믿기 어렵습니다"],
+                ["싸 보여서 들어갔다가 더 싼 가격 볼 수 있음", "고점 대비 크게 밀렸습니다. 바닥 확인이 먼저입니다"],
             ],
         },
         {
@@ -781,29 +880,42 @@ function getHeroByStock(stock) {
             className: "hero-pullback",
             letter: "DIP",
             copies: [
-                ["낙폭은 큰데 회복 신호는 따로 봐야 함", "52주 고가 대비 많이 빠짐. 싸다보다 살아나는지가 중요"],
-                ["할인인지 사고현장인지 아직 판정 중", "반등 캔들과 거래량 없으면 섣불리 줍지 말자"],
-                ["많이 내려온 건 사실. 그래서 더 조심", "가격 매력은 생겼지만 추세 복구가 먼저"],
+                ["낙폭은 큰데 회복 신호는 따로 봐야 함", "52주 고가 대비 많이 빠졌습니다. 싸다보다 살아나는지가 중요합니다"],
+                ["할인인지 사고현장인지 아직 판정 중", "반등 캔들과 거래량 없으면 섣불리 줍지 않는 쪽이 낫습니다"],
+                ["많이 내려온 건 사실. 그래서 더 조심", "가격 매력은 생겼지만 추세 복구가 먼저입니다"],
+                ["눌림은 기회가 될 수 있지만 확인은 별개", "지지선 회복과 거래량 동반 여부가 핵심입니다"],
             ],
         },
         {
-            when: () => score >= 85 && isNearHigh && rsi < 72,
+            when: () => score >= 82 && isNearHigh && !isOverheat,
             className: "hero-breakout",
             letter: "B",
             copies: [
-                ["고점 근처에서 안 죽는 건 힘이 있다는 뜻", "52주 고가 부근. 추격보다 눌림 매수가 더 깔끔함"],
-                ["신고가 문 앞에서 버티는 종목", "힘은 좋다. 다만 매수가는 네 편이어야 함"],
-                ["위로 가려는 의지는 보임", "가격 힘이 유지되는 중. 거래량까지 붙으면 더 선명함"],
+                ["고점 근처에서 안 죽는 건 힘이 있다는 뜻", "52주 고가 부근입니다. 추격보다 눌림 매수가 더 깔끔합니다"],
+                ["신고가 문 앞에서 버티는 종목", "힘은 좋습니다. 다만 매수가는 네 편이어야 합니다"],
+                ["위로 가려는 의지는 보임", "가격 힘이 유지되는 중입니다. 거래량까지 붙으면 더 선명합니다"],
+                ["천장 근처에서 버틴다는 건 시장 관심이 있다는 뜻", "신고가 근접 구간입니다. 돌파 후 안착 여부를 보세요"],
             ],
         },
         {
-            when: () => volumeRatio >= 1.4 && change > 0 && rsi < 72,
+            when: () => isHighVolume && isUp && !isOverheat,
             className: "hero-volume",
             letter: "VOL",
             copies: [
-                ["거래량이 붙었다. 시장이 쳐다보기 시작함", "평소보다 손이 많이 탄 날. 뉴스와 수급 확인"],
-                ["조용하던 종목이 갑자기 말이 많아짐", "거래량 증가와 가격 반응이 같이 나옴. 진짜 수급인지 체크"],
-                ["오늘은 그냥 지나치기 아까운 거래량", "단기 신호는 좋지만 다음 날 follow-through가 중요"],
+                ["거래량이 붙었다. 시장이 쳐다보기 시작함", "평소보다 손이 많이 탄 날입니다. 뉴스와 수급을 확인하세요"],
+                ["조용하던 종목이 갑자기 말이 많아짐", "거래량 증가와 가격 반응이 같이 나왔습니다. 진짜 수급인지 체크입니다"],
+                ["오늘은 그냥 지나치기 아까운 거래량", "단기 신호는 좋지만 다음 날 follow-through가 중요합니다"],
+                ["가격도 오르고 거래량도 붙었다면 일단 메모", "단기 관심은 충분합니다. 장대양봉 뒤 추격은 조심하세요"],
+            ],
+        },
+        {
+            when: () => isHighVolume && isDown,
+            className: "hero-risk",
+            letter: "SELL",
+            copies: [
+                ["거래량이 붙었는데 내려갔다면 좋은 소리만은 아님", "매도 압력 가능성이 있습니다. 반등 전까지 확인이 필요합니다"],
+                ["사람들이 몰렸는데 가격이 밀리면 조심해야 함", "거래량 동반 하락입니다. 수급 방향을 다시 확인하세요"],
+                ["시끄럽게 빠지는 종목은 일단 거리두기", "거래량과 하락이 같이 나왔습니다. 회복 캔들이 먼저입니다"],
             ],
         },
         {
@@ -811,9 +923,10 @@ function getHeroByStock(stock) {
             className: "hero-chip",
             letter: "AI",
             copies: [
-                ["AI 수혜주는 이름보다 실적 연결이 핵심", "반도체/AI 재료는 좋다. 숫자로 이어지는지 확인"],
-                ["반도체는 좋을 땐 빠르고 꺾일 땐 더 빠름", "모멘텀은 있지만 진입가는 보수적으로 잡자"],
-                ["AI 간판 달았으면 매출표도 같이 봐야 함", "테마만으로는 부족함. 거래량과 실적 확인"],
+                ["AI 수혜주는 이름보다 실적 연결이 핵심", "반도체/AI 재료는 좋습니다. 숫자로 이어지는지 확인하세요"],
+                ["반도체는 좋을 땐 빠르고 꺾일 땐 더 빠름", "모멘텀은 있지만 진입가는 보수적으로 잡는 게 낫습니다"],
+                ["AI 간판 달았으면 매출표도 같이 봐야 함", "테마만으로는 부족합니다. 거래량과 실적 확인입니다"],
+                ["칩 이야기는 뜨겁고, 숫자는 더 뜨거워야 함", "테마 프리미엄이 실적으로 연결되는지 봐야 합니다"],
             ],
         },
         {
@@ -821,39 +934,63 @@ function getHeroByStock(stock) {
             className: "hero-cloud",
             letter: "C",
             copies: [
-                ["클라우드는 멋있지만 현금흐름이 본체", "성장주는 숫자 약해지면 프리미엄이 빨리 빠짐"],
-                ["플랫폼 종목은 꿈값과 실적값을 분리해야 함", "이름값보다 매출 성장과 마진 확인"],
-                ["데이터 장사 잘하면 무섭고 못하면 그냥 PPT", "사업성은 좋을 수 있음. 밸류 부담을 같이 보자"],
+                ["클라우드는 멋있지만 현금흐름이 본체", "성장주는 숫자 약해지면 프리미엄이 빨리 빠집니다"],
+                ["플랫폼 종목은 꿈값과 실적값을 분리해야 함", "이름값보다 매출 성장과 마진 확인입니다"],
+                ["데이터 장사 잘하면 무섭고 못하면 그냥 PPT", "사업성은 좋을 수 있습니다. 밸류 부담을 같이 보세요"],
+                ["소프트웨어는 꿈이 크고 조정도 빠름", "매출 성장, 마진, 현금흐름을 같이 봐야 합니다"],
             ],
         },
         {
-            when: () => isHealth,
+            when: () => isHealth && score >= 50,
             className: "hero-health",
             letter: "+",
             copies: [
-                ["바이오는 이벤트 하나에 표정이 바뀜", "임상/실적/승인 일정 확인 없이는 들어가기 애매함"],
-                ["헬스케어는 방어주처럼 보여도 변동성은 있음", "뉴스 리스크와 일정 체크가 먼저"],
-                ["좋은 약도 나쁜 진입가를 치료하진 못함", "사업성보다 먼저 리스크 일정을 확인"],
+                ["바이오는 이벤트 하나에 표정이 바뀜", "임상/실적/승인 일정 확인 없이는 들어가기 애매합니다"],
+                ["헬스케어는 방어주처럼 보여도 변동성은 있음", "뉴스 리스크와 일정 체크가 먼저입니다"],
+                ["좋은 약도 나쁜 진입가를 치료하진 못함", "사업성보다 먼저 리스크 일정을 확인하세요"],
+                ["의료주는 숫자와 이벤트 둘 다 봐야 함", "실적 안정성과 일정 리스크를 같이 체크하세요"],
             ],
         },
         {
-            when: () => isFinance,
+            when: () => isFinance && score >= 50,
             className: "hero-finance",
             letter: "$",
             copies: [
-                ["금융주는 결국 숫자가 말한다", "금리, 자본비율, 연체 리스크를 같이 봐야 함"],
-                ["배당만 보고 사면 주가가 교육시킬 수 있음", "방어력은 좋을 수 있지만 매크로 민감도 체크"],
-                ["심심해 보여도 돈 냄새는 솔직한 업종", "수익성은 숫자로, 리스크는 금리로 확인"],
+                ["금융주는 결국 숫자가 말한다", "금리, 자본비율, 연체 리스크를 같이 봐야 합니다"],
+                ["배당만 보고 사면 주가가 교육시킬 수 있음", "방어력은 좋을 수 있지만 매크로 민감도 체크입니다"],
+                ["심심해 보여도 돈 냄새는 솔직한 업종", "수익성은 숫자로, 리스크는 금리로 확인하세요"],
+                ["금융주는 화려함보다 안정성이 본체", "수익성과 건전성 지표를 같이 봐야 합니다"],
             ],
         },
         {
-            when: () => isEnergy,
+            when: () => isEnergy && score >= 50,
             className: "hero-energy",
             letter: "E",
             copies: [
-                ["이 종목은 실적표와 원자재 차트를 같이 봐야 함", "유가/가스/전력 사이클 영향이 큼"],
-                ["에너지는 현금흐름 좋다가도 사이클이 뒤통수침", "원자재 방향과 마진 체크"],
-                ["매크로 바람을 정면으로 맞는 업종", "좋은 구간이면 강하지만 타이밍이 중요"],
+                ["이 종목은 실적표와 원자재 차트를 같이 봐야 함", "유가/가스/전력 사이클 영향이 큽니다"],
+                ["에너지는 현금흐름 좋다가도 사이클이 뒤통수침", "원자재 방향과 마진 체크가 필요합니다"],
+                ["매크로 바람을 정면으로 맞는 업종", "좋은 구간이면 강하지만 타이밍이 중요합니다"],
+                ["에너지는 숫자보다 사이클이 먼저 움직일 때가 많음", "가격 변수와 수익성 추세를 같이 보세요"],
+            ],
+        },
+        {
+            when: () => isDefense && score >= 55,
+            className: "hero-defense",
+            letter: "DEF",
+            copies: [
+                ["방산·우주는 재료는 강한데 변동성도 같이 옴", "수주와 실적 전환이 진짜 포인트입니다"],
+                ["테마는 뜨겁고 숫자는 확인해야 함", "뉴스보다 매출 인식과 마진을 먼저 보세요"],
+                ["우주로 가는 이야기라도 손절선은 지상에 있어야 함", "재료는 좋지만 가격 변동성 관리가 필요합니다"],
+            ],
+        },
+        {
+            when: () => isConsumer && score >= 55,
+            className: "hero-consumer",
+            letter: "BUY",
+            copies: [
+                ["소비주는 결국 사람들이 계속 사주느냐가 핵심", "매출 성장과 마진 방어력을 같이 확인하세요"],
+                ["브랜드는 좋아도 주가는 숫자를 봄", "수요가 꾸준한지, 비용 압박은 없는지 체크입니다"],
+                ["유행은 빠르고 실적은 느리게 확인됨", "인기와 이익률이 같이 가는지 봐야 합니다"],
             ],
         },
         {
@@ -861,9 +998,21 @@ function getHeroByStock(stock) {
             className: "hero-quality",
             letter: grade,
             copies: [
-                ["데이터는 괜찮다. 이제 타이밍 싸움", "점수와 등급은 양호. 매수가는 욕심 줄여야 함"],
-                ["관심종목에 넣을 이유는 충분함", "강점은 보이지만 무리한 추격은 별개 문제"],
-                ["좋은 후보지만 가격표를 먼저 봐야 함", "종목은 괜찮아도 비싸게 사면 피곤함"],
+                ["데이터는 괜찮다. 이제 타이밍 싸움", "점수와 등급은 양호합니다. 매수가는 욕심 줄여야 합니다"],
+                ["관심종목에 넣을 이유는 충분함", "강점은 보이지만 무리한 추격은 별개 문제입니다"],
+                ["좋은 후보지만 가격표를 먼저 봐야 함", "종목은 괜찮아도 비싸게 사면 피곤합니다"],
+                ["기본기는 있다. 이제 네 진입가가 문제", "좋은 후보입니다. 기준가와 손절선을 먼저 정하세요"],
+                ["완벽하진 않아도 볼 이유는 충분함", "강점이 보입니다. 약점은 거래량과 가격 위치에서 확인하세요"],
+            ],
+        },
+        {
+            when: () => score >= 60 && score < 70 && isUp,
+            className: "hero-watch",
+            letter: "W",
+            copies: [
+                ["살짝 좋아지는 중인데 아직 합격은 아님", "상승 반응은 있습니다. 점수가 더 올라오는지 보세요"],
+                ["분위기는 나아졌지만 확신은 이르다", "가격은 반응했습니다. 거래량과 추세 확인이 필요합니다"],
+                ["이제 막 고개 드는 후보", "한 번 더 좋은 캔들이 나오면 관심도가 올라갑니다"],
             ],
         },
         {
@@ -871,9 +1020,21 @@ function getHeroByStock(stock) {
             className: "hero-neutral",
             letter: grade,
             copies: [
-                ["애매한 구간. 한 가지 신호가 더 필요함", "나쁘진 않지만 확신 주기엔 아직 부족"],
-                ["지금은 매수보다 관찰이 더 깔끔함", "조건이 더 붙으면 볼만하고, 아니면 그냥 지나가도 됨"],
-                ["데이터가 반만 설득하는 종목", "추세나 거래량 중 하나는 더 살아나야 함"],
+                ["애매한 구간. 한 가지 신호가 더 필요함", "나쁘진 않지만 확신 주기엔 아직 부족합니다"],
+                ["지금은 매수보다 관찰이 더 깔끔함", "조건이 더 붙으면 볼만하고, 아니면 그냥 지나가도 됩니다"],
+                ["데이터가 반만 설득하는 종목", "추세나 거래량 중 하나는 더 살아나야 합니다"],
+                ["할인인지 사고인지 아직 구분 안 됨", "확인 신호가 부족합니다. 급하게 살 이유는 약합니다"],
+                ["지켜볼 수는 있는데 설레면 안 되는 구간", "점수와 신호가 중간권입니다. 기다림이 유리합니다"],
+            ],
+        },
+        {
+            when: () => score < 45 && isOversold,
+            className: "hero-weak",
+            letter: "WAIT",
+            copies: [
+                ["많이 빠졌다고 바로 기회는 아님", "과매도지만 점수가 낮습니다. 반등 확인 전엔 관망입니다"],
+                ["바닥처럼 보여도 아직 데이터가 약함", "낮은 RSI보다 낮은 점수가 더 문제입니다"],
+                ["싸 보이는 종목은 항상 이유가 있음", "회복 신호와 거래량이 붙기 전까지 기다리세요"],
             ],
         },
         {
@@ -881,9 +1042,11 @@ function getHeroByStock(stock) {
             className: "hero-danger",
             letter: grade,
             copies: [
-                ["지금은 매수 버튼보다 관망 버튼이 더 예쁨", "점수와 신호가 약함. 회복 확인 전엔 무리 금지"],
-                ["싸 보여도 더 싸질 수 있는 구간", "추세 회복 전까지는 계좌 보호가 우선"],
-                ["이건 기회보다 리스크 설명서가 먼저 보임", "반등 증거가 나오기 전까진 구경이 전략"],
+                ["지금은 매수 버튼보다 관망 버튼이 더 예쁨", "점수와 신호가 약합니다. 회복 확인 전엔 무리 금지입니다"],
+                ["싸 보여도 더 싸질 수 있는 구간", "추세 회복 전까지는 계좌 보호가 우선입니다"],
+                ["이건 기회보다 리스크 설명서가 먼저 보임", "반등 증거가 나오기 전까진 구경이 전략입니다"],
+                ["지금 들어가면 분석보다 기도가 많아질 수 있음", "데이터가 약합니다. 조건 충족 전엔 기다리는 쪽이 낫습니다"],
+                ["차트가 내 편이라는 증거가 아직 부족함", "거래량, 추세, 점수 중 하나는 더 살아나야 합니다"],
             ],
         },
     ];
@@ -894,7 +1057,7 @@ function getHeroByStock(stock) {
         selected.copies.map(([copyTitle, copyComment]) => ({
             title: copyTitle,
             facts: factLine,
-            comment: copyComment,
+            comment: baseComment ? `${copyComment} · ${baseComment}` : copyComment,
             subtitle: `${factLine} · ${copyComment}`,
         }))
     );
@@ -1823,13 +1986,14 @@ function calculateVisibleScoreReliability(stocks) {
 
 function updateScannerSummary() {
     const visibleStocks = getVisibleStocks();
+    const isWatchlistMode = activeTableFilter === "watchlist";
 
     if (summaryTotalLabel) {
-        summaryTotalLabel.textContent = "스캔 종목";
+        summaryTotalLabel.textContent = isWatchlistMode ? "관심 종목" : "스캔 종목";
     }
 
     if (summaryGradeLabel) {
-        summaryGradeLabel.textContent = "S등급";
+        summaryGradeLabel.textContent = isWatchlistMode ? "상승 추세" : "S등급";
     }
 
     if (summarySectorLabel) {
@@ -1841,7 +2005,10 @@ function updateScannerSummary() {
     }
 
     if (summaryTopGradeCount) {
-        summaryTopGradeCount.textContent = `${visibleStocks.filter((stock) => stock.grade === "S").length}개`;
+        const count = isWatchlistMode
+            ? visibleStocks.filter((stock) => Number(stock.score_delta) > 0).length
+            : visibleStocks.filter((stock) => stock.grade === "S").length;
+        summaryTopGradeCount.textContent = `${count}개`;
     }
 
     if (activeSectorLabel) {
