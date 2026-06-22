@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>종목탐색기</title>
     <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=20260622-monitoring">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=20260622-slim-client">
     {% if ga_measurement_id %}
     <script async src="https://www.googletagmanager.com/gtag/js?id={{ ga_measurement_id }}"></script>
     <script>
@@ -87,15 +87,17 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
-    const STOCKS = {{ stocks | tojson }};
+    const STOCKS = {{ client_stocks | tojson }};
     const INDEX_MEMBERS = {{ market_overview.index_members | tojson }};
+    const CURRENT_MARKET = {{ market | tojson }};
     const APP_MONITORING = {
         enabled: {{ monitoring_enabled | tojson }},
         clientErrorEndpoint: "{{ url_for('main.client_error') }}",
+        stockDetailEndpoint: "{{ url_for('main.stock_detail') }}",
     };
 </script>
 
-<script src="{{ url_for('static', filename='js/main.js') }}?v=20260622-monitoring"></script>
+<script src="{{ url_for('static', filename='js/main.js') }}?v=20260622-slim-client"></script>
 
 </body>
 </html>

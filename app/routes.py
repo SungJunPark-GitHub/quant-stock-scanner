@@ -770,6 +770,44 @@ def load_stock_snapshot(market):
         }
 
 
+def build_client_stock(stock):
+    excluded_keys = {
+        "chart",
+        "insider_transactions",
+        "stock_events",
+        "news",
+    }
+
+    return {
+        key: value
+        for key, value in stock.items()
+        if key not in excluded_keys
+    }
+
+
+def load_stock_detail(market, ticker):
+    path = get_snapshot_path(market)
+    ticker = (ticker or "").strip().upper()
+
+    if not ticker or not path.exists():
+        return None
+
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except Exception as error:
+        print(f"[STOCK DETAIL LOAD ERROR] {error}")
+        return None
+
+    for stock in payload.get("stocks") or []:
+        if str(stock.get("ticker", "")).upper() != ticker:
+            continue
+
+        normalized = normalize_snapshot_stocks(market, [stock])
+        return normalized[0] if normalized else None
+
+    return None
+
+
 def load_etf_universe():
     try:
         if not ETF_UNIVERSE_FILE.exists():
@@ -1524,6 +1562,7 @@ def index():
     return render_template(
         "index.html",
         stocks=stocks,
+        client_stocks=[build_client_stock(stock) for stock in stocks],
         etfs=etfs,
         market=market,
         market_overview=market_overview,
@@ -1692,6 +1731,18 @@ def stock_reference():
         "stock_events": get_stock_events(ticker),
         "news": get_news_sentiment(ticker),
     })
+
+
+@main.route("/api/stock/detail")
+def stock_detail():
+    market = request.args.get("market", "US")
+    ticker = request.args.get("ticker", "")
+    stock = load_stock_detail(market, ticker)
+
+    if not stock:
+        return jsonify({"error": "stock not found"}), 404
+
+    return jsonify(stock)
 
 
 @main.route("/export/csv")

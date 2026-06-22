@@ -15,6 +15,7 @@ let currentRange = "6M";
 let activeTableFilter = "all";
 let activeSectorFilter = "전체";
 let activeIndexFilter = document.querySelector(".index-chip.active")?.dataset.indexKey || "";
+const stockDetailCache = new Map();
 
 function reportClientError(payload) {
     const config = window.APP_MONITORING || {};
@@ -65,6 +66,30 @@ window.addEventListener("unhandledrejection", (event) => {
         stack: reason.stack,
     });
 });
+
+async function fetchStockDetail(ticker) {
+    const config = window.APP_MONITORING || {};
+    const endpoint = config.stockDetailEndpoint || "/api/stock/detail";
+    const cacheKey = `${CURRENT_MARKET || "US"}:${ticker}`;
+
+    if (stockDetailCache.has(cacheKey)) {
+        return stockDetailCache.get(cacheKey);
+    }
+
+    const url = new URL(endpoint, window.location.origin);
+    url.searchParams.set("market", CURRENT_MARKET || "US");
+    url.searchParams.set("ticker", ticker);
+
+    const response = await fetch(url.toString());
+
+    if (!response.ok) {
+        throw new Error(`상세 데이터를 불러오지 못했습니다. (${response.status})`);
+    }
+
+    const stock = await response.json();
+    stockDetailCache.set(cacheKey, stock);
+    return stock;
+}
 
 function formatChange(value) {
     if (value === null || value === undefined) {
@@ -1540,11 +1565,25 @@ function updateHeroByStock(stock) {
     }
 }
 
-function openModal(ticker) {
-    const stock = STOCKS.find((item) => item.ticker === ticker);
+async function openModal(ticker) {
+    let stock = STOCKS.find((item) => item.ticker === ticker);
 
     if (!stock) {
         return;
+    }
+
+    try {
+        stock = {
+            ...stock,
+            ...await fetchStockDetail(ticker),
+        };
+    } catch (error) {
+        console.warn("[STOCK DETAIL ERROR]", error);
+        reportClientError({
+            type: "stock-detail",
+            message: error.message,
+            ticker,
+        });
     }
 
     currentStock = stock;
