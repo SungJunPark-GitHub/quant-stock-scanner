@@ -20,6 +20,7 @@ from app.services.market_service import (
     get_extended_market_info,
     get_insider_transactions,
     get_stock_events,
+    get_kr_listings,
 )
 from app.services.indicator_service import (
     calculate_rsi,
@@ -741,6 +742,65 @@ def calculate_score_reliability(stocks, horizon=20):
     }
 
 
+def build_listing_placeholder_stock(listing):
+    ticker = listing.get("ticker", "")
+
+    return {
+        "rank": 0,
+        "ticker": ticker,
+        "name": listing.get("name") or ticker,
+        "description": listing.get("description") or "업데이트 대기",
+        "sector": listing.get("sector") or "기타",
+        "score": 0,
+        "grade": "-",
+        "grade_type": "neutral",
+        "signal": "업데이트 대기",
+        "signal_type": "neutral",
+        "price": 0,
+        "change": 0,
+        "rsi": 0,
+        "volume": 0,
+        "volume_ratio": 0,
+        "market_cap": 0,
+        "average_volume": 0,
+        "target": 0,
+        "target_upside": 0,
+        "reason_tags": ["데이터 갱신 필요"],
+        "watchlisted": False,
+        "is_new": True,
+        "breakout": False,
+        "risk_flag": False,
+        "low_buy": False,
+        "overheated": False,
+        "leader": False,
+        "hidden_strong": False,
+        "chart": {},
+        "source": "static_listing",
+    }
+
+
+def merge_static_kr_listings(stocks):
+    if not stocks:
+        stocks = []
+
+    seen = {
+        str(stock.get("ticker", "")).upper()
+        for stock in stocks
+    }
+    merged = list(stocks)
+
+    for listing in get_kr_listings():
+        ticker = str(listing.get("ticker", "")).upper()
+
+        if not ticker or ticker in seen:
+            continue
+
+        merged.append(build_listing_placeholder_stock(listing))
+        seen.add(ticker)
+
+    return merged
+
+
 def load_stock_snapshot(market):
     path = get_snapshot_path(market)
 
@@ -755,6 +815,9 @@ def load_stock_snapshot(market):
         payload = json.loads(path.read_text(encoding="utf-8"))
         updated_at = payload.get("updated_at")
         stocks = normalize_snapshot_stocks(market, payload.get("stocks") or [])
+
+        if market == "KR":
+            stocks = normalize_snapshot_stocks(market, merge_static_kr_listings(stocks))
 
         return {
             "stocks": stocks,
@@ -804,6 +867,17 @@ def load_stock_detail(market, ticker):
 
         normalized = normalize_snapshot_stocks(market, [stock])
         return normalized[0] if normalized else None
+
+    if market == "KR":
+        for listing in get_kr_listings():
+            if str(listing.get("ticker", "")).upper() != ticker:
+                continue
+
+            normalized = normalize_snapshot_stocks(
+                market,
+                [build_listing_placeholder_stock(listing)],
+            )
+            return normalized[0] if normalized else None
 
     return None
 
