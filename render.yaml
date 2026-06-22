@@ -7,9 +7,9 @@ services:
     startCommand: gunicorn run:app --bind 0.0.0.0:$PORT --workers 1 --threads 4 --timeout 180
     envVars:
       - key: START_BACKGROUND_UPDATES
-        value: "1"
+        value: "0"
       - key: AUTO_UPDATE_ENABLED
-        value: "1"
+        value: "0"
       - key: AUTO_UPDATE_INTERVAL_MINUTES
         value: "60"
       - key: AUTO_UPDATE_INITIAL_DELAY_SECONDS
